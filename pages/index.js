@@ -36,7 +36,6 @@ export default function Home() {
         <ThemeProvider theme={theme}>
           <ChatBot
             headerTitle="法律小幫手"
-            speechSynthesis={{ enable: true, lang: 'en' }}
             placeholder="請輸入 ..."
             botAvatar="botAvatar.png"
             userAvatar="userAvatar.png"
