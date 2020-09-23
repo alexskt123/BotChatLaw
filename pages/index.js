@@ -20,11 +20,12 @@ export default function Home() {
       </Head>      
       <div className={styles.container} >
       <ChatBot
-        headerTitle="Speech Synthesis"
+        headerTitle="你問我答"
         speechSynthesis={{ enable: true, lang: 'en' }}
+        placeholder="請輸入 ..."
         steps={[
           {
-            id: '1',
+            id: '11211',
             message: '請問你叫咩名?',
             trigger: '2',
           },
@@ -40,13 +41,57 @@ export default function Home() {
           },
           {
             id: '4',
-            options: [
-              { value: 1, label: '結束', trigger: '5' },
-              { value: 2, label: '問多次', trigger: '1' },
-            ],
-          },         
+            message: '你想知道咩法律意見?',
+            trigger: '5',
+          },
           {
             id: '5',
+            options: [
+              { value: 1, label: '合約', trigger: '6' },
+              { value: 2, label: '疏忽', trigger: '4' },
+              { value: 2, label: '結束', trigger: '16' },
+            ],
+          },   
+          {
+            id: '6',
+            message: '你想知道甚麼?',
+            trigger: '8',
+          },   
+          {
+            id: '7',
+            message: '你想知道甚麼?',
+            trigger: '16',
+          },
+          {
+            id: '8',
+            options: [
+              { value: 1, label: '構成合約的元素', trigger: '9' },
+              { value: 2, label: '合約的類型', trigger: '4' },
+              { value: 2, label: '結束', trigger: '16' },
+            ],
+          },   
+          {
+            id: '9',
+            message: '要構成一份有約束力的合約﹙CONTRACT﹚,一般必須具備至少以下四個重要元素: ',
+            trigger: '10',
+          },   
+          {
+            id: '10',
+            component: (
+              <div style={{
+                backgroundColor: 'pink',
+                width: '100%'
+              }}>
+                <li>要約 - 其中一方發出要約，即列出交易條件</li>
+                <li>接納/受約 - 要約為另一方接受</li>
+                <li>代價 - 每一方均要付出代價</li>
+                <li>受法律約束的意圖</li>
+              </div>
+              ),
+            trigger: '4',
+          },                
+          {
+            id: '16',
             message: '再見!',
             end: true
           }
