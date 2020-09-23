@@ -20,30 +20,36 @@ export default function Home() {
       </Head>      
       <div className={styles.container} >
       <ChatBot
+        headerTitle="Speech Synthesis"
+        speechSynthesis={{ enable: true, lang: 'en' }}
         steps={[
           {
             id: '1',
-            message: 'What number I am thinking?',
+            message: '請問你叫咩名?',
             trigger: '2',
           },
           {
             id: '2',
-            options: [
-              { value: 1, label: 'Number 1', trigger: '4' },
-              { value: 2, label: 'Number 2', trigger: '3' },
-              { value: 3, label: 'Number 3', trigger: '3' },
-            ],
+            user: true,
+            trigger: '3',
           },
           {
             id: '3',
-            message: 'Wrong answer, try again.',
-            trigger: '2',
+            message: '{previousValue}, 你好!',
+            trigger: '4',
           },
           {
             id: '4',
-            message: 'Awesome! You are a telepath!',
-            end: true,
-          },
+            options: [
+              { value: 1, label: '結束', trigger: '5' },
+              { value: 2, label: '問多次', trigger: '1' },
+            ],
+          },         
+          {
+            id: '5',
+            message: '再見!',
+            end: true
+          }
         ]}
       />   
       </div>    
