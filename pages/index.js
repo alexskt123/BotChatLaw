@@ -96,16 +96,12 @@ export default function Home() {
             },   
             {
               id: '9',
-              message: '要構成一份有約束力的合約﹙CONTRACT﹚,一般必須具備至少以下四個重要元素: ',
-              trigger: '10',
-            },   
-            {
-              id: '10',
               component: (
                 <div style={{
                   backgroundColor: '#fffbc9',
                   width: '100%'
                 }}>
+                  <h4>要構成一份有約束力的合約(CONTRACT),一般必須具備至少以下四個重要元素:</h4>
                   <li>要約 - 其中一方發出要約，即列出交易條件</li>
                   <li>接納/受約 - 要約為另一方接受</li>
                   <li>代價 - 每一方均要付出代價</li>
@@ -122,6 +118,7 @@ export default function Home() {
                   color: 'blue',
                   width: '100%'
                 }}>
+                  <h4>請點擊以下連結:</h4>
                   <li><a href ="https://zh.wikipedia.org/wiki/%E5%A5%91%E7%BA%A6" target="_blank">維基百科</a></li>                
                   <li><a href ="https://www.clic.org.hk/tc/" target="_blank">社區法網</a></li>
                 </div>
