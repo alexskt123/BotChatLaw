@@ -25,7 +25,7 @@ export default function Home() {
         placeholder="請輸入 ..."
         steps={[
           {
-            id: '11211',
+            id: '1',
             message: '請問你叫咩名?',
             trigger: '2',
           },
@@ -49,7 +49,7 @@ export default function Home() {
             options: [
               { value: 1, label: '合約', trigger: '6' },
               { value: 2, label: '疏忽', trigger: '4' },
-              { value: 2, label: '結束', trigger: '16' },
+              { value: 3, label: '結束', trigger: '0' },
             ],
           },   
           {
@@ -60,14 +60,15 @@ export default function Home() {
           {
             id: '7',
             message: '你想知道甚麼?',
-            trigger: '16',
+            trigger: '0',
           },
           {
             id: '8',
             options: [
               { value: 1, label: '構成合約的元素', trigger: '9' },
-              { value: 2, label: '合約的類型', trigger: '4' },
-              { value: 2, label: '結束', trigger: '16' },
+              { value: 2, label: '有用的網頁', trigger: '11' },
+              { value: 3, label: '合約的類型', trigger: '4' },
+              { value: 4, label: '結束', trigger: '0' },
             ],
           },   
           {
@@ -89,9 +90,23 @@ export default function Home() {
               </div>
               ),
             trigger: '4',
+          },   
+          {
+            id: '11',
+            component: (
+              <div style={{
+                backgroundColor: 'pink',
+                color: 'blue',
+                width: '100%'
+              }}>
+                <li><a href ="https://zh.wikipedia.org/wiki/%E5%A5%91%E7%BA%A6" target="_blank">維基百科</a></li>                
+                <li><a href ="https://www.clic.org.hk/tc/" target="_blank">社區法網</a></li>
+              </div>
+              ),
+            trigger: '4',
           },                
           {
-            id: '16',
+            id: '0',
             message: '再見!',
             end: true
           }
