@@ -1,5 +1,6 @@
-import firebase from 'firebase';
-
+const firebase = require("firebase/app");
+// Required for side-effects
+require("firebase/firestore");
 
 const firebaseConfig = {
   apiKey: "AIzaSyA8k9CAAs_rOyZGo9lmMbBbGVtmdVlCZmA",
@@ -12,10 +13,10 @@ const firebaseConfig = {
 };
 try {
   firebase.initializeApp(firebaseConfig);
-} catch(err){
+} catch (err) {
   if (!/already exists/.test(err.message)) {
-    console.error('Firebase initialization error', err.stack)}
+    console.error('Firebase initialization error', err.stack)
+  }
 }
 
-const fire = firebase;
-export default fire;
+export default firebase
