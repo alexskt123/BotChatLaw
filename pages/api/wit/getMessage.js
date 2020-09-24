@@ -13,21 +13,17 @@ async function getMessage (option) {
     },
     headers: {'Authorization': `Bearer ${process.env.WIT_AUTHORIZATION}`}
   })
-
-  // console.log(response)
   
   return response.data
 }
 
 
-
 export default  async (req, res) => {
-  const {q} = req.query
-
+  const {query:q} = req.query
   const option = {q}
 
-  const abc = await getMessage (option)
+  const witResponse = await getMessage (option)
 
   res.statusCode = 200
-  res.json(abc)
+  res.json(witResponse)
 }
