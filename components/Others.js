@@ -2,17 +2,17 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 const getInent = (data) => {
-  if (!data) return "loading..."
+  if (!data) return "搵緊..."
 
   if (data.intents) {
     const intent = data.intents.find(x => x)
 
     if (intent) {
-      return intent.name
+      return '我估你嘅意思係' + intent.name
     }
   }
 
-  return 'no result.....'
+  return '搵唔到.....'
 }
 
 export default function Others({ steps }) {
@@ -31,7 +31,7 @@ export default function Others({ steps }) {
   }, [])
 
   return (
-    <div style={{ backgroundColor: '#fffbc9', width: '100%' }}>
+    <div style={{ width: '100%' }}>
       {getInent(data)}
     </div>
   );

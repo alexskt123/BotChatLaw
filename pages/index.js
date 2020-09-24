@@ -8,13 +8,13 @@ import Others from '../components/Others';
 
 const theme = {
   background: '#f5f8fb',
-  fontFamily: 'serif',
-  headerBgColor: '#fffbc9',
-  headerFontColor: '#8003fc',
-  headerFontSize: '15px',
-  botBubbleColor: '#fffbc9',
+  fontFamily: 'monospace',
+  headerBgColor: '#0f1369',
+  headerFontColor: '#ffffff',
+  headerFontSize: '16px',
+  botBubbleColor: '#ffffff',
   botFontColor: '#000000',
-  userBubbleColor: '#e2f5ce',
+  userBubbleColor: '#fffbc9',
   userFontColor: '#4a4a4a',
 };
 
@@ -34,6 +34,8 @@ export default function Home() {
             placeholder="請輸入 ..."
             botAvatar="botAvatar.png"
             userAvatar="userAvatar.png"
+            bubbleStyle={{ fontSize: '15px' },{boxShadow: "1px 2px 5px #9E9E9E"}}
+            bubbleOptionStyle={{ fontSize: '15px' },{boxShadow: "1px 2px 5px #9E9E9E"}}
             steps={[
               {
                 id: '1',
@@ -94,7 +96,6 @@ export default function Home() {
                 component: (
                   <Fragment>
                     <div style={{
-                      backgroundColor: '#fffbc9',
                       width: '100%'
                     }}>
                       <h4>要構成一份有約束力的合約(CONTRACT),一般必須具備至少以下四個重要元素:</h4>
@@ -112,7 +113,6 @@ export default function Home() {
                 component: (
                   <Fragment>
                     <div style={{
-                      backgroundColor: '#fffbc9',
                       color: 'blue',
                       width: '100%'
                     }}>
