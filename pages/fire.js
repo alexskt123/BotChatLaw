@@ -1,11 +1,19 @@
-import { useState, useEffect } from 'react';
-import Head from 'next/head';
+import { useState, useEffect, Fragment } from 'react';
 import fire from '../config/fire-config';
 
-
-const Home = () => {
+export default function Fire() {
   const [blogs, setBlogs] = useState([]);
-useEffect(() => {
+
+  const listBlogs = () => {
+    return blogs.map(blog => {
+      console.log(blog)
+      return (
+        <pre key={blog.id}>{JSON.stringify(blog, null, 2)}</pre>
+      )
+    })
+  }
+
+  useEffect(() => {
     fire.firestore()
       .collection('Intent')
       .onSnapshot(snap => {
@@ -16,9 +24,11 @@ useEffect(() => {
         setBlogs(blogs);
       });
   }, []);
-console.log(blogs)
+
   return (
-    <div>abc</div>
+    <Fragment>
+      {listBlogs()}
+    </Fragment>
   )
 }
-export default fire;
+
