@@ -1,11 +1,10 @@
 
 import styles from '../styles/Home.module.css'
 import ChatBot from 'react-simple-chatbot';
-import { Fragment, useEffect, Component } from 'react';
+import { Fragment, useEffect } from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
-import Others from '../compoents/Others';
-
+import Others from '../components/Others';
 
 const theme = {
   background: '#f5f8fb',
@@ -19,13 +18,7 @@ const theme = {
   userFontColor: '#4a4a4a',
 };
 
-
-
 export default function Home() {
-
-  useEffect(() => {
-
-  }, []);
 
   return (
     <Fragment>
