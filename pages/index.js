@@ -1,9 +1,11 @@
 
 import styles from '../styles/Home.module.css'
 import ChatBot from 'react-simple-chatbot';
-import { Fragment, useEffect } from 'react';
+import { Fragment, useEffect, Component } from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
+import Others from '../compoents/Others';
+
 
 const theme = {
   background: '#f5f8fb',
@@ -72,6 +74,7 @@ export default function Home() {
                   { value: 1, label: '合約', trigger: '6' },
                   { value: 2, label: '疏忽', trigger: '4' },
                   { value: 3, label: '結束', trigger: '0' },
+                  { value: 4, label: '其他', trigger: 'other' },
                 ],
               },
               {
@@ -126,6 +129,16 @@ export default function Home() {
                     </div>
                   </Fragment>
                 ),
+                trigger: '4',
+              },
+              {
+                id: 'other',
+                user: true,
+                trigger: '13',
+              },
+              {
+                id: '13',
+                component: <Others />,
                 trigger: '4',
               },
               {
