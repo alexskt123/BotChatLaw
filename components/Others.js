@@ -22,7 +22,7 @@ export default function Others({ steps }) {
 
 
       if (intentLabel) {
-        intentLabel = '我估你嘅意思係' + intentLabel
+        intentLabel = `我估你嘅意思係: ${intentLabel}`
       }
       else {
         intentLabel = '搵唔到....'

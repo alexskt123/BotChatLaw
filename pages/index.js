@@ -108,6 +108,7 @@ export default function Home() {
                     </div>
                   </Fragment>
                 ),
+                asMessage: true,
                 trigger: '4',
               },
               {
@@ -124,6 +125,7 @@ export default function Home() {
                     </div>
                   </Fragment>
                 ),
+                asMessage: true,
                 trigger: '4',
               },
               {
@@ -134,6 +136,7 @@ export default function Home() {
               {
                 id: '13',
                 component: <Others />,
+                asMessage: true,
                 trigger: '4',
               },
               {
