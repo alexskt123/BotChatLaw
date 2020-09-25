@@ -39,27 +39,27 @@ export default function Home() {
             width="100%"
             height="100vh"
             steps={[
-              {
-                id: '1',
-                message: '請問你叫咩名?',
-                trigger: '2',
-              },
-              {
-                id: '2',
-                user: true,
-                validator: (value) => {
-                  if (value === null || value.trim() === '') {
-                    return '請輸入名字';
-                  }
-                  return true;
-                },
-                trigger: '3',
-              },
-              {
-                id: '3',
-                message: '{previousValue}, 你好!',
-                trigger: '4',
-              },
+              // {
+              //   id: '1',
+              //   message: '請問你叫咩名?',
+              //   trigger: '2',
+              // },
+              // {
+              //   id: '2',
+              //   user: true,
+              //   validator: (value) => {
+              //     if (value === null || value.trim() === '') {
+              //       return '請輸入名字';
+              //     }
+              //     return true;
+              //   },
+              //   trigger: '3',
+              // },
+              // {
+              //   id: '3',
+              //   message: '{previousValue}, 你好!',
+              //   trigger: '4',
+              // },
               {
                 id: '4',
                 message: '你想知道咩法律意見?',
