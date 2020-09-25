@@ -1,19 +1,9 @@
 import { useState, useEffect } from 'react';
+import {getIntentLabel} from '../lib/firebaseResult';
+import {getIntent} from '../lib/dataProcess';
 import axios from 'axios'
 
-const getInent = (data) => {
-  if (!data) return "搵緊..."
 
-  if (data.intents) {
-    const intent = data.intents.find(x => x)
-
-    if (intent) {
-      return '我估你嘅意思係' + intent.name
-    }
-  }
-
-  return '搵唔到.....'
-}
 
 export default function Others({ steps }) {
 
@@ -25,14 +15,26 @@ export default function Others({ steps }) {
   useEffect(() => {
     (async () => {
       const response = await axios(`/api/wit/getMessage?query=${StepValue}`)
+      const intent = await getIntent(response.data)
 
-      setData(response.data)
+       
+      let intentLabel = await getIntentLabel(intent)
+
+
+      if (intentLabel) {
+        intentLabel = '我估你嘅意思係' + intentLabel
+      }
+      else {
+        intentLabel = '搵唔到....'
+      }
+
+      setData(intentLabel)
     })()
   }, [])
 
   return (
     <div style={{ width: '100%' }}>
-      {getInent(data)}
+      {data}
     </div>
   );
 }
