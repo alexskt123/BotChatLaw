@@ -27,7 +27,7 @@ export default function Home() {
         <title>Bot Chat Law</title>
 
       </Head>
-      <div className={styles.container} >
+
         <ThemeProvider theme={theme}>
           <ChatBot
             headerTitle="法律小幫手"
@@ -36,6 +36,8 @@ export default function Home() {
             userAvatar="userAvatar.png"
             bubbleStyle={{ fontSize: '15px' },{boxShadow: "1px 2px 5px #9E9E9E"}}
             bubbleOptionStyle={{ fontSize: '15px' },{boxShadow: "1px 2px 5px #9E9E9E"}}
+            width="100%"
+            height="100vh"
             steps={[
               {
                 id: '1',
@@ -142,7 +144,7 @@ export default function Home() {
             ]}
           />
         </ThemeProvider>
-      </div>
+
 
     </Fragment>
   )
