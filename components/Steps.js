@@ -12,15 +12,13 @@ export default function Steps() {
 
       let fireStep = await getSteps()
 
-      console.log(fireStep)
-
       setData(fireStep)
     })()
   }, [])
 
   return (
-      <div>{data}</div>
-      
+
+      data     
   );
 
 }
