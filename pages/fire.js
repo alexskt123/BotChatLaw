@@ -3,10 +3,10 @@ import fire from '../config/fire-config';
 
 export default function Fire() {
   const [blogs, setBlogs] = useState([]);
-
+  console.log(blogs)
   const listBlogs = () => {
     return blogs.map(blog => {
-      console.log(blog)
+      
       return (
         <pre key={blog.id}>{JSON.stringify(blog, null, 2)}</pre>
       )
