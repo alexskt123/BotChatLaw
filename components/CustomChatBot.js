@@ -1,11 +1,9 @@
-
-import ChatBot from 'react-simple-chatbot';
+//import from react
 import { Fragment } from 'react';
+//import lib
 import { ThemeProvider } from 'styled-components';
-import Div100vh from 'react-div-100vh';
-
-import React from 'react';
-
+import ChatBot from 'react-simple-chatbot';
+//TODO: move to theme config
 const theme = {
     background: '#f5f8fb',
     fontFamily: 'monospace',
@@ -17,30 +15,27 @@ const theme = {
     userBubbleColor: '#fffbc9',
     userFontColor: '#4a4a4a',
 };
-
-export default function CustomChatBot(inputSteps) {
-
+//export default component
+export default function CustomChatBot({ height, steps }) {
+    //varibles for component
+    const sameStyle = { fontSize: '15px', boxShadow: "1px 2px 5px #9E9E9E" }
+    //template
+    //TODO: move to config
     return (
         <Fragment>
             <ThemeProvider theme={theme}>
-                <Div100vh>
-                    <ChatBot
-                        headerTitle="法律小幫手"
-                        placeholder="請輸入。。。"
-                        botAvatar="botAvatar.png"
-                        userAvatar="userAvatar.png"
-                        bubbleStyle={{ fontSize: '15px' }, { boxShadow: "1px 2px 5px #9E9E9E" }}
-                        bubbleOptionStyle={{ fontSize: '15px' }, { boxShadow: "1px 2px 5px #9E9E9E" }}
-                        width="100%"
-                        steps={
-                            inputSteps
-                        }
-                    />
-                </Div100vh>
+                <ChatBot
+                    headerTitle="法律小幫手"
+                    placeholder="請輸入。。。"
+                    botAvatar="botAvatar.png"
+                    userAvatar="userAvatar.png"
+                    bubbleStyle={sameStyle}
+                    bubbleOptionStyle={sameStyle}
+                    width="100%"
+                    height={height}
+                    steps={steps}
+                />
             </ThemeProvider>
-
-
         </Fragment>
     )
-
 }

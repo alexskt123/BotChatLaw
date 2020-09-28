@@ -16,6 +16,7 @@
     "react-dom": "16.13.1",
     "react-simple-chatbot": "^0.6.1",
     "styled-components": "^5.2.0",
-    "swr": "^0.3.4"
+    "swr": "^0.3.4",
+    "uuid": "^8.3.0"
   }
 }
