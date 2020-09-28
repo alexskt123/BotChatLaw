@@ -31,6 +31,9 @@ export default function Others( steps ) {
       if (intentCollection && intentCollection.explanation) {
         steps.triggerNextStep({trigger: 'otherdetail'})
       }
+      else if (intent === 'Bye') {
+        steps.triggerNextStep({trigger: '999'})
+      }
       else {
         steps.triggerNextStep({trigger: '0'})
       }
