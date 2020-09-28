@@ -1,12 +1,9 @@
 
-
-import styles from '../styles/Home.module.css'
 import ChatBot from 'react-simple-chatbot';
-import { useState, Fragment, useEffect } from 'react';
-import Head from 'next/head';
+import { Fragment } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import React, { Component } from 'react';
+import React from 'react';
 
 const theme = {
     background: '#f5f8fb',
