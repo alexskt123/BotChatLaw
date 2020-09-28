@@ -4,6 +4,7 @@ import { getIntentCollection } from '../lib/firebaseResult';
 import { getIntent } from '../lib/dataProcess';
 import axios from 'axios'
 
+import { v4 as uuid } from 'uuid'
 
 export default function StepMessage(steps) {
 
@@ -20,18 +21,18 @@ export default function StepMessage(steps) {
     if (!links) {
       return <div>正在加載中....</div>
     }
- 
+
 
     return links.map(link => {
-        
+
       return (
-        <div style={{color: 'blue'}}>
-          <li ><a href={link.href} target="_blank">{link.label}</a></li> 
+        <div style={{ color: 'blue' }} key={uuid()}>
+          <li ><a href={link.href} target="_blank">{link.label}</a></li>
         </div>
-        
+
       )
-    }) 
-  }  
+    })
+  }
 
   useEffect(() => {
     (async () => {
@@ -45,7 +46,7 @@ export default function StepMessage(steps) {
 
       let IntentLink = []
 
-      
+
 
       if (intentCollection && intentCollection.link) {
         IntentLink = intentCollection.link
