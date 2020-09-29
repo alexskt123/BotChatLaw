@@ -1,23 +1,52 @@
+import { Fragment, useEffect, useState } from 'react'
+import Loading from './loading'
 
-import { Fragment } from 'react';
-import { useInfo } from '../lib/hooks/useIntentInfo'
+import { v4 as uuid } from 'uuid'
+import { getIntentDoc } from '../lib/firebaseResult'
 
-import { getList , getStepValue } from '../lib/dataProcess'
+export default function StepList({ previousStep, triggerNextStep }) {
 
-export default function StepMessage(steps) {
+  const [list, setList] = useState(null)
 
-  const StepValue = getStepValue(steps)
+  useEffect(() => {
+    (async () => {
+      const doc = previousStep.value
 
-  const list = useInfo ('stepList', steps, StepValue)
-  const listList = getList (list, steps)
+      let list
+
+      if (doc && doc.list) {
+        list = doc.list
+      }
+
+      setList(list)
+    })()
+  }, [])
+
+  if (!list) return <Loading />
+
+  const handleNextTrigger = async ({ trigger, value }) => {
+    const intentDoc = await getIntentDoc(value)
+
+    const newTrigger = {
+      trigger,
+      value: intentDoc
+    }
+
+    triggerNextStep(newTrigger)
+  }
 
   return (
     <Fragment>
-      <div style={{ width: '100%' }}>
-        <h4>你可能對以下嘅野有興趣:</h4>
-        {listList}
-      </div>
+      <h4>你可能對以下嘅野有興趣:</h4>
+      {list.map(item => (
+        <button
+          key={uuid()}
+          style={{ boxShadow: 'rgb(158, 158, 158) 1px 2px 5px' }}
+          onClick={() => { handleNextTrigger(item) }}
+        >
+          {item.label}
+        </button>
+      ))}
     </Fragment>
-
   );
 }

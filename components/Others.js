@@ -1,14 +1,34 @@
+import { Fragment, useEffect, useState } from 'react'
+import { getIntentByQuery } from '../lib/getIntentDoc'
+import Loading from './loading'
 
-import { useInfo } from '../lib/hooks/useIntentInfo'
-import { getDataPopulate , getStepValue } from '../lib/dataProcess'
+export default function Others({ previousStep, triggerNextStep }) {
+  const [message, setMessage] = useState(null)
 
+  useEffect(() => {
+    (async () => {
+      const { doc } = await getIntentByQuery(previousStep.value)
 
-export default function Others( steps ) {
+      let message = doc && doc.label ? `我估你嘅意思係: ${doc.label}` : '搵唔到....'
+      setMessage(message)
 
-  const StepValue = getStepValue(steps)
-  const data = useInfo ('componentOther', steps, StepValue)
+      if (doc && doc.explanation) {
+        triggerNextStep({ trigger: 'otherdetail', value: doc })
+      }
+      else if (message === 'Bye') {
+        triggerNextStep({ trigger: 'tail' })
+      }
+      else {
+        triggerNextStep({ trigger: 'head' })
+      }
+    })()
+  }, [])
 
-  return (    
-    getDataPopulate(data)
+  if (!message) return <Loading />
+
+  return (
+    <Fragment>
+      {message}
+    </Fragment>
   );
 }

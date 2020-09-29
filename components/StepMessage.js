@@ -1,15 +1,31 @@
+import { Fragment, useEffect, useState } from 'react'
+import Loading from './loading'
 
-import { useInfo } from '../lib/hooks/useIntentInfo'
-import { getDataPopulate , getStepValue } from '../lib/dataProcess'
+export default function StepMessage({ previousStep, triggerNextStep }) {
+  const [message, setMessage] = useState(null)
 
+  useEffect(() => {
+    (async () => {
+      const doc = previousStep.value
 
-export default function StepMessage (steps ) {
+      let message = doc && doc.explanation ? `${doc.explanation}` : '不解釋....'
 
-  const StepValue = getStepValue(steps)
+      if (doc && doc.link && doc.link.length >= 1) {
+        triggerNextStep({ trigger: 'otherlink', value: doc })
+      }
+      else {
+        triggerNextStep({ trigger: 'head' })
+      }
 
-  const data = useInfo ('stepMessage', steps, StepValue)
+      setMessage(message)
+    })()
+  }, [])
+
+  if (!message) return <Loading />
 
   return (
-    getDataPopulate(data)
+    <Fragment>
+      {message}
+    </Fragment>
   );
 }

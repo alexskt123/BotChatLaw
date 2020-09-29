@@ -1,23 +1,43 @@
+import { Fragment, useEffect, useState } from 'react'
+import Loading from './loading'
 
-import { Fragment } from 'react';
-import { useInfo } from '../lib/hooks/useIntentInfo'
+import { v4 as uuid } from 'uuid'
 
-import { getLinks , getStepValue } from '../lib/dataProcess'
+export default function StepLink({ previousStep, triggerNextStep }) {
+  const [links, setLinks] = useState(null)
 
-export default function StepMessage(steps) {
+  useEffect(() => {
+    (async () => {
+      const doc = previousStep.value
 
-  const StepValue = getStepValue(steps)
+      let links
 
-  const links = useInfo ('stepLink', steps, StepValue)
-  const listLinks = getLinks (links)
+      if (doc && doc.link) {
+        links = doc.link
+      }
+
+      setLinks(links)
+
+      if (doc && doc.list) {
+        triggerNextStep({ trigger: 'otherlist', value: doc })
+      }
+      else
+        triggerNextStep({ trigger: 'head' })
+    })()
+  }, [])
+
+  if (!links) return <Loading />
 
   return (
     <Fragment>
-      <div style={{ width: '100%' }}>
-        <h4>請點擊以下連結以獲取更多的資訊:</h4>
-        {listLinks}
-      </div>
+      <h4>請點擊以下連結以獲取更多的資訊:</h4>
+      {links.map(link => (
+        <div style={{ color: 'blue' }} key={uuid()}>
+          <li>
+            <a href={link.href} target="_blank">{link.label}</a>
+          </li>
+        </div>
+      ))}
     </Fragment>
-
   );
 }
