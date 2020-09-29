@@ -38,7 +38,7 @@ export default function StepMessage (steps ) {
         steps.triggerNextStep({trigger: 'otherlink'})
       }
       else {
-        steps.triggerNextStep({trigger: '0'})
+        steps.triggerNextStep({trigger: 'head'})
       }      
 
 

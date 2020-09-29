@@ -52,7 +52,7 @@ export default function StepMessage(steps) {
         IntentLink = intentCollection.link
       }
 
-      steps.triggerNextStep({ trigger: '0' })
+      steps.triggerNextStep({ trigger: 'head' })
 
       setData(IntentLink)
     })()

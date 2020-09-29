@@ -32,10 +32,10 @@ export default function Others( steps ) {
         steps.triggerNextStep({trigger: 'otherdetail'})
       }
       else if (intent === 'Bye') {
-        steps.triggerNextStep({trigger: '999'})
+        steps.triggerNextStep({trigger: 'tail'})
       }
       else {
-        steps.triggerNextStep({trigger: '0'})
+        steps.triggerNextStep({trigger: 'head'})
       }
 
       setData(intentLabel)
