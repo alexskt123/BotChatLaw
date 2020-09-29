@@ -3,12 +3,14 @@ import { Fragment, createElement } from 'react';
 //import hooks
 import { use100vh } from 'react-div-100vh';
 import { useSteps } from '../lib/hooks/useFire'
-//import components
+import { useIntentList } from '../lib/hooks/useFire';
+//import components 
 import CustomChatBot from '../components/CustomChatBot'
 import Others from '../components/Others'
 import StepMessage from '../components/StepMessage'
 import StepLink from '../components/StepLink'
-import Options from '../components/Options'
+//import lib
+import { getOptions } from '../lib/dataProcess';
 //export default component
 export default function CustomStep() {
   //varibles for component
@@ -18,11 +20,17 @@ export default function CustomStep() {
     "<StepLink/>": StepLink
   }
   //hooks
-  const steps = useSteps()
-  console.log({ steps })
   const height = use100vh()
+
+  const steps = useSteps()
+  const intent = useIntentList()
+  console.log({ steps, intent })
+
   //loading
-  if (steps.length <= 0) {
+  if (
+    steps.length <= 0
+    || intent.length < 1
+  ) {
     return <div>正在加載中....</div>
   }
   //processing
@@ -36,10 +44,9 @@ export default function CustomStep() {
     })
 
   steps
-    .filter(data => data.options !== undefined)
-    .forEach(data => {
-      data.options = Options (data.id)
-    })
+    .filter(data => data.options)
+    .forEach(data => data.options = getOptions(data.id, intent))
+
   //template
   return (
     <Fragment>
