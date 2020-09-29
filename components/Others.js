@@ -1,5 +1,5 @@
 
-import { setIntentInfo } from '../lib/hooks/useIntentInfo'
+import { useInfo } from '../lib/hooks/useIntentInfo'
 
 
 export default function Others( steps ) {
@@ -7,7 +7,7 @@ export default function Others( steps ) {
   const { other: step } = steps.steps;  
   const { value: StepValue } = step
 
-  const data = setIntentInfo ('componentOther', steps, StepValue)
+  const data = useInfo ('componentOther', steps, StepValue)
 
   return (    
     <div style={{ width: '100%' }}>
