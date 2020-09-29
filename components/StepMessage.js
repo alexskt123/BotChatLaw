@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from 'react'
+import { getIntentDoc } from '../lib/firebaseResult'
 import Loading from './loading'
 
 export default function StepMessage({ previousStep, triggerNextStep }) {
@@ -6,7 +7,15 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
 
   useEffect(() => {
     (async () => {
-      const doc = previousStep.value
+      let doc
+
+      if (typeof previousStep.value === "string") {
+        doc = await getIntentDoc(previousStep.value)
+      } else {
+        doc = previousStep.value
+      }
+
+      console.log({ doc })
 
       let message = doc && doc.explanation ? `${doc.explanation}` : '不解釋....'
 
