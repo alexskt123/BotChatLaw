@@ -1,15 +1,40 @@
+import { Fragment, useEffect, useState } from 'react'
+import { getIntentDoc } from '../lib/firebaseResult'
+import Loading from './loading'
 
-import { useInfo } from '../lib/hooks/useIntentInfo'
-import { getDataPopulate , getStepValue } from '../lib/dataProcess'
+export default function StepMessage({ previousStep, triggerNextStep }) {
+  const [message, setMessage] = useState(null)
 
+  useEffect(() => {
+    (async () => {
+      let doc
 
-export default function StepMessage (steps ) {
+      if (typeof previousStep.value === "string") {
+        doc = await getIntentDoc(previousStep.value)
+      } else {
+        doc = previousStep.value
+      }
 
-  const StepValue = getStepValue(steps)
+      console.log({ doc })
 
-  const data = useInfo ('stepMessage', steps, StepValue)
+      let message = doc && doc.explanation ? `${doc.explanation}` : '不解釋....'
+
+      if (doc && doc.link && doc.link.length >= 1) {
+        triggerNextStep({ trigger: 'otherlink', value: doc })
+      }
+      else {
+        triggerNextStep({ trigger: 'head' })
+      }
+
+      setMessage(message)
+    })()
+  }, [])
+
+  if (!message) return <Loading />
 
   return (
-    getDataPopulate(data)
+    <Fragment>
+      {message}
+    </Fragment>
   );
 }
