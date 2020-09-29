@@ -8,6 +8,7 @@ import CustomChatBot from '../components/CustomChatBot'
 import Others from '../components/Others'
 import StepMessage from '../components/StepMessage'
 import StepLink from '../components/StepLink'
+import Options from '../components/Options'
 //export default component
 export default function CustomStep() {
   //varibles for component
@@ -32,6 +33,12 @@ export default function CustomStep() {
       const componentName = data.component
       const DynamicComponent = components[componentName]
       data.component = createElement(DynamicComponent)
+    })
+
+  steps
+    .filter(data => data.options !== undefined)
+    .forEach(data => {
+      data.options = Options (data.id)
     })
   //template
   return (
