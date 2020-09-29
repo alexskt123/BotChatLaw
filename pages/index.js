@@ -9,6 +9,7 @@ import CustomChatBot from '../components/CustomChatBot'
 import Others from '../components/Others'
 import StepMessage from '../components/StepMessage'
 import StepLink from '../components/StepLink'
+import StepList from '../components/StepList'
 //import lib
 import { getOptions } from '../lib/dataProcess';
 //export default component
@@ -17,7 +18,8 @@ export default function CustomStep() {
   const components = {
     "<Others/>": Others,
     "<StepMessage/>": StepMessage,
-    "<StepLink/>": StepLink
+    "<StepLink/>": StepLink,
+    "<StepList/>": StepList
   }
   //hooks
   const height = use100vh()
