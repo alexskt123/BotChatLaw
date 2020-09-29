@@ -1,13 +1,11 @@
 
 import { useInfo } from '../lib/hooks/useIntentInfo'
-import { getDataPopulate } from '../lib/dataProcess'
+import { getDataPopulate , getStepValue } from '../lib/dataProcess'
 
 
 export default function Others( steps ) {
 
-  const { other: step } = steps.steps;  
-  const { value: StepValue } = step
-
+  const StepValue = getStepValue(steps)
   const data = useInfo ('componentOther', steps, StepValue)
 
   return (    

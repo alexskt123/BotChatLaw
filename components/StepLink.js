@@ -2,12 +2,11 @@
 import { Fragment } from 'react';
 import { useInfo } from '../lib/hooks/useIntentInfo'
 
-import { getLinks } from '../lib/dataProcess'
+import { getLinks , getStepValue } from '../lib/dataProcess'
 
 export default function StepMessage(steps) {
 
-  const { other: step } = steps.steps;
-  const { value: StepValue } = step
+  const StepValue = getStepValue(steps)
 
   const links = useInfo ('stepLink', steps, StepValue)
   const listLinks = getLinks (links)
