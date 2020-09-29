@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react'
-import { getIntentByQuery } from '../lib/getIntentDoc'
+import { getIntentByQuery } from '../lib/getIntentByQuery'
 import Loading from './loading'
 
 export default function Others({ previousStep, triggerNextStep }) {
