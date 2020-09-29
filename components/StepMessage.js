@@ -1,5 +1,6 @@
 
 import { useInfo } from '../lib/hooks/useIntentInfo'
+import { getDataPopulate } from '../lib/dataProcess'
 
 
 export default function StepMessage (steps ) {
@@ -10,8 +11,6 @@ export default function StepMessage (steps ) {
   const data = useInfo ('stepMessage', steps, StepValue)
 
   return (
-    <div style={{ width: '100%' }}>
-      {data}
-    </div>
+    getDataPopulate(data)
   );
 }

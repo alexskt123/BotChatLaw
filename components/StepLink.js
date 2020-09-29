@@ -2,7 +2,7 @@
 import { Fragment } from 'react';
 import { useInfo } from '../lib/hooks/useIntentInfo'
 
-import {getLinks} from '../lib/dataProcess'
+import { getLinks } from '../lib/dataProcess'
 
 export default function StepMessage(steps) {
 
