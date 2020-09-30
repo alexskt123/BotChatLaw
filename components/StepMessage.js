@@ -49,7 +49,7 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
           alt="Generic placeholder"
         />
         <Media.Body>
-          <h5><Badge variant="secondary">{label}</Badge></h5>
+          <h5><Badge variant="dark">{label}</Badge></h5>
           <p>
             {message}
           </p>

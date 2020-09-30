@@ -34,7 +34,7 @@ export default function StepLink({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-      <h5><Badge variant="dark">請點擊以下連結以獲取更多的資訊</Badge></h5>
+      <h5><Badge variant="dark">請點擊以下的連結</Badge></h5>
       <div>
         <ListGroup variant={'outline-dark'}>
           {links.map(link => (
