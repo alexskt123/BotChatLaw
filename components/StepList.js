@@ -20,7 +20,7 @@ export default function StepList({ previousStep, triggerNextStep }) {
       let list = []
 
       if (doc && doc.list) {
-        doc.list.forEach( doclist => {
+        doc.list.forEach(doclist => {
           list.push(
             {
               label: doclist.label,
@@ -61,10 +61,10 @@ export default function StepList({ previousStep, triggerNextStep }) {
         trigger,
         value: intentDoc
       }
-  
+
       setClicked(true)
 
-      triggerNextStep(newTrigger)      
+      triggerNextStep(newTrigger)
     }
   }
 

@@ -17,7 +17,8 @@ export default function Others({ previousStep, triggerNextStep }) {
     '搵唔到....',
     '你噏乜呀?',
     '唔識...',
-    '再問遇啦...'
+    '再問過啦...',
+    '問好啲啦...'
   ]
 
   shuffle(guessMsg)
