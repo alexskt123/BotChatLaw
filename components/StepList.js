@@ -14,11 +14,29 @@ export default function StepList({ previousStep, triggerNextStep }) {
     (async () => {
       const doc = previousStep.value
 
-      let list
+      let list = []
 
       if (doc && doc.list) {
-        list = doc.list
+        doc.list.forEach( doclist => {
+          list.push(
+            {
+              label: doclist.label,
+              value: doclist.value,
+              trigger: 'otherdetail'
+            }
+          )
+        }
+
+        )
       }
+
+      list.push(
+        {
+          label: '返回',
+          value: 'head',
+          trigger: 'head'
+        }
+      )
 
       setList(list)
     })()
