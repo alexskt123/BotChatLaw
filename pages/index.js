@@ -1,5 +1,7 @@
 //import from react
 import { Fragment, createElement } from 'react';
+import Spinner from 'react-bootstrap/Spinner'
+import Button from 'react-bootstrap/Button'
 //import hooks
 import { use100vh } from 'react-div-100vh';
 import { useSteps } from '../lib/hooks/useFire'
@@ -33,7 +35,20 @@ export default function CustomStep() {
     steps.length <= 0
     || intent.length < 1
   ) {
-    return <div>正在加載中....</div>
+    return (
+      <Fragment>
+        <Button variant="dark" disabled>
+          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
+          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
+          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
+          Load緊
+          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
+          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
+          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
+        </Button>
+      </Fragment>
+
+    )
   }
   //processing
   steps
