@@ -41,6 +41,7 @@ export default function StepList({ previousStep, triggerNextStep }) {
       {list.map(item => (
         <button
           key={uuid()}
+          className={'sc-hKFyIo fjCELo rsc-os-option-element'}
           style={{ boxShadow: 'rgb(158, 158, 158) 1px 2px 5px' }}
           onClick={() => { handleNextTrigger(item) }}
         >
