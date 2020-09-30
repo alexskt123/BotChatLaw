@@ -5,7 +5,7 @@ import Loading from './loading'
 
 import { v4 as uuid } from 'uuid'
 
-import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroup from 'react-bootstrap/ListGroup'
 
 export default function StepLink({ previousStep, triggerNextStep }) {
   const [links, setLinks] = useState(null)
@@ -51,5 +51,5 @@ export default function StepLink({ previousStep, triggerNextStep }) {
       </div>
 
     </Fragment>
-  );
+  )
 }

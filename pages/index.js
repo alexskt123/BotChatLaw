@@ -1,11 +1,11 @@
 //import from react
-import { Fragment, createElement } from 'react';
+import { Fragment, createElement } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 import Button from 'react-bootstrap/Button'
 //import hooks
-import { use100vh } from 'react-div-100vh';
+import { use100vh } from 'react-div-100vh'
 import { useSteps } from '../lib/hooks/useFire'
-import { useIntentList } from '../lib/hooks/useFire';
+import { useIntentList } from '../lib/hooks/useFire'
 //import components 
 import CustomChatBot from '../components/CustomChatBot'
 import Others from '../components/Others'
@@ -13,15 +13,15 @@ import StepMessage from '../components/StepMessage'
 import StepLink from '../components/StepLink'
 import StepList from '../components/StepList'
 //import lib
-import { getOptions } from '../lib/dataProcess';
+import { getOptions } from '../lib/dataProcess'
 //export default component
 export default function CustomStep() {
   //varibles for component
   const components = {
-    "<Others/>": Others,
-    "<StepMessage/>": StepMessage,
-    "<StepLink/>": StepLink,
-    "<StepList/>": StepList
+    '<Others/>': Others,
+    '<StepMessage/>': StepMessage,
+    '<StepLink/>': StepLink,
+    '<StepList/>': StepList
   }
   //hooks
   const height = use100vh()
@@ -53,7 +53,7 @@ export default function CustomStep() {
   //processing
   steps
     .filter(data => data.component)
-    .filter(data => typeof data.component === "string")
+    .filter(data => typeof data.component === 'string')
     .forEach(data => {
       const componentName = data.component
       const DynamicComponent = components[componentName]

@@ -3,7 +3,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 
-const axios = require('axios').default;
+const axios = require('axios').default
 
 async function getMessage (option) {
 

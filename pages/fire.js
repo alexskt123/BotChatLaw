@@ -1,8 +1,8 @@
-import { useState, useEffect, Fragment } from 'react';
-import fire from '../config/fire-config';
+import { useState, useEffect, Fragment } from 'react'
+import fire from '../config/fire-config'
 
 export default function Fire() {
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState([])
   console.log(blogs)
   const listBlogs = () => {
     return blogs.map(blog => {
@@ -20,10 +20,10 @@ export default function Fire() {
         const blogs = snap.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
-        }));
-        setBlogs(blogs);
-      });
-  }, []);
+        }))
+        setBlogs(blogs)
+      })
+  }, [])
 
   return (
     <Fragment>

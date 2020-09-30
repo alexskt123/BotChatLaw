@@ -13,7 +13,7 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
     (async () => {
       let doc
 
-      if (typeof previousStep.value === "string") {
+      if (typeof previousStep.value === 'string') {
         doc = await getIntentDoc(previousStep.value)
       } else {
         doc = previousStep.value
@@ -56,5 +56,5 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
         </Media.Body>
       </Media>
     </Fragment>
-  );
+  )
 }

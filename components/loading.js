@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment } from 'react'
 import shuffle from 'shuffle-array'
 
 export default function Loading() {

@@ -49,5 +49,5 @@ export default function Others({ previousStep, triggerNextStep }) {
     <Fragment>
       {message}
     </Fragment>
-  );
+  )
 }

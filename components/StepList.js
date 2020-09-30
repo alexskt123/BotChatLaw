@@ -6,7 +6,7 @@ import Loading from './loading'
 import { v4 as uuid } from 'uuid'
 import { getIntentDoc } from '../lib/firebaseResult'
 
-import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button'
 
 export default function StepList({ previousStep, triggerNextStep }) {
 
@@ -85,5 +85,5 @@ export default function StepList({ previousStep, triggerNextStep }) {
       </div>
 
     </Fragment>
-  );
+  )
 }
