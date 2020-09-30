@@ -4,6 +4,8 @@ import Loading from './loading'
 import { v4 as uuid } from 'uuid'
 import { getIntentDoc } from '../lib/firebaseResult'
 
+import Button from 'react-bootstrap/Button';
+
 export default function StepList({ previousStep, triggerNextStep }) {
 
   const [list, setList] = useState(null)
@@ -25,6 +27,7 @@ export default function StepList({ previousStep, triggerNextStep }) {
   if (!list) return <Loading />
 
   const handleNextTrigger = async ({ trigger, value }) => {
+
     const intentDoc = await getIntentDoc(value)
 
     const newTrigger = {
@@ -37,17 +40,19 @@ export default function StepList({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-      <h4>你可能對以下嘅野有興趣:</h4>
-      {list.map(item => (
-        <button
-          key={uuid()}
-          className={'sc-hKFyIo fjCELo rsc-os-option-element'}
-          style={{ boxShadow: 'rgb(158, 158, 158) 1px 2px 5px' }}
-          onClick={() => { handleNextTrigger(item) }}
-        >
-          {item.label}
-        </button>
-      ))}
+      <h6>你可能對以下嘅野有興趣:</h6>
+      <div>
+        {list.map(item => (
+          <Button
+            key={uuid()}
+            variant='outline-dark'
+            onClick={() => { handleNextTrigger(item) }}
+          >
+            {item.label}
+          </Button>
+        ))}
+      </div>
+
     </Fragment>
   );
 }

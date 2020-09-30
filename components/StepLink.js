@@ -3,6 +3,8 @@ import Loading from './loading'
 
 import { v4 as uuid } from 'uuid'
 
+import ListGroup from 'react-bootstrap/ListGroup';
+
 export default function StepLink({ previousStep, triggerNextStep }) {
   const [links, setLinks] = useState(null)
 
@@ -30,14 +32,22 @@ export default function StepLink({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-      <h4>請點擊以下連結以獲取更多的資訊:</h4>
-      {links.map(link => (
-        <div style={{ color: 'blue' }} key={uuid()}>
-          <li>
-            <a href={link.href} target="_blank">{link.label}</a>
-          </li>
-        </div>
-      ))}
+      <h6>請點擊以下連結以獲取更多的資訊:</h6>
+      <div>
+        <ListGroup variant={'outline-dark'}>
+          {links.map(link => (
+            <ListGroup.Item
+              as={'a'}
+              key={uuid()}
+              href={link.href}
+              target="_blank" >
+              {link.label}
+            </ListGroup.Item>
+
+          ))}
+        </ListGroup>
+      </div>
+
     </Fragment>
   );
 }
