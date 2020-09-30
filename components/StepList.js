@@ -1,4 +1,6 @@
 import { Fragment, useEffect, useState } from 'react'
+import Badge from 'react-bootstrap/Badge'
+
 import Loading from './loading'
 
 import { v4 as uuid } from 'uuid'
@@ -68,7 +70,7 @@ export default function StepList({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-      <h6>你可能對以下嘅野有興趣:</h6>
+      <h5><Badge variant="dark">你可能對以下嘅野有興趣</Badge></h5>
       <div>
         {list.map(item => (
           <Button

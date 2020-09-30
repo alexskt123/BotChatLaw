@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState } from 'react'
 import Media from 'react-bootstrap/Media'
+import Badge from 'react-bootstrap/Badge'
 
 import { getIntentDoc } from '../lib/firebaseResult'
 import Loading from './loading'
@@ -41,14 +42,14 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
     <Fragment>
       <Media>
         <img
-          width={40}
-          height={60}
+          width={28}
+          height={42}
           className="mr-3"
           src="lawyerAvatar.png"
           alt="Generic placeholder"
         />
         <Media.Body>
-          <h5><b>{label}</b></h5>
+          <h5><Badge variant="secondary">{label}</Badge></h5>
           <p>
             {message}
           </p>

@@ -1,4 +1,6 @@
 import { Fragment, useEffect, useState } from 'react'
+import Badge from 'react-bootstrap/Badge'
+
 import Loading from './loading'
 
 import { v4 as uuid } from 'uuid'
@@ -32,7 +34,7 @@ export default function StepLink({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-      <h6>請點擊以下連結以獲取更多的資訊:</h6>
+      <h5><Badge variant="dark">請點擊以下連結以獲取更多的資訊</Badge></h5>
       <div>
         <ListGroup variant={'outline-dark'}>
           {links.map(link => (
