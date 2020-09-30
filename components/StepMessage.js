@@ -22,6 +22,9 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
       if (doc && doc.link && doc.link.length >= 1) {
         triggerNextStep({ trigger: 'otherlink', value: doc })
       }
+      else if (doc && doc.list && doc.list.length >= 1) {
+        triggerNextStep({ trigger: 'otherlist', value: doc })
+      }      
       else {
         triggerNextStep({ trigger: 'head' })
       }
