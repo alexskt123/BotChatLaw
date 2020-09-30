@@ -15,8 +15,6 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
         doc = previousStep.value
       }
 
-      console.log({ doc })
-
       let message = doc && doc.explanation ? `${doc.explanation}` : '不解釋....'
 
       if (doc && doc.link && doc.link.length >= 1) {

@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 export default function StepList({ previousStep, triggerNextStep }) {
 
   const [list, setList] = useState(null)
+  const [clicked, setClicked] = useState(false)
 
   useEffect(() => {
     (async () => {
@@ -44,16 +45,25 @@ export default function StepList({ previousStep, triggerNextStep }) {
 
   if (!list) return <Loading />
 
-  const handleNextTrigger = async ({ trigger, value }) => {
+  const handleNextTrigger = async (item) => {
 
-    const intentDoc = await getIntentDoc(value)
 
-    const newTrigger = {
-      trigger,
-      value: intentDoc
+
+    if (item) {
+      const { trigger, value } = item
+
+
+      const intentDoc = await getIntentDoc(value)
+
+      const newTrigger = {
+        trigger,
+        value: intentDoc
+      }
+  
+      setClicked(true)
+
+      triggerNextStep(newTrigger)      
     }
-
-    triggerNextStep(newTrigger)
   }
 
   return (
@@ -64,6 +74,7 @@ export default function StepList({ previousStep, triggerNextStep }) {
           <Button
             key={uuid()}
             variant='outline-dark'
+            disabled={clicked}
             onClick={() => { handleNextTrigger(item) }}
           >
             {item.label}
