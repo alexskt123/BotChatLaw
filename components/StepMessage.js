@@ -1,9 +1,12 @@
 import { Fragment, useEffect, useState } from 'react'
+import Media from 'react-bootstrap/Media'
+
 import { getIntentDoc } from '../lib/firebaseResult'
 import Loading from './loading'
 
 export default function StepMessage({ previousStep, triggerNextStep }) {
   const [message, setMessage] = useState(null)
+  const [label, setLabel] = useState(null)
 
   useEffect(() => {
     (async () => {
@@ -22,12 +25,13 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
       }
       else if (doc && doc.list && doc.list.length >= 1) {
         triggerNextStep({ trigger: 'otherlist', value: doc })
-      }      
+      }
       else {
         triggerNextStep({ trigger: 'head' })
       }
 
       setMessage(message)
+      setLabel(doc.label)
     })()
   }, [])
 
@@ -35,7 +39,21 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-      {message}
+      <Media>
+        <img
+          width={40}
+          height={60}
+          className="mr-3"
+          src="lawyerAvatar.png"
+          alt="Generic placeholder"
+        />
+        <Media.Body>
+          <h5><b>{label}</b></h5>
+          <p>
+            {message}
+          </p>
+        </Media.Body>
+      </Media>
     </Fragment>
   );
 }
