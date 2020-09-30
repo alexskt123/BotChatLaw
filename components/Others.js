@@ -10,7 +10,7 @@ export default function Others({ previousStep, triggerNextStep }) {
     '我估你嘅意思係:[label]',
     '係咪[label]?',
     '你係咪想搵[label]',
-    '[labe]? 輕鬆搵到'
+    '[label]? 輕鬆搵到'
   ]
 
   const notFoundMsg = [
