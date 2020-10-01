@@ -27,10 +27,12 @@ export default function CustomChatBot({ height, steps }) {
       <ThemeProvider theme={theme}>
         <ChatBot
           headerTitle={<Fragment>
-            <h4>
-              <img width='40' height='40' className="mr-3" src="headerIcon.png">
-              </img><Badge variant="dark">法律小幫手</Badge>
-            </h4>
+            <div>
+              <h4>
+                <img width='40' height='40' className="mr-3" src="headerIcon.png">
+                </img><Badge variant="dark">法律小幫手</Badge>
+              </h4>
+            </div>
           </Fragment>}
           placeholder="請輸入。。。"
           botAvatar="botAvatar.png"
