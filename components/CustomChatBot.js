@@ -1,5 +1,6 @@
 //import from react
 import { Fragment } from 'react'
+import Badge from 'react-bootstrap/Badge'
 //import lib
 import { ThemeProvider } from 'styled-components'
 import ChatBot from 'react-simple-chatbot'
@@ -25,7 +26,12 @@ export default function CustomChatBot({ height, steps }) {
     <Fragment>
       <ThemeProvider theme={theme}>
         <ChatBot
-          headerTitle="法律小幫手"
+          headerTitle={<Fragment>
+            <h4>
+              <img width='40' height='40' className="mr-3" src="headerIcon.png">
+              </img><Badge variant="dark">法律小幫手</Badge>
+            </h4>
+          </Fragment>}
           placeholder="請輸入。。。"
           botAvatar="botAvatar.png"
           userAvatar="userAvatar.png"
