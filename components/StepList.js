@@ -48,8 +48,7 @@ export default function StepList({ previousStep, triggerNextStep }) {
   if (!list) return <Loading />
 
   const handleNextTrigger = async (item) => {
-
-
+    setClicked(true)
 
     if (item) {
       const { trigger, value } = item
@@ -61,8 +60,6 @@ export default function StepList({ previousStep, triggerNextStep }) {
         trigger,
         value: intentDoc
       }
-
-      setClicked(true)
 
       triggerNextStep(newTrigger)
     }
