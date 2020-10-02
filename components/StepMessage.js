@@ -1,5 +1,4 @@
 import { Fragment, useEffect, useState } from 'react'
-import Media from 'react-bootstrap/Media'
 import Badge from 'react-bootstrap/Badge'
 
 import { getIntentDoc } from '../lib/firebaseResult'
@@ -72,7 +71,7 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
       <ListGroup variant={'outline-dark'}>
         {getListItem(message)}
       </ListGroup>
-  
+
     </Fragment>
   )
 }
