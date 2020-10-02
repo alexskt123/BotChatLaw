@@ -9,7 +9,6 @@ import { getIntentDoc } from '../lib/firebaseResult'
 import Button from 'react-bootstrap/Button'
 
 export default function StepList({ previousStep, triggerNextStep }) {
-
   const [list, setList] = useState(null)
   const [clicked, setClicked] = useState(false)
 

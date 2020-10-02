@@ -10,24 +10,6 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
   const [message, setMessage] = useState(null)
   const [label, setLabel] = useState(null)
 
-  const getDisplayMessage = (message) => {
-
-    if (!message.header) {
-      return <p>{message}</p>
-    }
-    else {
-      return <p>{message.header}</p>
-    }
-  }
-
-  const getListItem = (message) => {
-    if (message.item) {
-      return message.item.map(messageItem => {
-        return <ListGroup.Item key={uuid()}>{messageItem}</ListGroup.Item>
-      })
-    }
-  }
-
   useEffect(() => {
     (async () => {
       let doc
@@ -38,25 +20,30 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
         doc = previousStep.value
       }
 
-      let message
-      let messageList
-
-      if (typeof doc.explanation === 'string')
-        message = doc && doc.explanation ? `${doc.explanation}` : '不解釋....'
-      else
-        messageList = doc.explanation
-
-      if (doc && doc.link && doc.link.length >= 1) {
-        triggerNextStep({ trigger: 'otherlink', value: doc })
-      }
-      else if (doc && doc.list && doc.list.length >= 1) {
-        triggerNextStep({ trigger: 'otherlist', value: doc })
-      }
-      else {
-        triggerNextStep({ trigger: 'head' })
+      const errorPoofingDoc = {
+        //default value
+        link: [],
+        list: [],
+        //overwrite default value
+        ...doc
       }
 
-      setMessage(message ? message : messageList)
+      console.log({ errorPoofingDoc })
+
+      const trigger = errorPoofingDoc.link.length > 0 ? 'otherlink' :
+        errorPoofingDoc.list.length > 0 ? 'otherlist' :
+          'head'
+
+      triggerNextStep({ trigger, value: doc })
+
+      const { header, list } = doc.explanations
+
+      let tempMessage = {
+        header,
+        list
+      }
+
+      setMessage(tempMessage)
       setLabel(doc.label)
     })()
   }, [])
@@ -65,13 +52,32 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-
       <h5><Badge variant="dark">{label}</Badge></h5>
-      {getDisplayMessage(message)}
-      <ListGroup variant={'outline-dark'}>
-        {getListItem(message)}
-      </ListGroup>
-
-    </Fragment>
+      {
+        message.list.length < 1 ?
+          '不解釋....' :
+          message.list.length === 1 ?
+            <Fragment>
+              <p>
+                {message.header}
+              </p>
+              <p>
+                {message.list.find(x => x)}
+              </p>
+            </Fragment>
+            :
+            <ListGroup variant={'outline-dark'}>
+              <p>
+                {message.header}
+              </p>
+              {
+                message.list
+                  .map(messageItem => {
+                    return <ListGroup.Item key={uuid()}>{messageItem}</ListGroup.Item>
+                  })
+              }
+            </ListGroup>
+      }
+    </Fragment >
   )
 }

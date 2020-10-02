@@ -14,19 +14,16 @@ export default function StepLink({ previousStep, triggerNextStep }) {
     (async () => {
       const doc = previousStep.value
 
-      let links
-
-      if (doc && doc.link) {
-        links = doc.link
-      }
+      const {
+        link: links,
+        list
+      } = doc
 
       setLinks(links)
 
-      if (doc && doc.list) {
-        triggerNextStep({ trigger: 'otherlist', value: doc })
-      }
-      else
-        triggerNextStep({ trigger: 'head' })
+      const trigger = list.length > 0 ? 'otherlist' : 'head'
+
+      triggerNextStep({ trigger, value: doc })
     })()
   }, [])
 
