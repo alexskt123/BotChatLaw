@@ -12,6 +12,7 @@ import Others from '../components/Others'
 import StepMessage from '../components/StepMessage'
 import StepLink from '../components/StepLink'
 import StepList from '../components/StepList'
+import ContactUs from '../components/ContactUs'
 //import lib
 import { getOptions } from '../lib/dataProcess'
 //export default component
@@ -21,7 +22,8 @@ export default function CustomStep() {
     '<Others/>': Others,
     '<StepMessage/>': StepMessage,
     '<StepLink/>': StepLink,
-    '<StepList/>': StepList
+    '<StepList/>': StepList,
+    '<ContactUs/>': ContactUs
   }
   //hooks
   const height = use100vh()
