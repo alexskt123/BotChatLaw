@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState } from 'react'
 import { getIntentByQuery } from '../lib/getIntentByQuery'
+import { setRequestByInput } from '../lib/setQueryByInput'
 import Loading from './loading'
 import shuffle from 'shuffle-array'
 
@@ -26,10 +27,15 @@ export default function Others({ previousStep, triggerNextStep }) {
 
   useEffect(() => {
     (async () => {
-      const { doc } = await getIntentByQuery(previousStep.value)
+      const intentData = await getIntentByQuery(previousStep.value)
+      const doc = intentData.doc
 
       let message = doc && doc.label ? guessMsg[0].replace('[label]', `${doc.label}`) : notFoundMsg[0]
       setMessage(message)
+
+     
+      await setRequestByInput(previousStep.value, intentData.intent)
+      
 
       if (doc && doc.explanation) {
         triggerNextStep({ trigger: 'otherdetail', value: doc })
