@@ -66,23 +66,13 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-      <Media>
-        <img
-          width={28}
-          height={42}
-          className="mr-3"
-          src="lawyerAvatar.png"
-          alt="Generic placeholder"
-        />
-        <Media.Body>
-          <h5><Badge variant="dark">{label}</Badge></h5>
-          {getDisplayMessage(message)}
-          <ListGroup variant={'outline-dark'}>
-            {getListItem(message)}
-          </ListGroup>
-          
-        </Media.Body>
-      </Media>
+
+      <h5><Badge variant="dark">{label}</Badge></h5>
+      {getDisplayMessage(message)}
+      <ListGroup variant={'outline-dark'}>
+        {getListItem(message)}
+      </ListGroup>
+  
     </Fragment>
   )
 }
