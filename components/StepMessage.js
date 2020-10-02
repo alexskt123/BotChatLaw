@@ -5,6 +5,7 @@ import Badge from 'react-bootstrap/Badge'
 import { getIntentDoc } from '../lib/firebaseResult'
 import Loading from './loading'
 import { v4 as uuid } from 'uuid'
+import ListGroup from 'react-bootstrap/ListGroup'
 
 export default function StepMessage({ previousStep, triggerNextStep }) {
   const [message, setMessage] = useState(null)
@@ -23,7 +24,7 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
   const getListItem = (message) => {
     if (message.item) {
       return message.item.map(messageItem => {
-        return <li key={uuid()}>{messageItem}</li>
+        return <ListGroup.Item key={uuid()}>{messageItem}</ListGroup.Item>
       })
     }
   }
@@ -76,7 +77,10 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
         <Media.Body>
           <h5><Badge variant="dark">{label}</Badge></h5>
           {getDisplayMessage(message)}
-          {getListItem(message)}
+          <ListGroup variant={'outline-dark'}>
+            {getListItem(message)}
+          </ListGroup>
+          
         </Media.Body>
       </Media>
     </Fragment>
