@@ -1,20 +1,14 @@
 import { Fragment } from 'react'
 import shuffle from 'shuffle-array'
+import { loadMsg } from '../config/messages'
 
 export default function Loading() {
 
-  const loadMsg = [
-    '幫緊你...',
-    '幫緊你幫緊你...',
-    '唔好急...',
-    '唔好急唔好急...'
-  ]
-
-  shuffle(loadMsg)
+  const message = shuffle(loadMsg, { copy: true }).find(x => x)
 
   return (
     <Fragment>
-      {loadMsg[0]}
+      {message}
     </Fragment>
   )
 }
