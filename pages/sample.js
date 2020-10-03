@@ -16,7 +16,8 @@ export default function Sample() {
     jobTitle: 'Analyst',
     probation: '3 months',
     salary: 60000,
-    annualLeave: 10
+    annualLeave: 10,
+    noticePeriod: '1 month'
   }
 
   const height = use100vh()
