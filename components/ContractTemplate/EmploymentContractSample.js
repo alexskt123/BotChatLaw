@@ -8,6 +8,7 @@ import { Fragment } from 'react'
 
 import SampleItem from '../../components/ContractTemplate/SampleItem'
 import SampleTooltip from '../../components/ContractTemplate/SampleTooltip'
+import Disclaimer from '../../components/Disclaimer'
 
 export default function EmploymentContractSample ({employmentContractSample, height}) {
 
@@ -80,6 +81,7 @@ export default function EmploymentContractSample ({employmentContractSample, hei
             </div>
           </Container>
         </Jumbotron>
+        <Disclaimer/>
       </Container>
   
     </Fragment>
