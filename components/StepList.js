@@ -9,7 +9,6 @@ import { getIntentDoc } from '../lib/firebaseResult'
 import Button from 'react-bootstrap/Button'
 
 export default function StepList({ previousStep, triggerNextStep }) {
-
   const [list, setList] = useState(null)
   const [clicked, setClicked] = useState(false)
 
@@ -17,29 +16,23 @@ export default function StepList({ previousStep, triggerNextStep }) {
     (async () => {
       const doc = previousStep.value
 
-      let list = []
+      //use ... to spread everything and avoid object mutation
+      const list = [...doc.list]
+        .map(item => {
+          const newItem = {
+            ...item,
+            trigger: 'otherdetail'
+          }
 
-      if (doc && doc.list) {
-        doc.list.forEach(doclist => {
-          list.push(
-            {
-              label: doclist.label,
-              value: doclist.value,
-              trigger: 'otherdetail'
-            }
-          )
-        }
-
+          return newItem
+        })
+        .concat(
+          {
+            label: '返回',
+            value: 'head',
+            trigger: 'head'
+          }
         )
-      }
-
-      list.push(
-        {
-          label: '返回',
-          value: 'head',
-          trigger: 'head'
-        }
-      )
 
       setList(list)
     })()
