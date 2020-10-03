@@ -20,7 +20,7 @@ export default function EmploymentContractSample ({employmentContractSample, hei
   
           </div>
   
-          <Jumbotron className="p-5 mt-3">
+          <Jumbotron className="p-3 mt-3">
             <Container>
               <div>
                 <h1>{employmentContractSample.erName}</h1>
