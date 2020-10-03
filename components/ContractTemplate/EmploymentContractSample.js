@@ -8,10 +8,13 @@ import { Fragment } from 'react'
 import SampleItem from '../../components/ContractTemplate/SampleItem'
 
 export default function EmploymentContractSample ({employmentContractSample, height}) {
+
+    
+    //const sampleHeight = Element.clientheight > height ? Element.clientheight : height
     
     return (
         <Fragment>
-        <Container>
+        <Container style={{ height: `${height}px` }}>
           <div className="mt-3">
             <Badge variant="secondary"><h2>僱員合約範例</h2></Badge>
   
@@ -19,8 +22,8 @@ export default function EmploymentContractSample ({employmentContractSample, hei
   
           <Jumbotron className="p-5 mt-3">
             <Container>
-              <div style={{ height: `${height}px` }}>
-                <h1><SampleItem item={employmentContractSample.erName} /></h1>
+              <div>
+                <h1>{employmentContractSample.erName}</h1>
                 <p className="mt-5">
                   <b>This Contract of employment is made the <SampleItem item={dateFormat(new Date(), 'dS mmmm yyyy')} /></b> between <SampleItem item={employmentContractSample.eeName} /> hereinafter known as 'the Employee', and <SampleItem item={employmentContractSample.erName} />, herein after known as 'the Company'.
                 </p>
