@@ -1,7 +1,5 @@
 //import from react
 import { Fragment, createElement } from 'react'
-import Spinner from 'react-bootstrap/Spinner'
-import Button from 'react-bootstrap/Button'
 //import hooks
 import { use100vh } from 'react-div-100vh'
 import { useSteps } from '../lib/hooks/useFire'
@@ -13,6 +11,7 @@ import StepMessage from '../components/StepMessage'
 import StepLink from '../components/StepLink'
 import StepList from '../components/StepList'
 import ContactUs from '../components/ContactUs'
+import PageLoading from '../components/PageLoading'
 //import lib
 import { getOptions } from '../lib/dataProcess'
 //export default component
@@ -38,17 +37,7 @@ export default function CustomStep() {
     || intent.length < 1
   ) {
     return (
-      <Fragment>
-        <Button variant="dark" disabled>
-          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
-          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
-          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
-          Load緊
-          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
-          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
-          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>
-        </Button>
-      </Fragment>
+      <PageLoading/>
 
     )
   }
