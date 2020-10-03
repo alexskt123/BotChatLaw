@@ -6,14 +6,12 @@ import dateFormat from 'dateformat'
 
 import { Fragment } from 'react'
 
-import SampleItem from '../../components/ContractTemplate/SampleItem'
-import SampleTooltip from '../../components/ContractTemplate/SampleTooltip'
-import Disclaimer from '../../components/Disclaimer'
+import SampleItem from './SampleItem'
+import SampleTooltip from './SampleTooltip'
+import Disclaimer from '../Disclaimer'
 
 export default function EmploymentContractSample ({employmentContractSample, height}) {
 
-    
-  //const sampleHeight = Element.clientheight > height ? Element.clientheight : height
     
   return (
     <Fragment>
@@ -28,7 +26,7 @@ export default function EmploymentContractSample ({employmentContractSample, hei
             <div>
               <h1>{employmentContractSample.erName}</h1>
               <div className="mt-5">
-                <SampleTooltip message="定義僱員為'the Employee'及定義僱主為'the Company'，方便在此合約內作參考" target="This Contract of employment is made the "/>
+                <SampleTooltip message="定義僱員為'the Employee'及定義僱主為'the Company'，方便在此合約內作參考" target="This Contract of employment is made on "/>
                 <div className="row d-inline ml-3" >
                     <SampleItem item={dateFormat(new Date(), 'dS mmmm yyyy')}/> between <SampleItem item={employmentContractSample.eeName} /> hereinafter known as &apos;the Employee&apos;, and <SampleItem item={employmentContractSample.erName} />, herein after known as &apos;the Company&apos;.
                 </div>

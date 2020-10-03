@@ -6,10 +6,10 @@ export default function Disclaimer() {
         <Jumbotron className="p-3 mt-3">
             <Alert variant="warning" className="p-1 mb-1"><h3>Disclaimer</h3></Alert>
             <p>
-                Please read this disclaimer <b>("disclaimer")</b> carefully before using [website] website (“website”, "service") operated by [name] ("us", 'we", "our").
+                Please read this disclaimer <b>("disclaimer")</b> carefully before using this website (“website”, "service") operated by BotChatLaw ("us", 'we", "our").
         </p>
             <p>
-                The content displayed on the website is the intellectual property of the [name]. You may not reuse, republish, or reprint such content without our written consent.
+                The content displayed on the website is the intellectual property of BotChatLaw. You may not reuse, republish, or reprint such content without our written consent.
         </p>
             <p>
                 All information posted is merely for educational and informational purposes. It is not intended as a substitute for professional advice. Should you decide to act upon any information on this website, you do so at your own risk.

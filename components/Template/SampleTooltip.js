@@ -19,7 +19,7 @@ export default function SampleTooltip({ message, target }) {
                 }
             >
                 <div className="row d-inline-block pl-3" >
-                    <Alert variant="success" className="p-1 mb-1">
+                    <Alert variant="success" className="p-0 mb-1">
                         <b>{target}</b>
                     </Alert>
                 </div>

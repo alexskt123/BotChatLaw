@@ -3,10 +3,21 @@ import { use100vh } from 'react-div-100vh'
 
 
 import PageLoading from '../components/PageLoading'
-import EmploymentContractSample from '../components/ContractTemplate/EmploymentContractSample'
+import EmploymentContractSample from '../components/Template/EmploymentContractSample'
 
+import { useRouter } from "next/router";
+import WillSample from '../components/Template/WillSample';
 
 export default function Sample() {
+
+  const height = use100vh()
+
+  const {
+    query: { template },
+  } = useRouter();
+
+  if(!height) return <PageLoading/>
+
 
   const employmentContractSample = {
 
@@ -20,15 +31,24 @@ export default function Sample() {
     noticePeriod: '1 month'
   }
 
-  const height = use100vh()
-
-
-
-  if (!height) {
-    return <PageLoading />
+  const willSample = {
+    testatorName: 'Chan Tai Man',
+    testatorID: 'Y123456(7)',
+    testatorAddr: 'Flat A, Floor 8, King Hill',
+    residue: 'sons'
+    
   }
 
-  return (
-    <EmploymentContractSample employmentContractSample={employmentContractSample} height={height}/>
-  )
+  if(template === "EmploymentContract")
+    return (
+      <EmploymentContractSample employmentContractSample={employmentContractSample} height={height}/>
+    )
+  else if(template === "Will")
+    return (
+      <WillSample willSample={willSample} height={height}/>
+    )
+  else
+    return (
+      ""
+    )
 }
