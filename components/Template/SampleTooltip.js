@@ -7,25 +7,25 @@ import { Fragment } from 'react'
 
 
 export default function SampleTooltip({ message, target }) {
-    return (
-        <Fragment>
-            <OverlayTrigger
-                key={uuid()}
-                placement={'top'}
-                overlay={
-                    <Tooltip id={uuid()}>
-                        {message}
-                    </Tooltip>
-                }
-            >
-                <div className="row d-inline-block pl-3" >
-                    <Alert variant="success" className="p-0 mb-1">
-                        <b>{target}</b>
-                    </Alert>
-                </div>
+  return (
+    <Fragment>
+      <OverlayTrigger
+        key={uuid()}
+        placement={'top'}
+        overlay={
+          <Tooltip id={uuid()}>
+            {message}
+          </Tooltip>
+        }
+      >
+        <div className="row d-inline-block pl-3" >
+          <Alert variant="success" className="p-0 mb-1">
+            <b>{target}</b>
+          </Alert>
+        </div>
 
-            </OverlayTrigger>
-        </Fragment>
+      </OverlayTrigger>
+    </Fragment>
 
-    )
+  )
 }
