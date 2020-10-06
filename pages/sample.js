@@ -5,8 +5,8 @@ import { use100vh } from 'react-div-100vh'
 import PageLoading from '../components/PageLoading'
 import EmploymentContractSample from '../components/Template/EmploymentContractSample'
 
-import { useRouter } from "next/router";
-import WillSample from '../components/Template/WillSample';
+import { useRouter } from 'next/router'
+import WillSample from '../components/Template/WillSample'
 
 export default function Sample() {
 
@@ -14,7 +14,7 @@ export default function Sample() {
 
   const {
     query: { template },
-  } = useRouter();
+  } = useRouter()
 
   if(!height) return <PageLoading/>
 
@@ -39,16 +39,16 @@ export default function Sample() {
     
   }
 
-  if(template === "EmploymentContract")
+  if(template === 'EmploymentContract')
     return (
       <EmploymentContractSample employmentContractSample={employmentContractSample} height={height}/>
     )
-  else if(template === "Will")
+  else if(template === 'Will')
     return (
       <WillSample willSample={willSample} height={height}/>
     )
   else
     return (
-      ""
+      ''
     )
 }
