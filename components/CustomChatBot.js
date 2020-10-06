@@ -42,6 +42,7 @@ export default function CustomChatBot({ height, steps }) {
           width="100%"
           height={height}
           steps={steps}
+          enableMobileAutoFocus={true}
         />
       </ThemeProvider>
     </Fragment>
