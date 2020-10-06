@@ -2,15 +2,14 @@ import { Fragment, useEffect, useState } from 'react'
 import { getIntentByQuery } from '../lib/getIntentByQuery'
 import { setRequestByInput } from '../lib/setQueryByInput'
 import Loading from './loading'
-import shuffle from 'shuffle-array'
 import { guessMsg, notFoundMsg } from '../config/messages'
+import { randomMsg } from '../lib/dataProcess'
 
 export default function Others({ previousStep, triggerNextStep }) {
   const [message, setMessage] = useState(null)
 
-  const guessMessage = shuffle(guessMsg, { copy: true }).find(x => x)
-  const notFoundMessage = shuffle(notFoundMsg, { copy: true }).find(x => x)
-
+  const guessMessage = randomMsg(guessMsg)
+  const notFoundMessage = randomMsg(notFoundMsg)
 
   useEffect(() => {
     (async () => {
