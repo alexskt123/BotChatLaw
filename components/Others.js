@@ -19,11 +19,10 @@ export default function Others({ previousStep, triggerNextStep }) {
       let message = doc && doc.label ? guessMessage.replace('[label]', `${doc.label}`) : notFoundMessage
       setMessage(message)
 
-
       await setRequestByInput(previousStep.value, intentData.intent)
 
 
-      if (doc && doc.explanation) {
+      if (doc && doc.explanations) {
         triggerNextStep({ trigger: 'otherdetail', value: doc })
       }
       else if (message === 'Bye') {

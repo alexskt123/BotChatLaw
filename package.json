@@ -11,6 +11,8 @@
   "dependencies": {
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
+    "chinese-conv": "^1.0.1",
+    "contains-chinese": "^1.0.0",
     "dateformat": "^3.0.3",
     "firebase": "^7.21.1",
     "next": "^9.5.3",
@@ -20,6 +22,7 @@
     "react-dom": "16.13.1",
     "react-simple-chatbot": "^0.6.1",
     "shuffle-array": "^1.0.1",
+    "string-strip-html": "^6.0.4",
     "styled-components": "^5.2.0",
     "swr": "^0.3.5",
     "uuid": "^8.3.0"

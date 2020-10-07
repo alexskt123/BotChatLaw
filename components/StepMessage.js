@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from 'react'
 import Badge from 'react-bootstrap/Badge'
 
 import { getIntentDoc } from '../lib/firebaseResult'
+import { getWikiInfo } from '../lib/dataProcess'
 import Loading from './loading'
 import { v4 as uuid } from 'uuid'
 import ListGroup from 'react-bootstrap/ListGroup'
@@ -16,6 +17,10 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
 
       if (typeof previousStep.value === 'string') {
         doc = await getIntentDoc(previousStep.value)
+
+        if (!doc) {
+          doc = await getWikiInfo (previousStep.value)
+        }
       } else {
         doc = previousStep.value
       }
