@@ -5,6 +5,7 @@ import PageLoading from '../components/PageLoading'
 import { Fragment } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Alert from 'react-bootstrap/Alert'
 import CardDeck from 'react-bootstrap/CardDeck'
 
@@ -12,7 +13,7 @@ import { v4 as uuid } from 'uuid'
 
 import CustomCarousel from '../components/AboutUs/CustomCarousel'
 import CustomCard from '../components/AboutUs/CustomCard'
-import { CarouselDisplayItems , CardDisplayitems } from '../config/aboutUs'
+import { CarouselDisplayItems , CardDisplayitems , Copyright } from '../config/aboutUs'
 
 export default function aboutus() {
 
@@ -43,7 +44,7 @@ export default function aboutus() {
         </CardDeck>
         <Row className="justify-content-center mt-5">
           <Alert variant="secondary">
-            © 2020 BotChatLaw Limited
+            {Copyright}
           </Alert>
         </Row>
         <div className="mb-3"/>
