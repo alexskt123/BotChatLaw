@@ -37,7 +37,7 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
 
       const trigger = errorPoofingDoc.link.length > 0 ? 'otherlink' :
         errorPoofingDoc.list.length > 0 ? 'otherlist' :
-        intentData.trigger
+          intentData.trigger
 
       triggerNextStep({ trigger, value: intentData })
 

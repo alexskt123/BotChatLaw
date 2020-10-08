@@ -34,7 +34,12 @@ export default function StepList({ previousStep, triggerNextStep }) {
             label: '返回',
             value: 'head',
             trigger: 'head'
-          }
+          },
+          {
+            label: '發問',
+            value: 'ask',
+            trigger: 'other'
+          }          
         )
 
       setList(list)
