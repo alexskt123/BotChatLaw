@@ -1,11 +1,12 @@
 import { Fragment } from 'react'
+import { contactUs } from '../config/contactUs'
 
 export default function ContactUs() {
 
   return (
     <Fragment>
-      <p>如有任何問題，請發電郵給我們：</p>
-      <a href="mailto:botchatlaw@gmail.com">botchatlaw@gmail.com</a>
+      <p>{contactUs.emailintro}</p>
+      <a href={`mailto:${contactUs.email}`}>{contactUs.email}</a>
     </Fragment>
   )
 }
