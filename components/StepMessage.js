@@ -1,11 +1,12 @@
 import { Fragment, useEffect, useState } from 'react'
 import Badge from 'react-bootstrap/Badge'
 
-import { getIntentDoc } from '../lib/firebaseResult'
+import { getIntentData } from '../lib/firebaseResult'
 import { getWikiInfo } from '../lib/dataProcess'
 import Loading from './loading'
 import { v4 as uuid } from 'uuid'
 import ListGroup from 'react-bootstrap/ListGroup'
+import IntentData from '../lib/data/intentData'
 
 export default function StepMessage({ previousStep, triggerNextStep }) {
   const [message, setMessage] = useState(null)
@@ -13,16 +14,16 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
 
   useEffect(() => {
     (async () => {
-      let doc
+      let intentData = {...IntentData} 
 
       if (typeof previousStep.value === 'string') {
-        doc = await getIntentDoc(previousStep.value)
+        intentData = await getIntentData(previousStep.value)
 
-        if (!doc) {
-          doc = await getWikiInfo (previousStep.value)
+        if (!intentData.doc) {
+          intentData.doc = await getWikiInfo (previousStep.value)
         }
       } else {
-        doc = previousStep.value
+        intentData = previousStep.value
       }
 
       const errorPoofingDoc = {
@@ -30,18 +31,17 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
         link: [],
         list: [],
         //overwrite default value
-        ...doc
+        ...intentData.doc
       }
 
-      console.log({ errorPoofingDoc })
 
       const trigger = errorPoofingDoc.link.length > 0 ? 'otherlink' :
         errorPoofingDoc.list.length > 0 ? 'otherlist' :
-          'head'
+        intentData.trigger
 
-      triggerNextStep({ trigger, value: doc })
+      triggerNextStep({ trigger, value: intentData })
 
-      const { header, list } = doc.explanations
+      const { header, list } = intentData.doc.explanations
 
       let tempMessage = {
         header,
@@ -49,7 +49,7 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
       }
 
       setMessage(tempMessage)
-      setLabel(doc.label)
+      setLabel(intentData.doc.label)
     })()
   }, [])
 

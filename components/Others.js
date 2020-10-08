@@ -4,6 +4,7 @@ import { setRequestByInput } from '../lib/setQueryByInput'
 import Loading from './loading'
 import { guessMsg, notFoundMsg } from '../config/messages'
 import { randomMsg } from '../lib/dataProcess'
+import IntentData from '../lib/data/intentData'
 
 export default function Others({ previousStep, triggerNextStep }) {
   const [message, setMessage] = useState(null)
@@ -13,23 +14,21 @@ export default function Others({ previousStep, triggerNextStep }) {
 
   useEffect(() => {
     (async () => {
-      const intentData = await getIntentByQuery(previousStep.value)
-      const doc = intentData.doc
 
-      let message = doc && doc.label ? guessMessage.replace('[label]', `${doc.label}`) : notFoundMessage
+      let intentData = {...IntentData}
+
+      intentData = await getIntentByQuery(previousStep.value)
+
+      let message = intentData.doc && intentData.doc.label ? guessMessage.replace('[label]', `${intentData.doc.label}`) : notFoundMessage
       setMessage(message)
 
-      await setRequestByInput(previousStep.value, intentData.intent)
+      await setRequestByInput(previousStep.value, intentData.intent)      
 
-
-      if (doc && doc.explanations) {
-        triggerNextStep({ trigger: 'otherdetail', value: doc })
-      }
-      else if (message === 'Bye') {
-        triggerNextStep({ trigger: 'tail' })
+      if (intentData.doc && intentData.doc.explanations) {
+        triggerNextStep({ trigger: 'otherdetail', value: intentData })
       }
       else {
-        triggerNextStep({ trigger: 'head' })
+        triggerNextStep({ trigger: intentData.trigger })
       }
     })()
   }, [])

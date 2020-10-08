@@ -6,24 +6,27 @@ import Loading from './loading'
 import { v4 as uuid } from 'uuid'
 
 import ListGroup from 'react-bootstrap/ListGroup'
+import IntentData from '../lib/data/intentData'
 
 export default function StepLink({ previousStep, triggerNextStep }) {
   const [links, setLinks] = useState(null)
 
   useEffect(() => {
     (async () => {
-      const doc = previousStep.value
+      let intentData = {...IntentData}
+
+      intentData = previousStep.value
 
       const {
         link: links,
         list
-      } = doc
+      } = intentData.doc
 
       setLinks(links)
 
-      const trigger = list.length > 0 ? 'otherlist' : 'head'
+      const trigger = list.length > 0 ? 'otherlist' : intentData.trigger
 
-      triggerNextStep({ trigger, value: doc })
+      triggerNextStep({ trigger, value: intentData })
     })()
   }, [])
 

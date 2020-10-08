@@ -4,7 +4,8 @@ import Badge from 'react-bootstrap/Badge'
 import Loading from './loading'
 
 import { v4 as uuid } from 'uuid'
-import { getIntentDoc } from '../lib/firebaseResult'
+import { getIntentData } from '../lib/firebaseResult'
+import IntentData from '../lib/data/intentData'
 
 import Button from 'react-bootstrap/Button'
 
@@ -14,10 +15,12 @@ export default function StepList({ previousStep, triggerNextStep }) {
 
   useEffect(() => {
     (async () => {
-      const doc = previousStep.value
+      let intentData = {...IntentData}
+
+      intentData = previousStep.value
 
       //use ... to spread everything and avoid object mutation
-      const list = [...doc.list]
+      const list = [...intentData.doc.list]
         .map(item => {
           const newItem = {
             ...item,
@@ -46,12 +49,12 @@ export default function StepList({ previousStep, triggerNextStep }) {
     if (item) {
       const { trigger, value } = item
 
-
-      const intentDoc = await getIntentDoc(value)
+      let intentData = IntentData
+      intentData = await getIntentData(value)
 
       const newTrigger = {
         trigger,
-        value: intentDoc
+        value: intentData
       }
 
       triggerNextStep(newTrigger)
