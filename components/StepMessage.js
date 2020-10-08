@@ -1,8 +1,7 @@
 import { Fragment, useEffect, useState } from 'react'
 import Badge from 'react-bootstrap/Badge'
 
-import { getIntentData } from '../lib/firebaseResult'
-import { getWikiInfo } from '../lib/dataProcess'
+import { getIntentByQuery } from '../lib/getIntentByQuery'
 import Loading from './loading'
 import { v4 as uuid } from 'uuid'
 import ListGroup from 'react-bootstrap/ListGroup'
@@ -14,14 +13,10 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
 
   useEffect(() => {
     (async () => {
-      let intentData = {...IntentData} 
+      let intentData = { ...IntentData }
 
       if (typeof previousStep.value === 'string') {
-        intentData = await getIntentData(previousStep.value)
-
-        if (!intentData.doc) {
-          intentData.doc = await getWikiInfo (previousStep.value)
-        }
+        intentData = await getIntentByQuery(previousStep.value)
       } else {
         intentData = previousStep.value
       }

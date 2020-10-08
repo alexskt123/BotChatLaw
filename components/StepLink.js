@@ -13,7 +13,7 @@ export default function StepLink({ previousStep, triggerNextStep }) {
 
   useEffect(() => {
     (async () => {
-      let intentData = {...IntentData}
+      let intentData = { ...IntentData }
 
       intentData = previousStep.value
 
