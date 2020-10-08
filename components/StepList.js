@@ -6,6 +6,7 @@ import Loading from './loading'
 import { v4 as uuid } from 'uuid'
 import { getIntentData } from '../lib/firebaseResult'
 import IntentData from '../lib/data/intentData'
+import { others, back } from '../config/stepOptions'
 
 import Button from 'react-bootstrap/Button'
 
@@ -15,7 +16,7 @@ export default function StepList({ previousStep, triggerNextStep }) {
 
   useEffect(() => {
     (async () => {
-      let intentData = {...IntentData}
+      let intentData = { ...IntentData }
 
       intentData = previousStep.value
 
@@ -30,16 +31,8 @@ export default function StepList({ previousStep, triggerNextStep }) {
           return newItem
         })
         .concat(
-          {
-            label: '返回',
-            value: 'head',
-            trigger: 'head'
-          },
-          {
-            label: '發問',
-            value: 'ask',
-            trigger: 'other'
-          }          
+          back,
+          others
         )
 
       setList(list)

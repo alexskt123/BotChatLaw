@@ -1,10 +1,10 @@
 const sameStyle = { fontSize: '15px', boxShadow: '1px 2px 5px #9E9E9E' }
 
 export const chatBotConfig = {
-  placeholder: "請輸入。。。",
-  botAvatar: "botAvatar.png",
-  userAvatar: "userAvatar.png",
-  width: "100%",
+  placeholder: '請輸入。。。',
+  botAvatar: 'botAvatar.png',
+  userAvatar: 'userAvatar.png',
+  width: '100%',
   bubbleStyle: sameStyle,
   bubbleOptionStyle: sameStyle,
   enableMobileAutoFocus: true
