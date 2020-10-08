@@ -1,11 +1,16 @@
 
 import { use100vh } from 'react-div-100vh'
 import PageLoading from '../components/PageLoading'
+
 import { Fragment } from 'react'
 import Container from 'react-bootstrap/Container'
-import Badge from 'react-bootstrap/Badge'
+import Row from 'react-bootstrap/Row'
+import Alert from 'react-bootstrap/Alert'
+import CardDeck from 'react-bootstrap/CardDeck'
+
 import CustomCarousel from '../components/AboutUs/CustomCarousel'
-import { DisplayItems , headerName } from '../config/aboutUs'
+import CustomCard from '../components/AboutUs/CustomCard'
+import { CarouselDisplayItems , CardDisplayitems } from '../config/aboutUs'
 
 export default function aboutus() {
 
@@ -13,15 +18,31 @@ export default function aboutus() {
 
   if (!height) return <PageLoading />
 
-  const displayItems = [...DisplayItems]
+  const carouselDisplayItems = [...CarouselDisplayItems]
+  const cardDisplayitems = [...CardDisplayitems]
+
 
   return (
     <Fragment>
       <Container height={height} className="shadow-lg p-3 mb-5 bg-white rounded">
-        <div className="mt-3">
-          <Badge variant="dark" className="mb-3"><h2>{headerName}</h2></Badge>
+        <div className="mt-0">
+          <Row className="justify-content-md-center"><img src="logo.png"></img></Row>
         </div>      
-        <CustomCarousel displayItems={displayItems} className="" />
+        <CustomCarousel displayItems={carouselDisplayItems} />
+        <div className="mt-5"/>
+        <CardDeck>
+          {cardDisplayitems.map(cardDisplayItem => {
+            return (
+              <CustomCard displayItems={cardDisplayItem} />
+            )
+          })}
+        </CardDeck>
+        <Row className="justify-content-md-center mt-5">
+          <Alert variant="secondary">
+            © 2020 BotChatLaw Limited
+          </Alert>
+        </Row>
+        <div className="mb-3"/>
       </Container>
     </Fragment>
   )
