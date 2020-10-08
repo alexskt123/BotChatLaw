@@ -10,6 +10,7 @@ import IntentData from '../lib/data/intentData'
 export default function StepMessage({ previousStep, triggerNextStep }) {
   const [message, setMessage] = useState(null)
   const [label, setLabel] = useState(null)
+  const [source, setSource] = useState(null)
 
   useEffect(() => {
     (async () => {
@@ -45,6 +46,7 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
 
       setMessage(tempMessage)
       setLabel(intentData.doc.label)
+      setSource(intentData.source)
     })()
   }, [])
 
@@ -52,7 +54,10 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-      <h5><Badge variant="dark">{label}</Badge></h5>
+      <h5>
+        <Badge variant="dark">{label}</Badge>
+        <Badge pill variant="light" className='ml-2' >{source}</Badge>
+      </h5>
       {
         message.list.length < 1 ?
           '不解釋....' :
