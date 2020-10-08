@@ -8,6 +8,8 @@ import Row from 'react-bootstrap/Row'
 import Alert from 'react-bootstrap/Alert'
 import CardDeck from 'react-bootstrap/CardDeck'
 
+import { v4 as uuid } from 'uuid'
+
 import CustomCarousel from '../components/AboutUs/CustomCarousel'
 import CustomCard from '../components/AboutUs/CustomCard'
 import { CarouselDisplayItems , CardDisplayitems } from '../config/aboutUs'
@@ -26,18 +28,20 @@ export default function aboutus() {
     <Fragment>
       <Container height={height} className="shadow-lg p-3 mb-5 bg-white rounded">
         <div className="mt-0">
-          <Row className="justify-content-md-center"><img src="logo.png"></img></Row>
+          <Row className="justify-content-center">
+              <img src="logo.png"></img>
+          </Row>
         </div>      
         <CustomCarousel displayItems={carouselDisplayItems} />
         <div className="mt-5"/>
         <CardDeck>
           {cardDisplayitems.map(cardDisplayItem => {
             return (
-              <CustomCard displayItems={cardDisplayItem} />
+              <CustomCard displayItems={cardDisplayItem} key={uuid()}/>
             )
           })}
         </CardDeck>
-        <Row className="justify-content-md-center mt-5">
+        <Row className="justify-content-center mt-5">
           <Alert variant="secondary">
             © 2020 BotChatLaw Limited
           </Alert>
