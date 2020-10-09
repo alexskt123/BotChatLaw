@@ -1,4 +1,4 @@
-const sameStyle = { fontSize: '15px', boxShadow: '1px 2px 5px #9E9E9E' }
+const sameStyle = { fontSize: '15px', boxShadow: '1px 2px 5px #9E9E9E', border: '1px solid' }
 
 export const chatBotConfig = {
   placeholder: '請輸入。。。',
@@ -24,6 +24,6 @@ export const chatBotTheme = {
   headerFontSize: '16px',
   botBubbleColor: '#ffffff',
   botFontColor: '#000000',
-  userBubbleColor: '#fffbc9',
-  userFontColor: '#4a4a4a',
+  userBubbleColor: '#4262d6',
+  userFontColor: '#f5f7ff',
 }

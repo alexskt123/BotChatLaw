@@ -7,7 +7,7 @@ import { v4 as uuid } from 'uuid'
 import ListGroup from 'react-bootstrap/ListGroup'
 import IntentData from '../lib/data/intentData'
 
-export default function StepMessage({ previousStep, triggerNextStep }) {
+export default function StepMessage({ previousStep, triggerNextStep, step }) {
   const [message, setMessage] = useState(null)
   const [label, setLabel] = useState(null)
   const [source, setSource] = useState(null)
