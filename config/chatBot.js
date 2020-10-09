@@ -7,7 +7,8 @@ export const chatBotConfig = {
   width: '100%',
   bubbleStyle: sameStyle,
   bubbleOptionStyle: sameStyle,
-  enableMobileAutoFocus: true
+  enableMobileAutoFocus: true,
+  hideUserAvatar: true
 }
 
 export const chatBotHeaderTitle = {
