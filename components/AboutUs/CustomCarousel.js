@@ -12,7 +12,6 @@ export default function CustomCarousel({ displayItems }) {
             <img
               className="d-block w-100"
               src={item.imgsrc}
-              height={500}
             />
             <Carousel.Caption>
               <Alert variant="secondary">
