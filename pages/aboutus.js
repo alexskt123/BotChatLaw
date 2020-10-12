@@ -16,6 +16,8 @@ import Footer from '../components/Footer'
 import ChatBot from '../components/FloatingChatBot'
 import { CarouselDisplayItems, CardDisplayitems, Copyright, HeaderName } from '../config/aboutUs'
 
+import Wiggle from '../components/Wiggle'
+
 export default function aboutus() {
 
   const height = use100vh()
@@ -28,7 +30,7 @@ export default function aboutus() {
 
   return (
     <Fragment>
-      <Header HeaderName={HeaderName}/>
+      <Header HeaderName={HeaderName} />
       <Container height={height} className="shadow-lg p-3 mb-5 bg-white rounded">
         <div className="mt-3">
           <Row className="justify-content-center">
@@ -45,9 +47,11 @@ export default function aboutus() {
           })}
         </CardDeck>
         <div className="mb-3" />
-        <ChatBot/>
+        <Wiggle>
+          <ChatBot />
+        </Wiggle>
       </Container>
-      <Footer Copyright={Copyright}/>
+      <Footer Copyright={Copyright} />
     </Fragment>
   )
 }
