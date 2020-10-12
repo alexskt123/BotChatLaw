@@ -4,11 +4,13 @@ export const chatBotConfig = {
   placeholder: '請輸入。。。',
   botAvatar: 'botAvatar.png',
   userAvatar: 'userAvatar.png',
-  width: '100%',
+  // width: '100%',
   bubbleStyle: sameStyle,
   bubbleOptionStyle: sameStyle,
   enableMobileAutoFocus: true,
-  hideUserAvatar: true
+  hideUserAvatar: true,
+  floating: true,
+  floatingIcon: 'floatingButton.png'
 }
 
 export const chatBotHeaderTitle = {

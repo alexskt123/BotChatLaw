@@ -8,7 +8,7 @@ import ChatBot from '../lib/react-simple-chatbot/react-simple-chatbot'
 import { chatBotConfig, chatBotHeaderTitle, chatBotTheme } from '../config/chatBot'
 
 //export default component
-export default function CustomChatBot({ height, steps }) {
+export default function CustomChatBot({ steps }) {
   return (
     <Fragment>
       <ThemeProvider theme={chatBotTheme}>
@@ -22,7 +22,6 @@ export default function CustomChatBot({ height, steps }) {
             </div>
           </Fragment>}
           {...chatBotConfig}       
-          height={height}
           steps={steps}          
         />
       </ThemeProvider>
