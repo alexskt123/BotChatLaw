@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 export default function Header({ HeaderName }) {
     return (
         <Navbar fixed="top" bg="dark" variant="dark">
-            <Navbar.Brand href="index">
+            <Navbar.Brand href="/">
                 <img
                     alt=""
                     src="logo.png"
