@@ -25,7 +25,6 @@ export default function ChatBot() {
   }
   //hooks
 
-  
   const steps = useSteps()
   const intent = useIntentList()
   console.log({ steps, intent })
