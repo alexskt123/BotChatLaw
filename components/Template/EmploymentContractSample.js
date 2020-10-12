@@ -14,9 +14,9 @@ export default function EmploymentContractSample({ employmentContractSample, hei
 
 
   return (
-    <Fragment>
-      <Container style={{ height: `${height}px` }}>
-        <div className="mt-3">
+    <Fragment>      
+      <Container height={height} className="shadow-lg p-3 mb-5 bg-white rounded">
+        <div className="mt-5">
           <Badge variant="secondary"><h2>僱員合約範例</h2></Badge>
 
         </div>
@@ -80,8 +80,7 @@ export default function EmploymentContractSample({ employmentContractSample, hei
           </Container>
         </Jumbotron>
         <Disclaimer />
-      </Container>
-
+      </Container>      
     </Fragment>
   )
 }

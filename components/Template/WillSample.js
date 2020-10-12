@@ -12,8 +12,8 @@ export default function WillSample({ willSample, height }) {
 
   return (
     <Fragment>
-      <Container style={{ height: `${height}px` }}>
-        <div className="mt-3">
+      <Container height={height} className="shadow-lg p-3 mb-5 bg-white rounded">
+        <div className="mt-5">
           <Badge variant="secondary"><h2>遺囑範例</h2></Badge>
 
         </div>

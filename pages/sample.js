@@ -1,12 +1,16 @@
 
 import { use100vh } from 'react-div-100vh'
-
+import { Fragment } from 'react'
 
 import PageLoading from '../components/PageLoading'
 import EmploymentContractSample from '../components/Template/EmploymentContractSample'
 
 import { useRouter } from 'next/router'
 import WillSample from '../components/Template/WillSample'
+
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import { Copyright, HeaderName } from '../config/aboutUs'
 
 export default function Sample() {
 
@@ -41,11 +45,19 @@ export default function Sample() {
 
   if(template === 'EmploymentContract')
     return (
-      <EmploymentContractSample employmentContractSample={employmentContractSample} height={height}/>
+      <Fragment>
+        <Header HeaderName={HeaderName}/>
+        <EmploymentContractSample employmentContractSample={employmentContractSample} height={height}/>
+        <Footer Copyright={Copyright}/>
+      </Fragment>
     )
   else if(template === 'Will')
     return (
-      <WillSample willSample={willSample} height={height}/>
+      <Fragment>
+        <Header HeaderName={HeaderName}/>
+        <WillSample willSample={willSample} height={height}/>
+        <Footer Copyright={Copyright}/>
+      </Fragment>            
     )
   else
     return (
