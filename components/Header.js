@@ -1,9 +1,10 @@
 import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/nav'
 
 export default function Header({ HeaderName }) {
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="/">
+      <Navbar.Brand>
         <img
           alt=""
           src="logo.png"
@@ -13,6 +14,12 @@ export default function Header({ HeaderName }) {
         />
         {HeaderName}
       </Navbar.Brand>
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="/">關於我哋</Nav.Link>
+          <Nav.Link href="/samplelist">法律文件範例</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   )
 }

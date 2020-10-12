@@ -16,8 +16,8 @@ export default function CustomChatBot({ steps }) {
           headerTitle={<Fragment>
             <div>
               <h4>
-                <a href="aboutus" target="_blank"><img width='40' height='40' className="mr-3" src={chatBotHeaderTitle.logo}>
-                </img></a><Badge className="p-0" variant="dark">{chatBotHeaderTitle.name}</Badge>
+                <img width='40' height='40' className="mr-3" src={chatBotHeaderTitle.logo}>
+                </img><Badge className="p-0" variant="dark">{chatBotHeaderTitle.name}</Badge>
               </h4>
             </div>
           </Fragment>}

@@ -61,7 +61,7 @@ export default function StepList({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-      <h5><Badge variant="dark">你可能對以下嘅野有興趣</Badge></h5>
+      <h5><Badge variant="dark">相關嘅嘢</Badge></h5>
       <div>
         {list.map(item => (
           <Button
