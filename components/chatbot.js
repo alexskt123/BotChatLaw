@@ -4,13 +4,13 @@ import { Fragment, createElement } from 'react'
 import { useSteps } from '../lib/hooks/useFire'
 import { useIntentList } from '../lib/hooks/useFire'
 //import components 
-import CustomChatBot from '../components/CustomChatBot'
-import Others from '../components/Others'
-import StepMessage from '../components/StepMessage'
-import StepLink from '../components/StepLink'
-import StepList from '../components/StepList'
-import ContactUs from '../components/ContactUs'
-import PageLoading from '../components/PageLoading'
+import CustomChatBot from './CustomChatBot'
+import Others from './Others'
+import StepMessage from './StepMessage'
+import StepLink from './StepLink'
+import StepList from './StepList'
+import ContactUs from './ContactUs'
+import PageLoading from './PageLoading'
 //import lib
 import { getOptions } from '../lib/dataProcess'
 //export default component
@@ -25,6 +25,7 @@ export default function ChatBot() {
   }
   //hooks
 
+  
   const steps = useSteps()
   const intent = useIntentList()
   console.log({ steps, intent })
