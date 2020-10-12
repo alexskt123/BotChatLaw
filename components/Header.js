@@ -1,5 +1,5 @@
 import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/nav'
+import Nav from 'react-bootstrap/Nav'
 
 export default function Header({ HeaderName }) {
   return (
