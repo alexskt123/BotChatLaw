@@ -1,11 +1,11 @@
 import { Fragment, useEffect, useState } from 'react'
 import Badge from 'react-bootstrap/Badge'
 
-import { getIntentByQuery } from '../lib/getIntentByQuery'
-import Loading from './loading'
+import { getIntentByQuery } from '../../lib/getIntentByQuery'
+import Loading from '../Loading/MessageLoading'
 import { v4 as uuid } from 'uuid'
 import ListGroup from 'react-bootstrap/ListGroup'
-import IntentData from '../lib/data/intentData'
+import IntentData from '../../lib/data/intentData'
 
 export default function StepMessage({ previousStep, triggerNextStep }) {
   const [message, setMessage] = useState(null)

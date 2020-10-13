@@ -1,8 +1,8 @@
 import { Fragment } from 'react'
-import { loadMsg } from '../config/messages'
-import { randomMsg } from '../lib/dataProcess'
+import { loadMsg } from '../../config/messages'
+import { randomMsg } from '../../lib/dataProcess'
 
-export default function Loading() {
+export default function MessageLoading() {
 
   const message = randomMsg(loadMsg)
 

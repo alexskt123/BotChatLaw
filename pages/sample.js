@@ -2,7 +2,7 @@
 import { use100vh } from 'react-div-100vh'
 import { Fragment } from 'react'
 
-import PageLoading from '../components/PageLoading'
+import PageLoading from '../components/Loading/PageLoading'
 import EmploymentContractSample from '../components/Template/EmploymentContractSample'
 
 import { useRouter } from 'next/router'

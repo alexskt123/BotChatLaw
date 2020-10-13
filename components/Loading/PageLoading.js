@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Spinner from 'react-bootstrap/Spinner'
 import Button from 'react-bootstrap/Button'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import { Copyright, HeaderName } from '../config/aboutUs'
+import Header from '../Header'
+import Footer from '../Footer'
+import { Copyright, HeaderName } from '../../config/aboutUs'
 
 export default function PageLoading() {
   return (

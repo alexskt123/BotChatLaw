@@ -7,7 +7,7 @@ import { v4 as uuid } from 'uuid'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Container from 'react-bootstrap/Container'
 
-import PageLoading from '../components/PageLoading'
+import PageLoading from '../components/Loading/PageLoading'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { Copyright, HeaderName } from '../config/aboutUs'

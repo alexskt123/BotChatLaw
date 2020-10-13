@@ -1,12 +1,12 @@
 import { Fragment, useEffect, useState } from 'react'
 import Badge from 'react-bootstrap/Badge'
 
-import Loading from './loading'
+import Loading from '../Loading/MessageLoading'
 
 import { v4 as uuid } from 'uuid'
-import { getIntentData } from '../lib/firebaseResult'
-import IntentData from '../lib/data/intentData'
-import { others, back } from '../config/stepOptions'
+import { getIntentData } from '../../lib/firebaseResult'
+import IntentData from '../../lib/data/intentData'
+import { others, back } from '../../config/stepOptions'
 
 import Button from 'react-bootstrap/Button'
 

@@ -1,10 +1,10 @@
 import { Fragment, useEffect, useState } from 'react'
-import { getIntentByQuery } from '../lib/getIntentByQuery'
-import { setRequestByInput } from '../lib/setQueryByInput'
-import Loading from './loading'
-import { guessMsg, notFoundMsg } from '../config/messages'
-import { randomMsg } from '../lib/dataProcess'
-import IntentData from '../lib/data/intentData'
+import { getIntentByQuery } from '../../lib/getIntentByQuery'
+import { setRequestByInput } from '../../lib/setQueryByInput'
+import Loading from '../Loading/MessageLoading'
+import { guessMsg, notFoundMsg } from '../../config/messages'
+import { randomMsg } from '../../lib/dataProcess'
+import IntentData from '../../lib/data/intentData'
 
 export default function Others({ previousStep, triggerNextStep }) {
   const [message, setMessage] = useState(null)

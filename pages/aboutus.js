@@ -1,6 +1,6 @@
 
 import { use100vh } from 'react-div-100vh'
-import PageLoading from '../components/PageLoading'
+import PageLoading from '../components/Loading/PageLoading'
 
 import { Fragment } from 'react'
 import Container from 'react-bootstrap/Container'
@@ -13,7 +13,7 @@ import CustomCarousel from '../components/AboutUs/CustomCarousel'
 import CustomCard from '../components/AboutUs/CustomCard'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import ChatBot from '../components/FloatingChatBot'
+import ChatBot from '../components/ChatBot/FloatingChatBot'
 import { CarouselDisplayItems, CardDisplayitems, Copyright, HeaderName } from '../config/aboutUs'
 
 import Wiggle from '../components/Wiggle'

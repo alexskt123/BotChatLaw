@@ -1,18 +1,18 @@
 //import from react
 import { Fragment, createElement } from 'react'
 //import hooks
-import { useSteps } from '../lib/hooks/useFire'
-import { useIntentList } from '../lib/hooks/useFire'
+import { useSteps } from '../../lib/hooks/useFire'
+import { useIntentList } from '../../lib/hooks/useFire'
 //import components 
-import CustomChatBot from './CustomChatBot'
+import CustomChatBot from '../ChatBot/CustomChatBot'
 import Others from './Others'
 import StepMessage from './StepMessage'
 import StepLink from './StepLink'
 import StepList from './StepList'
-import ContactUs from './ContactUs'
-import PageLoading from './PageLoading'
+import ContactUs from '../ContactUs'
+import ChatBotLoading from '../Loading/ChatBotLoading'
 //import lib
-import { getOptions } from '../lib/dataProcess'
+import { getOptions } from '../../lib/dataProcess'
 //export default component
 export default function ChatBot() {
   //varibles for component
@@ -35,7 +35,7 @@ export default function ChatBot() {
     || intent.length < 1
   ) {
     return (
-      <PageLoading/>
+      <ChatBotLoading/>
 
     )
   }
