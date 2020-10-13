@@ -16,12 +16,12 @@ export default function EmploymentContractSample({ employmentContractSample, hei
   return (
     <Fragment>      
       <Container height={height} className="shadow-lg p-3 mb-5 bg-white rounded">
-        <div className="mt-5">
+        <div className="mt-0">
           <Badge variant="secondary"><h2>僱員合約範例</h2></Badge>
 
         </div>
 
-        <Jumbotron className="p-3 mt-3">
+        <Jumbotron className="p-1 mt-3">
           <Container>
             <div>
               <h1>{employmentContractSample.erName}</h1>

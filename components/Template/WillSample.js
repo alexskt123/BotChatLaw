@@ -13,12 +13,12 @@ export default function WillSample({ willSample, height }) {
   return (
     <Fragment>
       <Container height={height} className="shadow-lg p-3 mb-5 bg-white rounded">
-        <div className="mt-5">
+        <div className="mt-0">
           <Badge variant="secondary"><h2>遺囑範例</h2></Badge>
 
         </div>
 
-        <Jumbotron className="p-3 mt-3">
+        <Jumbotron className="p-1 mt-3">
           <Container>
             <div>
               <h1>Sample</h1>
@@ -34,6 +34,15 @@ export default function WillSample({ willSample, height }) {
                 <li className="mt-3">I GIVE THE RESIDUE of my estate both real and personal, immovable or movable, of whatever nature and wherever situated to my Executor UPON TRUST to hold the balance then remaining for such of <SampleItem item={willSample.residue} /></li>
 
               </ol>
+              <div className="mt-3">
+                IN WITNESS whereof I have set my hand to this my Will this [day] of [month] 2020.
+              </div>
+              <div className="mt-3" style={{ width: '40%' }}>
+                SIGNED by the said <SampleItem item={willSample.testatorName} /> and for his or her last Will and Testament
+                in the presence of us both present at the same
+                time who at her request and in her presence and
+                in the presence of each other have hereunto
+              </div>
             </div>
           </Container>
         </Jumbotron>
