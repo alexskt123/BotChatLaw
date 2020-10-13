@@ -32,11 +32,9 @@ export default function aboutus() {
     <Fragment>
       <Header HeaderName={HeaderName} />
       <Container height={height} className="shadow-lg p-3 mb-5 bg-white rounded">
-        <div className="mt-3">
-          <Row className="justify-content-center">
-            <img src="logo.png"></img>
-          </Row>
-        </div>
+        <Row className="justify-content-center">
+          <img src="logoFlat.png"></img>
+        </Row>
         <CustomCarousel displayItems={carouselDisplayItems} />
         <div className="mt-5" />
         <CardDeck className="justify-content-center">

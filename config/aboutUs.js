@@ -35,6 +35,11 @@ export const CardDisplayitems = [
     text: '自然語言處理 (Natural language processing)可以令輸入嘅語言變成有意思嘅符號和關係，然後根據目的再處理。'      
   },
   {
+    imgsrc: 'aboutus/wiki.jpg',
+    title: '維基百科',
+    text: '學海無涯，新的事物學極都有。唔識嘅嘢當然要問維基。。。'      
+  },
+  {
     imgsrc: 'aboutus/AI.jpg',
     title: '人工智能',
     text: '要睇得明你地打乜，當然要靠人工智能啦。我地嘅AI可以好似讀心咁，知道你想講乜！'      
