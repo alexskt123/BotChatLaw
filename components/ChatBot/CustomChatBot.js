@@ -15,14 +15,12 @@ export default function CustomChatBot({ steps }) {
         <ChatBot
           headerTitle={<Fragment>
             <div>
-              <h4>
-                <img width='40' height='40' className="mr-3" src={chatBotHeaderTitle.logo}>
-                </img><Badge className="p-0" variant="dark">{chatBotHeaderTitle.name}</Badge>
-              </h4>
+              <img width='45' height='45' src={chatBotHeaderTitle.logo} />
+              {chatBotHeaderTitle.name}
             </div>
           </Fragment>}
-          {...chatBotConfig}       
-          steps={steps}          
+          {...chatBotConfig}
+          steps={steps}
         />
       </ThemeProvider>
     </Fragment>
