@@ -18,6 +18,7 @@ export default function Header({ HeaderName }) {
         <Nav className="mr-auto">
           <Nav.Link href="/">關於我哋</Nav.Link>
           <Nav.Link href="/samplelist">法律文件範例</Nav.Link>
+          <Nav.Link href="/chart">搵過嘅嘢</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
