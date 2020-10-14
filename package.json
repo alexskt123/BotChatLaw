@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "eslint --fix ./"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "dependencies": {
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
@@ -31,6 +34,7 @@
   },
   "devDependencies": {
     "eslint": "^7.10.0",
-    "eslint-plugin-react": "^7.21.2"
+    "eslint-plugin-react": "^7.21.2",
+    "pre-commit": "^1.2.2"
   }
 }
