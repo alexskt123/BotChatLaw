@@ -18,7 +18,7 @@ export default function PageLoading() {
             <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
             <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
               Load緊
-          <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+            <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
             <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
             <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
           </Button>
