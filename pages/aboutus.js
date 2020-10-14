@@ -13,10 +13,7 @@ import CustomCarousel from '../components/AboutUs/CustomCarousel'
 import CustomCard from '../components/AboutUs/CustomCard'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import ChatBot from '../components/ChatBot/FloatingChatBot'
 import { CarouselDisplayItems, CardDisplayitems, Copyright, HeaderName } from '../config/aboutUs'
-
-import Wiggle from '../components/Wiggle'
 
 export default function aboutus() {
 
@@ -45,9 +42,7 @@ export default function aboutus() {
           })}
         </CardDeck>
         <div className="mb-3" />
-        <Wiggle>
-          <ChatBot />
-        </Wiggle>
+
       </Container>
       <Footer Copyright={Copyright} />
     </Fragment>
