@@ -1,6 +1,5 @@
 //import from react
 import { Fragment } from 'react'
-import Badge from 'react-bootstrap/Badge'
 //import lib
 import { ThemeProvider } from 'styled-components'
 import ChatBot from '../../lib/react-simple-chatbot/react-simple-chatbot'

@@ -15,35 +15,35 @@ import { Copyright, HeaderName } from '../config/aboutUs'
 
 export default function SampleList() {
 
-    const height = use100vh()
+  const height = use100vh()
 
-    if (!height) return <PageLoading />
+  if (!height) return <PageLoading />
 
 
-    return (
-        <Fragment>
-            <Header HeaderName={HeaderName} />
-            <Container style={{ height: height }} className="shadow-lg p-3 mb-5 bg-white rounded">
-                <ListGroup variant={'outline-dark'}>
-                    <ListGroup.Item
-                        as={'a'}
-                        key={uuid()}
-                        href='/sample?template=EmploymentContract'
-                        >
+  return (
+    <Fragment>
+      <Header HeaderName={HeaderName} />
+      <Container style={{ height: height }} className="shadow-lg p-3 mb-5 bg-white rounded">
+        <ListGroup variant={'outline-dark'}>
+          <ListGroup.Item
+            as={'a'}
+            key={uuid()}
+            href='/sample?template=EmploymentContract'
+          >
                         僱員合約範例
-                    </ListGroup.Item>
-                </ListGroup>
-                <ListGroup variant={'outline-dark'}>
-                    <ListGroup.Item
-                        as={'a'}
-                        key={uuid()}
-                        href='/sample?template=Will'
-                        >
+          </ListGroup.Item>
+        </ListGroup>
+        <ListGroup variant={'outline-dark'}>
+          <ListGroup.Item
+            as={'a'}
+            key={uuid()}
+            href='/sample?template=Will'
+          >
                         遺囑範例
-                    </ListGroup.Item>
-                </ListGroup>
-            </Container>
-            <Footer Copyright={Copyright} />
-        </Fragment>
-    )
+          </ListGroup.Item>
+        </ListGroup>
+      </Container>
+      <Footer Copyright={Copyright} />
+    </Fragment>
+  )
 }
