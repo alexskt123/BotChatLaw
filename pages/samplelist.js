@@ -8,10 +8,6 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Container from 'react-bootstrap/Container'
 
 import PageLoading from '../components/Loading/PageLoading'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import { Copyright, HeaderName } from '../config/aboutUs'
-
 
 export default function SampleList() {
 
@@ -22,7 +18,6 @@ export default function SampleList() {
 
   return (
     <Fragment>
-      <Header HeaderName={HeaderName} />
       <Container style={{ height: height }} className="shadow-lg p-3 mb-5 bg-white rounded">
         <ListGroup variant={'outline-dark'}>
           <ListGroup.Item
@@ -42,8 +37,7 @@ export default function SampleList() {
                         遺囑範例
           </ListGroup.Item>
         </ListGroup>
-      </Container>
-      <Footer Copyright={Copyright} />
+      </Container>            
     </Fragment>
   )
 }

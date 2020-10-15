@@ -11,9 +11,7 @@ import { v4 as uuid } from 'uuid'
 
 import CustomCarousel from '../components/AboutUs/CustomCarousel'
 import CustomCard from '../components/AboutUs/CustomCard'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import { CarouselDisplayItems, CardDisplayitems, Copyright, HeaderName } from '../config/aboutUs'
+import { CarouselDisplayItems, CardDisplayitems } from '../config/aboutUs'
 
 export default function aboutus() {
 
@@ -26,8 +24,7 @@ export default function aboutus() {
 
 
   return (
-    <Fragment>
-      <Header HeaderName={HeaderName} />
+    <Fragment>      
       <Container height={height} className="shadow-lg p-3 mb-5 bg-white rounded">
         <Row className="justify-content-center">
           <img src="logoFlat.png"></img>
@@ -43,8 +40,7 @@ export default function aboutus() {
         </CardDeck>
         <div className="mb-3" />
 
-      </Container>
-      <Footer Copyright={Copyright} />
+      </Container>      
     </Fragment>
   )
 }

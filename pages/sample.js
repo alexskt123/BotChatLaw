@@ -8,10 +8,6 @@ import EmploymentContractSample from '../components/Template/EmploymentContractS
 import { useRouter } from 'next/router'
 import WillSample from '../components/Template/WillSample'
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import { Copyright, HeaderName } from '../config/aboutUs'
-
 export default function Sample() {
 
   const height = use100vh()
@@ -45,22 +41,18 @@ export default function Sample() {
 
   if(template === 'EmploymentContract')
     return (
-      <Fragment>
-        <Header HeaderName={HeaderName}/>
-        <EmploymentContractSample employmentContractSample={employmentContractSample} height={height}/>
-        <Footer Copyright={Copyright}/>
+      <Fragment>        
+        <EmploymentContractSample employmentContractSample={employmentContractSample} height={height}/>        
       </Fragment>
     )
   else if(template === 'Will')
     return (
       <Fragment>
-        <Header HeaderName={HeaderName}/>
-        <WillSample willSample={willSample} height={height}/>
-        <Footer Copyright={Copyright}/>
+        <WillSample willSample={willSample} height={height}/>        
       </Fragment>            
     )
   else
     return (
-      ''
+      <PageLoading/>
     )
 }

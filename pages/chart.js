@@ -6,9 +6,6 @@ import { useSummary } from '../lib/hooks/useFire'
 import PageLoading from '../components/Loading/PageLoading'
 import Container from 'react-bootstrap/Container'
 import Alert from 'react-bootstrap/Alert'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import { Copyright, HeaderName } from '../config/aboutUs'
 import { getTop } from '../lib/dataProcess'
 
 export default function CustomChart() {
@@ -61,14 +58,12 @@ export default function CustomChart() {
 
   return (
     <Fragment>
-      <Header HeaderName={HeaderName} />
       <Container style={{ height }} className="shadow-lg p-3 mb-5 bg-white rounded">
         <div>
           <Alert variant="success">啲人搵過啲咩</Alert>
           <Bar {...barConfig} />
         </div>
       </Container>
-      <Footer Copyright={Copyright} />
     </Fragment>
   )
 }
