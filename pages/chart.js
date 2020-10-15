@@ -58,7 +58,7 @@ export default function CustomChart() {
 
   return (
     <Fragment>
-      <Container style={{ height }} className="shadow-lg p-3 mb-5 bg-white rounded">
+      <Container style={{ minHeight: height }} className="shadow-lg p-3 mb-5 bg-white rounded">
         <div>
           <Alert variant="success">啲人搵過啲咩</Alert>
           <Bar {...barConfig} />
