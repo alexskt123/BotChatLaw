@@ -25,7 +25,7 @@ export default function aboutus() {
 
 
   return (
-    <Fragment>      
+    <Fragment>
       <Container height={height} className="shadow-lg p-3 mb-5 bg-white rounded">
         <Row className="justify-content-center">
           <img src={Settings.FlatLogo}></img>
@@ -41,7 +41,7 @@ export default function aboutus() {
         </CardDeck>
         <div className="mb-3" />
 
-      </Container>      
+      </Container>
     </Fragment>
   )
 }
