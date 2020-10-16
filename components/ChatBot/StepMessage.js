@@ -10,10 +10,7 @@ import IntentData from '../../lib/data/intentData'
 import containsChinese from 'contains-chinese'
 
 export default function StepMessage({ previousStep, triggerNextStep }) {
-  const [message, setMessage] = useState(null)
-  const [label, setLabel] = useState(null)
-  const [source, setSource] = useState(null)
-  const [wikiHref, setHref] = useState(null)
+  const [config, setConfig] = useState(null)
 
   useEffect(() => {
     (async () => {
@@ -49,40 +46,43 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
 
       const lang = containsChinese(intentData.doc.label) ? 'zh' : 'en'
 
-      setMessage(tempMessage)
-      setLabel(intentData.doc.label)
-      setSource(intentData.source)
-      setHref(`https://${lang}.wikipedia.org/wiki/${intentData.doc.label}`)
+      let config = {}
+      config.message = tempMessage
+      config.label = intentData.doc.label
+      config.source = intentData.source
+      config.wikiHref = `https://${lang}.wikipedia.org/wiki/${intentData.doc.label}`
+
+      setConfig(config)
     })()
   }, [])
 
-  if (!message) return <Loading />
+  if (!config) return <Loading />
 
   return (
     <Fragment>
       <h5>
-        <Badge variant="dark">{label}</Badge>
-        <Badge pill variant="light" className='ml-2' as='a' href={wikiHref} target='_blank' >{source}</Badge>
+        <Badge variant="dark">{config.label}</Badge>
+        <Badge pill variant="light" className='ml-2' as='a' href={config.wikiHref} target='_blank' >{config.source}</Badge>
       </h5>
       {
-        message.list.length < 1 ?
+        config.message.list.length < 1 ?
           '不解釋....' :
-          message.list.length === 1 ?
+          config.message.list.length === 1 ?
             <Fragment>
               <p>
-                {message.header}
+                {config.message.header}
               </p>
               <p>
-                {message.list.find(x => x)}
+                {config.message.list.find(x => x)}
               </p>
             </Fragment>
             :
             <ListGroup variant={'outline-dark'}>
               <p>
-                {message.header}
+                {config.message.header}
               </p>
               {
-                message.list
+                config.message.list
                   .map(messageItem => {
                     return <ListGroup.Item key={uuid()}>{messageItem}</ListGroup.Item>
                   })
