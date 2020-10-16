@@ -8,36 +8,31 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Container from 'react-bootstrap/Container'
 
 import PageLoading from '../components/Loading/PageLoading'
+import { sampleListItems } from '../config/sampleList'
 
 export default function SampleList() {
 
   const height = use100vh()
 
-  if (!height) return <PageLoading />
-
+  if (!height || !sampleListItems) return <PageLoading />
 
   return (
     <Fragment>
       <Container style={{ height: height }} className="shadow-lg p-3 mb-5 bg-white rounded">
         <ListGroup variant={'outline-dark'}>
-          <ListGroup.Item
-            as={'a'}
-            key={uuid()}
-            href='/sample?template=EmploymentContract'
-          >
-                        僱員合約範例
-          </ListGroup.Item>
+          {sampleListItems.map(item => {
+            return (
+              <ListGroup.Item
+                as={'a'}
+                key={uuid()}
+                href={item.href}
+              >
+                {item.label}
+              </ListGroup.Item>
+            )
+          })}
         </ListGroup>
-        <ListGroup variant={'outline-dark'}>
-          <ListGroup.Item
-            as={'a'}
-            key={uuid()}
-            href='/sample?template=Will'
-          >
-                        遺囑範例
-          </ListGroup.Item>
-        </ListGroup>
-      </Container>            
+      </Container>
     </Fragment>
   )
 }

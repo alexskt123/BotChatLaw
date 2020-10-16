@@ -1,24 +1,37 @@
+import { v4 as uuid } from 'uuid'
+
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
+import Settings, { NavItems } from '../config/settings'
+
 export default function Header({ HeaderName }) {
+
+  const imgConfig = {
+    alt: '',
+    src: Settings.LogoImgSrc,
+    width: '30',
+    height: '30',
+    className: 'd-inline-block align-top'
+  }
+
   return (
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand>
         <img
-          alt=""
-          src="logo.png"
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
+          {...imgConfig}
         />
         {HeaderName}
       </Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/">關於我哋</Nav.Link>
-          <Nav.Link href="/samplelist">法律文件範例</Nav.Link>
-          <Nav.Link href="/chart">搵過嘅嘢</Nav.Link>
+          {NavItems.map(item => {
+            return (
+              <Nav.Link key={uuid()} href={item.href}>
+                {item.label}
+              </Nav.Link>
+            )
+          })}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

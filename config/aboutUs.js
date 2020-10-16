@@ -50,7 +50,3 @@ export const CardDisplayitems = [
     text: '同人傾計好悶？試吓同佢傾啦。'      
   }
 ]
-
-export const HeaderName = '法律小幫手'
-
-export const Copyright = '© 2020 BotChatLaw Limited'

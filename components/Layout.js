@@ -5,17 +5,17 @@ import ChatBot from './ChatBot/FloatingChatBot'
 import Wiggle from './Wiggle'
 import Header from './Header'
 import Footer from './Footer'
-import { Copyright, HeaderName } from '../config/aboutUs'
+import Settings from '../config/settings'
 
 export default function Layout ({children}) {
   return (    
     <Fragment>
-      <Header HeaderName={HeaderName} />
+      <Header HeaderName={Settings.HeaderName} />
       {{ ...children }}
       <Wiggle>
         <ChatBot />
       </Wiggle>
-      <Footer Copyright={Copyright} />
+      <Footer Copyright={Settings.Copyright} />
     </Fragment>
   )
 }

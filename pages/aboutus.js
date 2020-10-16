@@ -12,6 +12,7 @@ import { v4 as uuid } from 'uuid'
 import CustomCarousel from '../components/AboutUs/CustomCarousel'
 import CustomCard from '../components/AboutUs/CustomCard'
 import { CarouselDisplayItems, CardDisplayitems } from '../config/aboutUs'
+import Settings from '../config/settings'
 
 export default function aboutus() {
 
@@ -27,7 +28,7 @@ export default function aboutus() {
     <Fragment>      
       <Container height={height} className="shadow-lg p-3 mb-5 bg-white rounded">
         <Row className="justify-content-center">
-          <img src="logoFlat.png"></img>
+          <img src={Settings.FlatLogo}></img>
         </Row>
         <CustomCarousel displayItems={carouselDisplayItems} />
         <div className="mt-5" />

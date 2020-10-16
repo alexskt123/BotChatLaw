@@ -10,7 +10,7 @@ import StepMessage from './StepMessage'
 import StepLink from './StepLink'
 import StepList from './StepList'
 import ContactUs from '../ContactUs'
-import ChatBotLoading from '../Loading/ChatBotLoading'
+import LoadingSpinner from '../Loading/LoadingSpinner'
 //import lib
 import { getOptions } from '../../lib/dataProcess'
 //export default component
@@ -35,7 +35,7 @@ export default function ChatBot() {
     || intent.length < 1
   ) {
     return (
-      <ChatBotLoading/>
+      <LoadingSpinner/>
 
     )
   }
