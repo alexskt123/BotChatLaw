@@ -22,3 +22,8 @@ export const NavItems = [
     label: '搵過嘅嘢'
   }
 ]
+
+export const webConfig = {
+  //update this or the value in firebase to force refresh
+  webVersion: '0.0.9'
+}
