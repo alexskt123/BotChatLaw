@@ -7,10 +7,13 @@ import { v4 as uuid } from 'uuid'
 import ListGroup from 'react-bootstrap/ListGroup'
 import IntentData from '../../lib/data/intentData'
 
+import containsChinese from 'contains-chinese'
+
 export default function StepMessage({ previousStep, triggerNextStep }) {
   const [message, setMessage] = useState(null)
   const [label, setLabel] = useState(null)
   const [source, setSource] = useState(null)
+  const [wikiHref, setHref] = useState(null)
 
   useEffect(() => {
     (async () => {
@@ -44,9 +47,12 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
         list
       }
 
+      const lang = containsChinese(intentData.doc.label) ? 'zh' : 'en'
+
       setMessage(tempMessage)
       setLabel(intentData.doc.label)
       setSource(intentData.source)
+      setHref(`https://${lang}.wikipedia.org/wiki/${intentData.doc.label}`)
     })()
   }, [])
 
@@ -56,7 +62,7 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
     <Fragment>
       <h5>
         <Badge variant="dark">{label}</Badge>
-        <Badge pill variant="light" className='ml-2' >{source}</Badge>
+        <Badge pill variant="light" className='ml-2' as='a' href={wikiHref} target='_blank' >{source}</Badge>
       </h5>
       {
         message.list.length < 1 ?
