@@ -22,3 +22,9 @@ export const loadMsg = [
   '唔好急...',
   '唔好急唔好急...'
 ]
+
+export const notUseGuessMsg = [
+  'Bye',
+  'Hi',
+  'FoulLanguage'
+]

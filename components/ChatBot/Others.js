@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { getIntentByQuery } from '../../lib/getIntentByQuery'
 import { setRequestByInput } from '../../lib/setQueryByInput'
 import Loading from '../Loading/MessageLoading'
-import { guessMsg, notFoundMsg } from '../../config/messages'
+import { guessMsg, notFoundMsg, notUseGuessMsg } from '../../config/messages'
 import { randomMsg } from '../../lib/dataProcess'
 import IntentData from '../../lib/data/intentData'
 
@@ -12,6 +12,17 @@ export default function Others({ previousStep, triggerNextStep }) {
   const guessMessage = randomMsg(guessMsg)
   const notFoundMessage = randomMsg(notFoundMsg)
 
+  const getMessage = (intentData) => {
+    let message = notFoundMessage
+    const {intent, doc} = intentData
+
+    if (doc && doc.label) {
+      message = (notUseGuessMsg.find(x => x === `${intent}`)) ? doc.label : guessMessage.replace('[label]', `${doc.label}`)
+    }
+
+    return message
+  }
+
   useEffect(() => {
     (async () => {
 
@@ -19,7 +30,7 @@ export default function Others({ previousStep, triggerNextStep }) {
 
       intentData = await getIntentByQuery(previousStep.value)
 
-      let message = intentData.doc && intentData.doc.label ? guessMessage.replace('[label]', `${intentData.doc.label}`) : notFoundMessage
+      let message = getMessage(intentData)
       setMessage(message)
 
       await setRequestByInput(previousStep.value, intentData.intent)      
