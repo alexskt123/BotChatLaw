@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { webConfig } from '../config/settings'
 import { useServerConfig } from '../lib/hooks/useFire'
@@ -34,7 +34,7 @@ export default function VersionChecking() {
 
   }, [ServerConfig])
 
-  return updateAvail ? <UpdateModal show={updateAvail} onHide={() => setUpdateAvail(false)} update={() => updateNow()} /> : <Fragment />
+  return <UpdateModal show={updateAvail} onHide={() => setUpdateAvail(false)} update={() => updateNow()} />
 }
 
 export function UpdateModal({ show, onHide, update }) {
