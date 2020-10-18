@@ -25,5 +25,5 @@ export const NavItems = [
 
 export const webConfig = {
   //update this or the value in firebase to force refresh
-  webVersion: '0.0.9'
+  webVersion: '0.0.10'
 }
