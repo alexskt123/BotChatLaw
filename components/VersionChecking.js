@@ -12,6 +12,7 @@ export default function VersionChecking() {
   const [updateAvail, setUpdateAvail] = useState(false)
 
   const updateNow = () => {
+    localStorage.removeItem('web_config')
     router.reload()
   }
 
@@ -21,14 +22,13 @@ export default function VersionChecking() {
     const serverVersion = ServerConfig.webVersion || webConfig.webVersion
     const webVersion = JSON.parse(localConfig).webVersion
 
-    console.log({ serverVersion, webVersion })
-
     try {
       if (semver.lt(webVersion, serverVersion)) {
         setUpdateAvail(true)
         localStorage.setItem('web_config', JSON.stringify(ServerConfig))
       }
     } catch (error) {
+      localStorage.removeItem('web_config')
       console.error(error)
     }
 
