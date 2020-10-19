@@ -10,6 +10,17 @@ export const back = {
   trigger: 'head'
 }
 
+export const continueOptions = [
+  {
+    value: 'yes',
+    label: '是'
+  },
+  {
+    value: 'no',
+    label: '否'
+  }
+]
+
 export const defaultOptions = [
   {
     label: '結束',
