@@ -13,17 +13,18 @@ import { v4 as uuid } from 'uuid'
 export default function Others({ previousStep, triggerNextStep }) {
   const [message, setMessage] = useState(null)
   const [data, setData] = useState(null)
+  const [notGuess, setNotGuess] = useState(null)
   const [clicked, setClicked] = useState(false)
 
   const guessMessage = randomMsg(guessMsg)
   const notFoundMessage = randomMsg(notFoundMsg)
 
-  const getMessage = (intentData) => {
+  const getMessage = (intentData, isNotGuess) => {
     let message = notFoundMessage
-    const {intent, doc} = intentData
+    const {doc} = intentData
 
     if (doc && doc.label) {
-      message = (notUseGuessMsg.find(x => x === `${intent}`)) ? doc.label : guessMessage.replace('[label]', `${doc.label}`)
+      message = (isNotGuess) ? doc.label : guessMessage.replace('[label]', `${doc.label}`)
     }
 
     return message
@@ -32,16 +33,23 @@ export default function Others({ previousStep, triggerNextStep }) {
   useEffect(() => {
     (async () => {
 
-      let intentData = {...IntentData}
+      let intentData = {...IntentData}      
 
       intentData = await getIntentByQuery(previousStep.value)
 
-      let message = getMessage(intentData)
+      let isNotGuess = notUseGuessMsg.find(x => x === intentData.intent) || (!(intentData.doc && intentData.doc.label))
+
+      let message = getMessage(intentData, isNotGuess)
       setMessage(message)
 
-      await setRequestByInput(previousStep.value, intentData.intent)     
+      await setRequestByInput(previousStep.value, intentData.intent)        
+      
+      if (isNotGuess) {
+        triggerNextStep({trigger: intentData.trigger})
+      }
       
       setData(intentData)
+      setNotGuess(isNotGuess)
 
     })()
   }, [])
@@ -87,7 +95,7 @@ export default function Others({ previousStep, triggerNextStep }) {
     <Fragment>
       {message}
       <div>
-        {continueOptions.map(item => (
+        {!notGuess && continueOptions.map(item => (          
           <Button
             key={uuid()}
             variant='outline-dark'
