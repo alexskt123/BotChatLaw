@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { webConfig } from '../config/settings'
+import { webConfig, versionCheckingModalConfig } from '../config/settings'
 import { useServerConfig } from '../lib/hooks/useFire'
 import semver from 'semver'
-import { Modal, Button } from 'react-bootstrap'
+
+import Swal from 'sweetalert2'
 
 export default function VersionChecking() {
   //local state for now, will move to global store
@@ -12,8 +13,23 @@ export default function VersionChecking() {
   const [updateAvail, setUpdateAvail] = useState(false)
 
   const updateNow = () => {
-    localStorage.removeItem('web_config')
     router.reload()
+  }
+
+  const sweetModal = async () => {
+    let result = await Swal.fire({
+      ...versionCheckingModalConfig,
+      didOpen: (modal) => {
+        modal.addEventListener('mouseenter', Swal.stopTimer)
+        modal.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+
+    setUpdateAvail(false)
+
+    if (result.isConfirmed) {
+      updateNow()
+    }
   }
 
   useEffect(() => {
@@ -34,27 +50,9 @@ export default function VersionChecking() {
 
   }, [ServerConfig])
 
-  return <UpdateModal show={updateAvail} onHide={() => setUpdateAvail(false)} update={() => updateNow()} />
-}
+  if (updateAvail) {
+    sweetModal()
+  }
 
-export function UpdateModal({ show, onHide, update }) {
-  return (
-    <Modal show={show} onHide={onHide} size="lg" centered>
-      <Modal.Header closeButton>
-        <Modal.Title>
-          {'Update Available!'}
-        </Modal.Title>
-      </Modal.Header>
-
-      <Modal.Body>
-        {'Click "Update Now" to update.'}
-      </Modal.Body>
-
-      <Modal.Footer>
-        <Button onClick={update}>{'Update Now'}</Button>
-
-        <Button variant="secondary" onClick={onHide}>{'Later'}</Button>
-      </Modal.Footer>
-    </Modal>
-  )
+  return ''
 }

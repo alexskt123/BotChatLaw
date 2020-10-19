@@ -30,6 +30,8 @@
     "shuffle-array": "^1.0.1",
     "string-strip-html": "^6.0.4",
     "styled-components": "^5.2.0",
+    "sweetalert2": "^10.6.1",
+    "sweetalert2-react-content": "^3.2.1",
     "swr": "^0.3.5",
     "uuid": "^8.3.0"
   },
