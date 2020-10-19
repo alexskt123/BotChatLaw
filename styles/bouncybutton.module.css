@@ -1,0 +1,47 @@
+.bouncybutton {
+    display: inline-block;
+    padding: 0.65em 0.65em;
+    border: 3px solid #000000;
+    margin: 1em 0.3em 0.3em 1em;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    /* font-weight: 300; */
+    color: #000000;
+    text-align: center;
+    transition: all 0.2s;
+    animation: bouncybuttonbouncy 5s infinite linear;
+    position: relative;
+    font-size: xx-small;
+  }
+  
+  .bouncybutton:hover {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    border: 3px solid #4ee7e7;
+  }
+  
+  @keyframes bouncybuttonbouncy {
+    0% {
+      top: 0em;
+    }
+    40% {
+      top: 0em;
+    }
+    43% {
+      top: -0.9em;
+    }
+    46% {
+      top: 0em;
+    }
+    48% {
+      top: -0.4em;
+    }
+    50% {
+      top: 0em;
+    }
+    100% {
+      top: 0em;
+    }
+  }

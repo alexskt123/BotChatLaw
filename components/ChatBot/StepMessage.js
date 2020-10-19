@@ -6,6 +6,7 @@ import Loading from '../Loading/MessageLoading'
 import { v4 as uuid } from 'uuid'
 import ListGroup from 'react-bootstrap/ListGroup'
 import IntentData from '../../lib/data/intentData'
+import BouncyButton from '../../components/BouncyButton'
 
 import containsChinese from 'contains-chinese'
 
@@ -62,7 +63,7 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
     <Fragment>
       <h5>
         <Badge variant="dark">{config.label}</Badge>
-        <Badge pill variant="light" className='ml-2' as='a' href={config.wikiHref} target='_blank' >{config.source}</Badge>
+        <BouncyButton href={config.wikiHref} target='_blank' ><span>{config.source}</span></BouncyButton>
       </h5>
       {
         config.message.list.length < 1 ?
