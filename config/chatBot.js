@@ -15,7 +15,16 @@ export const chatBotConfig = {
 
 export const chatBotHeaderTitle = {
   logo: 'logo.png',
-  name: '法律小幫手'
+  name: '法律小幫手',
+  divConfig: {
+    left: '25%',
+    width: '50%',
+    textAlign: 'center',
+    alignSelf: 'center',
+    position: 'absolute'},
+  spanConfig: {
+    verticalAlign: 'middle'
+  }
 }
 
 export const chatBotTheme = {
