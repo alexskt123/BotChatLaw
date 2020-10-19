@@ -25,5 +25,16 @@ export const NavItems = [
 
 export const webConfig = {
   //update this or the value in firebase to force refresh
-  webVersion: '0.0.10'
+  webVersion: '0.0.12'
+}
+
+export const versionCheckingModalConfig = {
+  title: 'Update Available!',
+  text: 'Click "Update Now" to update.',
+  icon: 'question',
+  showDenyButton: true,
+  confirmButtonText: 'Update Now',
+  denyButtonText: 'Later',
+  timer: 1000 * 5,
+  timerProgressBar: true
 }
