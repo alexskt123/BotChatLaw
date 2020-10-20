@@ -13,7 +13,7 @@ export default function CustomChatBot({ steps }) {
       <ThemeProvider theme={chatBotTheme}>
         <ChatBot
           headerTitle={<Fragment>
-            <img width='45' height='45' src={chatBotHeaderTitle.logo} />
+            <img {...chatBotHeaderTitle.logo} />
             <div style={{...chatBotHeaderTitle.divConfig}}>              
               <span style={{...chatBotHeaderTitle.nameConfig}}>{chatBotHeaderTitle.name}</span>
             </div>

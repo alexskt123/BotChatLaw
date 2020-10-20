@@ -1,7 +1,7 @@
 
 import { Fragment } from 'react'
 
-import ChatBot from './ChatBot/FloatingChatBot'
+import FloatingChatBot from './ChatBot/FloatingChatBot'
 import Wiggle from './Wiggle'
 import Header from './Header'
 import Footer from './Footer'
@@ -13,7 +13,7 @@ export default function Layout ({children}) {
       <Header HeaderName={Settings.HeaderName} />
       {{ ...children }}
       <Wiggle>
-        <ChatBot />
+        <FloatingChatBot />
       </Wiggle>
       <Footer Copyright={Settings.Copyright} />
     </Fragment>

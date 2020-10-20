@@ -14,7 +14,7 @@ import LoadingSpinner from '../Loading/LoadingSpinner'
 //import lib
 import { getOptions } from '../../lib/dataProcess'
 //export default component
-export default function ChatBot() {
+export default function FloatingChatBot() {
   //varibles for component
   const components = {
     '<Others/>': Others,

@@ -4,9 +4,9 @@ import { use100vh } from 'react-div-100vh'
 
 import { useSummary } from '../lib/hooks/useFire'
 import PageLoading from '../components/Loading/PageLoading'
-import Container from 'react-bootstrap/Container'
 import Alert from 'react-bootstrap/Alert'
 import { getTop } from '../lib/dataProcess'
+import CustomContainer from '../components/CustomContainer'
 
 export default function CustomChart() {
   const height = use100vh()
@@ -58,12 +58,12 @@ export default function CustomChart() {
 
   return (
     <Fragment>
-      <Container style={{ minHeight: height }} className="shadow-lg p-3 mb-5 bg-white rounded">
+      <CustomContainer style={{ minHeight: height }}>
         <div>
           <Alert variant="success">啲人搵過啲咩</Alert>
           <Bar {...barConfig} />
         </div>
-      </Container>
+      </CustomContainer>
     </Fragment>
   )
 }

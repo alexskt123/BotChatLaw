@@ -5,9 +5,9 @@ import { Fragment } from 'react'
 import { v4 as uuid } from 'uuid'
 
 import ListGroup from 'react-bootstrap/ListGroup'
-import Container from 'react-bootstrap/Container'
 
 import PageLoading from '../components/Loading/PageLoading'
+import CustomContainer from '../components/CustomContainer'
 import { sampleListItems } from '../config/sampleList'
 
 export default function SampleList() {
@@ -18,7 +18,7 @@ export default function SampleList() {
 
   return (
     <Fragment>
-      <Container style={{ height: height }} className="shadow-lg p-3 mb-5 bg-white rounded">
+      <CustomContainer style={{ minHeight: height }}>
         <ListGroup variant={'outline-dark'}>
           {sampleListItems.map(item => {
             return (
@@ -32,7 +32,7 @@ export default function SampleList() {
             )
           })}
         </ListGroup>
-      </Container>
+      </CustomContainer>
     </Fragment>
   )
 }
