@@ -1,13 +1,13 @@
 
 import { use100vh } from 'react-div-100vh'
-import { Fragment } from 'react'
+import { Fragment, createElement } from 'react'
 
 import PageLoading from '../components/Loading/PageLoading'
 import EmploymentContractSample from '../components/Template/EmploymentContractSample'
 
 import { useRouter } from 'next/router'
 import WillSample from '../components/Template/WillSample'
-import { employmentContractDefaultSample, willDefaultSample} from '../config/sampleList'
+import { customTemplate } from '../config/sampleList'
 
 export default function Sample() {
 
@@ -17,32 +17,29 @@ export default function Sample() {
     query: { template, ...values },
   } = useRouter()
 
+  const components = {
+    EmploymentContract: EmploymentContractSample,
+    Will: WillSample
+  }
+
+  let component
+
   if(!height) return <PageLoading/>  
 
-  const employmentContractSample = {
-    ...employmentContractDefaultSample,
-    ...values
-  }
+  Object.keys(customTemplate)
+    .filter(key => key === template)
+    .forEach(key => {
+      const sample = {
+        ...customTemplate[key].defaultSample,
+        ... values
+      }
+      const DynamicComponent = components[key]
+      component = createElement(DynamicComponent, {sample, height})
+    })
 
-  const willSample = {
-    ...willDefaultSample,
-    ...values
-  }
-
-  if(template === 'EmploymentContract')
-    return (
-      <Fragment>        
-        <EmploymentContractSample employmentContractSample={employmentContractSample} height={height}/>        
-      </Fragment>
-    )
-  else if(template === 'Will')
     return (
       <Fragment>
-        <WillSample willSample={willSample} height={height}/>        
-      </Fragment>            
-    )
-  else
-    return (
-      <PageLoading/>
+        {component}
+      </Fragment>
     )
 }

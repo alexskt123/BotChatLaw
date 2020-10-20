@@ -9,7 +9,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 import PageLoading from '../components/Loading/PageLoading'
 import CustomContainer from '../components/CustomContainer'
-import { sampleListItems, employmentContractDefaultSample, willDefaultSample, customTemplate } from '../config/sampleList'
+import { sampleListItems, customTemplate } from '../config/sampleList'
 import Swal from 'sweetalert2'
 
 import Button from 'react-bootstrap/Button'
@@ -37,13 +37,10 @@ export default function SampleList() {
     })
 
     const values = []
-    let stepValues = []
-    if (item === 'EmploymentContract') {
-      stepValues = Object.values(employmentContractDefaultSample)
-    } else if (item === 'Will') {
-      stepValues = Object.values(willDefaultSample)
-    }    
+    let stepValues = []   
     let currentStep
+
+    stepValues = Object.values(template[item].defaultSample)
 
     for (currentStep = 0; currentStep < steps.length;) {
       const result = await swalQueueStep.fire({
