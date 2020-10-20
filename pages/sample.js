@@ -13,13 +13,12 @@ export default function Sample() {
   const height = use100vh()
 
   const {
-    query: { template },
+    query: { template, ...values },
   } = useRouter()
 
-  if(!height) return <PageLoading/>
+  if(!height) return <PageLoading/>  
 
-
-  const employmentContractSample = {
+  let employmentContractSample = {
 
     startSate: '3rd October 2020',
     eeName: 'Chan Tai Man',
@@ -28,15 +27,16 @@ export default function Sample() {
     probation: '3 months',
     salary: 60000,
     annualLeave: 10,
-    noticePeriod: '1 month'
+    noticePeriod: '1 month',
+    ...values
   }
 
-  const willSample = {
+  let willSample = {
     testatorName: 'Chan Tai Man',
     testatorID: 'Y123456(7)',
     testatorAddr: 'Flat A, Floor 8, King Hill',
-    residue: 'sons'
-    
+    residue: 'sons',
+    ...values
   }
 
   if(template === 'EmploymentContract')
