@@ -9,7 +9,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 import PageLoading from '../components/Loading/PageLoading'
 import CustomContainer from '../components/CustomContainer'
-import { sampleListItems, customTemplate } from '../config/sampleList'
+import { sampleListItems, customTemplate, backAndForthSettings } from '../config/sampleList'
 import Swal from 'sweetalert2'
 
 import Button from 'react-bootstrap/Button'
@@ -25,19 +25,19 @@ export default function SampleList() {
   const backAndForth = async (steps, stepLabels, item) => {
 
     const swalQueueStep = Swal.mixin({
-      confirmButtonText: 'Forward',
-      cancelButtonText: 'Back',
+      confirmButtonText: backAndForthSettings.continue,
+      cancelButtonText: backAndForthSettings.back,
       progressSteps: steps,
       input: 'text',
       inputAttributes: {
         required: true
       },
       reverseButtons: true,
-      validationMessage: 'This field is required'
+      validationMessage: backAndForthSettings.validationMsg
     })
 
     const values = []
-    let stepValues = []   
+    let stepValues = []
     let currentStep
 
     stepValues = Object.values(template[item].defaultSample)
@@ -111,7 +111,7 @@ export default function SampleList() {
                   style={{ alignSelf: 'center', fontSize: 'xx-small', marginLeft: '10px' }}
                   onClick={() => { setBackAndForth(item.value) }}
                 >
-                  自訂
+                  {backAndForthSettings.customButton}
                 </Button>
               </ListGroup.Item>
             )

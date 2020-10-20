@@ -11,22 +11,11 @@ export const sampleListItems = [
   }  
 ]
 
-export const employmentContractDefaultSample = {
-  startSate: '3rd October 2020',
-  eeName: 'Chan Tai Man',
-  erName: 'God Bless Trump Company',
-  jobTitle: 'Analyst',
-  probation: '3 months',
-  salary: 60000,
-  annualLeave: 10,
-  noticePeriod: '1 month'
-}
-
-export const willDefaultSample = {
-  testatorName: 'Chan Tai Man',
-  testatorID: 'Y123456(7)',
-  testatorAddr: 'Flat A, Floor 8, King Hill',
-  residue: 'sons'
+export const backAndForthSettings = {
+  continue: '繼續',
+  back: '返回',
+  validationMsg: '要打啲嘢。。。',
+  customButton: '自訂'
 }
 
 export const customTemplate = {

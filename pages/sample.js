@@ -37,9 +37,9 @@ export default function Sample() {
       component = createElement(DynamicComponent, {sample, height})
     })
 
-    return (
-      <Fragment>
-        {component}
-      </Fragment>
-    )
+  return (
+    <Fragment>
+      {component}
+    </Fragment>
+  )
 }
