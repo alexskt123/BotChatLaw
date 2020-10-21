@@ -2,20 +2,20 @@ const sameStyle = { fontSize: '15px', boxShadow: '1px 2px 5px #9E9E9E', border: 
 
 export const chatBotConfig = {
   placeholder: '請輸入。。。',
-  botAvatar: 'botAvatar.png',
-  userAvatar: 'userAvatar.png',
+  botAvatar: '/botAvatar.png',
+  userAvatar: '/userAvatar.png',
   // width: '100%',
   bubbleStyle: sameStyle,
   bubbleOptionStyle: sameStyle,
   enableMobileAutoFocus: true,
   hideUserAvatar: true,
   floating: true,
-  floatingIcon: 'floatingButton.png'
+  floatingIcon: '/floatingButton.png'
 }
 
 export const chatBotHeaderTitle = {
   logo: {
-    src: 'logo.png',
+    src: '/logo.png',
     width: '45',
     height: '45'
   },
@@ -25,7 +25,8 @@ export const chatBotHeaderTitle = {
     width: '50%',
     textAlign: 'center',
     alignSelf: 'center',
-    position: 'absolute'},
+    position: 'absolute'
+  },
   spanConfig: {
     verticalAlign: 'middle'
   }
