@@ -51,5 +51,5 @@ export default function aboutus() {
 }
 
 aboutus.getInitialProps = async () => ({
-  namespacesRequired: ['header']
+  namespacesRequired: ['header', 'settings']
 })
