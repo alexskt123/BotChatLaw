@@ -55,8 +55,10 @@ function Header({ HeaderName, t, i18n }) {
     if (idx > -1) {
       let translated = t(`NavItemLabels.${idx}`)
       setTitle(`${HeaderName} - ${translated}`)
+    } else {
+      setTitle(HeaderName)
     }
-  }, [language, HeaderName])
+  }, [router])
 
   return (
     <Fragment>
