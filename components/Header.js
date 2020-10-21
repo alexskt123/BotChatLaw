@@ -52,7 +52,6 @@ function Header({ HeaderName, t, i18n }) {
 
   useEffect(() => {
     const idx = NavItems.findIndex(item => `${router.asPath}`.includes(item.href))
-    console.log(HeaderName, idx)
     if (idx > -1) {
       let translated = t(`NavItemLabels.${idx}`)
       setTitle(`${HeaderName} - ${translated}`)

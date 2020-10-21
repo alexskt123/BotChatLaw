@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 import WillSample from '../../components/Template/WillSample'
 import { customTemplate } from '../../config/sampleList'
 
-export default function Sample({ props: { query } }) {
+function Sample({ props: { query } }) {
   const { template, ...values } = query
 
   const components = {
@@ -50,6 +50,9 @@ export default function Sample({ props: { query } }) {
   )
 }
 
-Sample.getInitialProps = async ({ query }) => {
-  return { props: { query } }
-}
+Sample.getInitialProps = async ({ query }) => ({
+  namespacesRequired: ['header', 'settings'],
+  props: { query }
+})
+
+export default Sample

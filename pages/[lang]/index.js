@@ -18,5 +18,5 @@ export default function Fallback() {
 }
 
 Fallback.getInitialProps = async () => ({
-  namespacesRequired: ['header']
+  namespacesRequired: ['header', 'settings']
 })
