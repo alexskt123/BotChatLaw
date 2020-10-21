@@ -75,10 +75,11 @@ function Header({ HeaderName, t, i18n }) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             {NavItems.map((item, idx) => {
-              const label = t(`NavItemLabels.${idx}`)
+              const href = `/${lang}${item.href}`
+              const active = router.asPath === href
               return (
-                <Nav.Link key={uuid()} href={item.href}>
-                  {label}
+                <Nav.Link key={uuid()} href={href} active={active} disabled={active}>
+                  {t(`NavItemLabels.${idx}`)}
                 </Nav.Link>
               )
             })}
