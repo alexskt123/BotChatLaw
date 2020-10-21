@@ -1,34 +1,34 @@
 
 export const CarouselDisplayItems = [
   {
-    imgsrc: 'aboutus/slideEasy.jpg'
+    imgsrc: '/aboutus/slideEasy.jpg'
   },
   {
-    imgsrc: 'aboutus/slideAsk.jpg'
+    imgsrc: '/aboutus/slideAsk.jpg'
   }
   ,
   {
-    imgsrc: 'aboutus/slidePerson.jpg'
+    imgsrc: '/aboutus/slidePerson.jpg'
   }
 ]
 
 export const CardDisplayitems = [
   {
-    imgsrc: 'aboutus/programming.jpg'
+    imgsrc: '/aboutus/programming.jpg'
   },
   {
-    imgsrc: 'aboutus/law.jpg'
+    imgsrc: '/aboutus/law.jpg'
   },
   {
-    imgsrc: 'aboutus/nlp.jpg'
+    imgsrc: '/aboutus/nlp.jpg'
   },
   {
-    imgsrc: 'aboutus/wiki.jpg'
+    imgsrc: '/aboutus/wiki.jpg'
   },
   {
-    imgsrc: 'aboutus/AI.jpg'
+    imgsrc: '/aboutus/AI.jpg'
   },
   {
-    imgsrc: 'aboutus/robot.jpg'
+    imgsrc: '/aboutus/robot.jpg'
   }
 ]

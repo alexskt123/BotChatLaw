@@ -2,13 +2,13 @@ import { Fragment } from 'react'
 import { Bar } from 'react-chartjs-2'
 import { use100vh } from 'react-div-100vh'
 
-import { useSummary } from '../lib/hooks/useFire'
-import PageLoading from '../components/Loading/PageLoading'
+import { useSummary } from '../../lib/hooks/useFire'
+import PageLoading from '../../components/Loading/PageLoading'
 import Alert from 'react-bootstrap/Alert'
-import { getTop } from '../lib/dataProcess'
-import CustomContainer from '../components/CustomContainer'
+import { getTop } from '../../lib/dataProcess'
+import CustomContainer from '../../components/CustomContainer'
 
-import { withTranslation } from '../config/i18n'
+import { withTranslation } from '../../config/i18n'
 
 function CustomChart({ t }) {
   const height = use100vh()
