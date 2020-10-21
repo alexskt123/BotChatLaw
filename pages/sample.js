@@ -1,6 +1,6 @@
 
 import { use100vh } from 'react-div-100vh'
-import { Fragment, createElement } from 'react'
+import { Fragment, createElement, useEffect } from 'react'
 
 import PageLoading from '../components/Loading/PageLoading'
 import EmploymentContractSample from '../components/Template/EmploymentContractSample'
@@ -9,13 +9,8 @@ import { useRouter } from 'next/router'
 import WillSample from '../components/Template/WillSample'
 import { customTemplate } from '../config/sampleList'
 
-export default function Sample() {
-
-  const height = use100vh()
-
-  const {
-    query: { template, ...values },
-  } = useRouter()
+export default function Sample({ props: { query } }) {
+  const { template, ...values } = query
 
   const components = {
     EmploymentContract: EmploymentContractSample,
@@ -24,22 +19,37 @@ export default function Sample() {
 
   let component
 
-  if(!height) return <PageLoading/>  
+  const height = use100vh()
+
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!Object.keys(components).includes(template)) {
+      router.push('/samplelist')
+    }
+  }, [])
 
   Object.keys(customTemplate)
     .filter(key => key === template)
     .forEach(key => {
       const sample = {
         ...customTemplate[key].defaultSample,
-        ... values
+        ...values
       }
+
       const DynamicComponent = components[key]
-      component = createElement(DynamicComponent, {sample, height})
+      component = createElement(DynamicComponent, { sample, height })
     })
+
+  if (!height) return <PageLoading />
 
   return (
     <Fragment>
       {component}
     </Fragment>
   )
+}
+
+Sample.getInitialProps = async ({ query }) => {
+  return { props: { query } }
 }
