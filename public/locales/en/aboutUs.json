@@ -1,0 +1,42 @@
+{
+  "CarouselDisplayItems": [
+    {           
+      "captionLabel": "Flexible",
+      "captionContent": "You can ask whatever you want"
+    },
+    {           
+      "captionLabel": "Easy",
+      "captionContent": "Easy to chat"
+    },
+    {           
+      "captionLabel": "Personalized",
+      "captionContent": "Personalized chatbot"
+    }
+  ],
+  "CardDisplayitems": [
+    {      
+      "title": "IT people",
+      "text": "We are programmers"
+    },
+    {      
+      "title": "Law people",
+      "text": "We are legal people"
+    },
+    {      
+      "title": "Natural Language Processing",
+      "text": "Natural Language Processing is the key to detect what you actually want to ask"
+    },
+    {      
+      "title": "Wikipedia",
+      "text": "We can also grab things from Wikipedia for those we do not know"
+    },
+    {      
+      "title": "A.I.",
+      "text": "It is very clever and capable of learning new stuff"
+    },
+    {      
+      "title": "ChatBot",
+      "text": "Let's try to communicate together"
+    }
+  ]
+}

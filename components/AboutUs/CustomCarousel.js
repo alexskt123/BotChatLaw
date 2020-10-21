@@ -2,11 +2,13 @@ import Carousel from 'react-bootstrap/Carousel'
 import Alert from 'react-bootstrap/Alert'
 import { v4 as uuid } from 'uuid'
 
-export default function CustomCarousel({ displayItems }) {
+import { withTranslation } from '../../config/i18n'
+
+function CustomCarousel({ displayItems, t }) {
 
   return (
     <Carousel>
-      {displayItems.map(item => {
+      {displayItems.map((item, idx) => {
         return (
           <Carousel.Item key={uuid()}>
             <img
@@ -15,8 +17,8 @@ export default function CustomCarousel({ displayItems }) {
             />
             <Carousel.Caption>
               <Alert variant="secondary">
-                <h3>{item.captionLabel}</h3>
-                <p>{item.captionContent}</p>
+                <h3>{t(`CarouselDisplayItems.${idx}.captionLabel`)}</h3>
+                <p>{t(`CarouselDisplayItems.${idx}.captionContent`)}</p>
               </Alert>
             </Carousel.Caption>
           </Carousel.Item>
@@ -28,3 +30,5 @@ export default function CustomCarousel({ displayItems }) {
   )
 
 }
+
+export default withTranslation('aboutUs')(CustomCarousel)

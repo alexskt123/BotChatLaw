@@ -33,9 +33,9 @@ export default function aboutus() {
           <CustomCarousel displayItems={carouselDisplayItems} />
           <div className="mt-5" />
           <CardDeck className="justify-content-center">
-            {cardDisplayitems.map(cardDisplayItem => {
+            {cardDisplayitems.map((cardDisplayItem, idx) => {
               return (
-                <CustomCard displayItems={cardDisplayItem} key={uuid()} />
+                <CustomCard displayItems={{cardDisplayItem, idx}} key={uuid()} />
               )
             })}
           </CardDeck>
