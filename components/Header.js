@@ -1,15 +1,15 @@
+// react, next and hooks
+import { Fragment, useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import Head from 'next/head'
+// lib
 import { v4 as uuid } from 'uuid'
-
+import Button from 'react-bootstrap/Button'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-
+// config
 import Settings, { NavItems } from '../config/settings'
-
-import Button from 'react-bootstrap/Button'
-
 import { withTranslation } from '../config/i18n'
-
-import { useState } from 'react'
 
 function Header({ HeaderName, t, i18n }) {
 
@@ -24,13 +24,13 @@ function Header({ HeaderName, t, i18n }) {
 
   const { language } = i18n
 
-  const changeLanguage = () => {    
+  const changeLanguage = () => {
 
     const changeLang = swithLang(language)
 
     setLang(changeLang)
     i18n.changeLanguage(changeLang)
-   
+
   }
 
   const swithLang = (language) => {
@@ -41,34 +41,51 @@ function Header({ HeaderName, t, i18n }) {
     }
     else if (language === 'en') {
       changeLang = 'zh'
-    }  
-    
+    }
+
     return changeLang
   }
 
   const [lang, setLang] = useState(language)
+  const [title, setTitle] = useState(Settings.HeaderName)
+  const router = useRouter()
+
+  useEffect(() => {
+    const idx = NavItems.findIndex(item => `${router.asPath}`.includes(item.href))
+    if (idx > -1) {
+      let translated = t(`NavItemLabels.${idx}`)
+      setTitle(`${Settings.HeaderName} - ${translated}`)
+    }
+  }, [language])
 
   return (
-    <Navbar bg="dark" variant="dark">
-      <Navbar.Brand>
-        <img
-          {...imgConfig}
-        />
-        {HeaderName}
-      </Navbar.Brand>
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          {NavItems.map((item, idx) => {
-            return (
-              <Nav.Link key={uuid()} href={item.href}>
-                {t(`NavItemLabels.${idx}`)}
-              </Nav.Link>
-            )
-          })}
-        </Nav>
-      </Navbar.Collapse>
-      <Button variant='dark' key={uuid()} onClick={() => changeLanguage(lang)}>{lang}</Button>
-    </Navbar>
+    <Fragment>
+      <Head>
+        <title>{title}</title>
+      </Head>
+
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand>
+          <img
+            {...imgConfig}
+          />
+          {HeaderName}
+        </Navbar.Brand>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            {NavItems.map((item, idx) => {
+              const label = t(`NavItemLabels.${idx}`)
+              return (
+                <Nav.Link key={uuid()} href={item.href}>
+                  {label}
+                </Nav.Link>
+              )
+            })}
+          </Nav>
+        </Navbar.Collapse>
+        <Button variant='dark' key={uuid()} onClick={() => changeLanguage(lang)}>{lang}</Button>
+      </Navbar>
+    </Fragment >
   )
 }
 

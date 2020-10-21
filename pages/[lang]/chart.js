@@ -70,5 +70,9 @@ function CustomChart({ t }) {
   )
 }
 
+CustomChart.getInitialProps = async () => ({
+  namespacesRequired: ['header', 'chart']
+})
+
 export default withTranslation('chart')(CustomChart)
 

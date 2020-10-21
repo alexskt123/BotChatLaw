@@ -10,7 +10,7 @@ export default Settings
 
 export const NavItems = [
   {
-    href: '/'
+    href: '/aboutus'
   },
   {
     href: '/samplelist'
