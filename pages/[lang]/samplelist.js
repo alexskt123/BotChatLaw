@@ -16,7 +16,7 @@ import { withTranslation, Router } from '../../config/i18n'
 
 const SampleList = ({ t }) => {
 
-  const height = use100vh()  
+  const height = use100vh()
 
   const templateValues = {}
   const template = { ...customTemplate }
@@ -41,7 +41,7 @@ const SampleList = ({ t }) => {
 
     stepValues = Object.values(template[item].defaultSample)
 
-    for (currentStep = 0; currentStep < steps.length;) { 
+    for (currentStep = 0; currentStep < steps.length;) {
       const result = await swalQueueStep.fire({
         title: t(`${item}.stepLabels.${currentStep}.title`),
         text: t(`${item}.stepLabels.${currentStep}.text`),
@@ -120,5 +120,9 @@ const SampleList = ({ t }) => {
     </Fragment>
   )
 }
+
+SampleList.getInitialProps = async () => ({
+  namespacesRequired: ['header', 'sampleList']
+})
 
 export default withTranslation('sampleList')(SampleList)
