@@ -9,12 +9,13 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 import PageLoading from '../components/Loading/PageLoading'
 import CustomContainer from '../components/CustomContainer'
-import { sampleListItems, customTemplate, backAndForthSettings } from '../config/sampleList'
+import { sampleListItems, customTemplate } from '../config/sampleList'
 import Swal from 'sweetalert2'
 
 import Button from 'react-bootstrap/Button'
+import { withTranslation } from '../config/i18n'
 
-export default function SampleList() {
+const SampleList = ({ t }) => {
 
   const height = use100vh()
   const router = useRouter()
@@ -25,15 +26,15 @@ export default function SampleList() {
   const backAndForth = async (steps, stepLabels, item) => {
 
     const swalQueueStep = Swal.mixin({
-      confirmButtonText: backAndForthSettings.continue,
-      cancelButtonText: backAndForthSettings.back,
+      confirmButtonText: t('continue'),
+      cancelButtonText: t('back'),
       progressSteps: steps,
       input: 'text',
       inputAttributes: {
         required: true
       },
       reverseButtons: true,
-      validationMessage: backAndForthSettings.validationMsg
+      validationMessage: t('validationMsg')
     })
 
     const values = []
@@ -111,7 +112,7 @@ export default function SampleList() {
                   style={{ alignSelf: 'center', fontSize: 'xx-small', marginLeft: '10px' }}
                   onClick={() => { setBackAndForth(item.value) }}
                 >
-                  {backAndForthSettings.customButton}
+                  {t('customButton')}
                 </Button>
               </ListGroup.Item>
             )
@@ -121,3 +122,5 @@ export default function SampleList() {
     </Fragment>
   )
 }
+
+export default withTranslation('backAndForth')(SampleList)
