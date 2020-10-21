@@ -103,7 +103,7 @@ const SampleList = ({ t }) => {
                 style={{ display: 'flex' }}
               >
                 <a key={uuid()} href={item.href} style={{ alignSelf: 'center' }} >
-                  {item.label}
+                  {t(`${item.value}.label`)}
                 </a>
                 <Button
                   variant='outline-dark'

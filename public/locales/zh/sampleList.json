@@ -1,5 +1,6 @@
 {
   "EmploymentContract": {
+    "label": "僱員合約範例",
     "stepLabels": [
       {
         "title": "開始日期",
@@ -36,6 +37,7 @@
     ]
   },
   "Will": {
+    "label": "遺囑範例",
     "stepLabels": [
       {
         "title": "遺囑人姓名",

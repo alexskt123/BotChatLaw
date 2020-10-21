@@ -8,7 +8,9 @@ import Alert from 'react-bootstrap/Alert'
 import { getTop } from '../lib/dataProcess'
 import CustomContainer from '../components/CustomContainer'
 
-export default function CustomChart() {
+import { withTranslation } from '../config/i18n'
+
+function CustomChart({ t }) {
   const height = use100vh()
   const summary = useSummary(null)
 
@@ -36,7 +38,7 @@ export default function CustomChart() {
   const data = {
     labels: top.map(item => item.label),
     datasets: [{
-      label: '搵過幾多次',
+      label: t('chartTitle'),
       data: top.map(item => item.value),
       backgroundColor: top.map(item => item.backgroundColor),
       borderColor: top.map(item => item.borderColor),
@@ -60,10 +62,13 @@ export default function CustomChart() {
     <Fragment>
       <CustomContainer style={{ minHeight: height }}>
         <div>
-          <Alert variant="success">啲人搵過啲咩</Alert>
+          <Alert variant="success">{t('chartLabel')}</Alert>
           <Bar {...barConfig} />
         </div>
       </CustomContainer>
     </Fragment>
   )
 }
+
+export default withTranslation('chart')(CustomChart)
+

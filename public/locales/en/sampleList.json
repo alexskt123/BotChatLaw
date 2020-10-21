@@ -1,5 +1,6 @@
 {
   "EmploymentContract": {
+    "label": "Employment Contract",
     "stepLabels": [
       {
         "title": "Commencement Date",
@@ -36,6 +37,7 @@
     ]
   },
   "Will": {
+    "label": "Will",
     "stepLabels": [
       {
         "title": "Testator Name",
