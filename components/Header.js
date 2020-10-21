@@ -11,6 +11,9 @@ import Nav from 'react-bootstrap/Nav'
 import Settings, { NavItems } from '../config/settings'
 import { withTranslation } from '../config/i18n'
 
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+
 function Header({ HeaderName, t, i18n }) {
 
 
@@ -47,45 +50,31 @@ function Header({ HeaderName, t, i18n }) {
   }
 
   const [lang, setLang] = useState(language)
-  const [title, setTitle] = useState(Settings.HeaderName)
   const router = useRouter()
 
-  useEffect(() => {
-    const idx = NavItems.findIndex(item => `${router.asPath}`.includes(item.href))
-    if (idx > -1) {
-      let translated = t(`NavItemLabels.${idx}`)
-      setTitle(`${Settings.HeaderName} - ${translated}`)
-    }
-  }, [language])
-
   return (
-    <Fragment>
-      <Head>
-        <title>{title}</title>
-      </Head>
-
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand>
-          <img
-            {...imgConfig}
-          />
-          {HeaderName}
-        </Navbar.Brand>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            {NavItems.map((item, idx) => {
-              const label = t(`NavItemLabels.${idx}`)
-              return (
-                <Nav.Link key={uuid()} href={item.href}>
-                  {label}
-                </Nav.Link>
-              )
-            })}
-          </Nav>
-        </Navbar.Collapse>
-        <Button variant='dark' key={uuid()} onClick={() => changeLanguage(lang)}>{lang}</Button>
-      </Navbar>
-    </Fragment >
+    <Navbar bg="dark" variant="dark">
+      <Navbar.Brand>
+        <img
+          {...imgConfig}
+        />
+        {HeaderName}
+      </Navbar.Brand>
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          {NavItems.map((item, idx) => {
+            const href = `/${lang}${item.href}`
+            const active = router.asPath === href
+            return (
+              <Nav.Link key={uuid()} href={href} active={active} disabled={active}>
+                {t(`NavItemLabels.${idx}`)}
+              </Nav.Link>
+            )
+          })}
+        </Nav>
+      </Navbar.Collapse>
+      <Button variant='dark' key={uuid()} onClick={() => changeLanguage(lang)}>{lang}</Button>
+    </Navbar>
   )
 }
 
