@@ -10,16 +10,13 @@ export default Settings
 
 export const NavItems = [
   {
-    href: '/',
-    label: '關於我哋'
+    href: '/'
   },
   {
-    href: '/samplelist',
-    label: '法律文件範例'
+    href: '/samplelist'
   },
   {
-    href: '/chart',
-    label: '搵過嘅嘢'
+    href: '/chart'
   }
 ]
 

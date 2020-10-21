@@ -1,0 +1,32 @@
+{
+    "others": {
+        "label": "Others",
+        "value": "others"
+    },
+    "back": {
+        "label": "Back",
+        "value": "head"
+    },
+    "continueOptions": [
+        "Yes",
+        "No"
+    ],
+    "defaultOptions": [
+        {
+            "label": "End",
+            "value": "End"
+        },
+        {
+            "label": "Ask",
+            "value": "Ask"
+        },
+        {
+            "label": "What can be asked?",
+            "value": "What can be asked?"
+        },
+        {
+            "label": "Contact us",
+            "value": "Contact us"
+        }
+    ]
+}

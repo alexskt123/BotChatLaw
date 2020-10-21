@@ -1,0 +1,24 @@
+{
+    "guessMsg": [
+        "I guess your meaning is [label].",
+        "Is it [label]?",
+        "You wanna find [label]?",
+        "[label]? Easy."
+    ],
+    "notFoundMsg": [
+        "Cannot find ar....",
+        "You up mut?",
+        "Dunno...",
+        "Ask again...",
+        "Ask better...",
+        "Play me?"
+    ],
+    "loadMsg": [
+        "helping you...",
+        "helping you helping you...",
+        "helping you helping you helping you...",
+        "helping you helping you helping you helping you...",
+        "Slow Slow...",
+        "Slow slow slow please..."
+    ]
+}

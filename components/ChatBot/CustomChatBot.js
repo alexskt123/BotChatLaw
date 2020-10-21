@@ -5,9 +5,10 @@ import { ThemeProvider } from 'styled-components'
 import ChatBot from '../../lib/react-simple-chatbot/react-simple-chatbot'
 //import chatbot configuration
 import { chatBotConfig, chatBotHeaderTitle, chatBotTheme } from '../../config/chatBot'
+import { withTranslation } from 'next-i18next'
 
 //export default component
-export default function CustomChatBot({ steps }) {
+function CustomChatBot({ steps, t }) {
   return (
     <Fragment>
       <ThemeProvider theme={chatBotTheme}>
@@ -15,13 +16,16 @@ export default function CustomChatBot({ steps }) {
           headerTitle={<Fragment>
             <img {...chatBotHeaderTitle.logo} />
             <div style={{...chatBotHeaderTitle.divConfig}}>              
-              <span style={{...chatBotHeaderTitle.nameConfig}}>{chatBotHeaderTitle.name}</span>
+              <span style={{...chatBotHeaderTitle.nameConfig}}>{t('chatBotConfig.title')}</span>
             </div>
           </Fragment>}
           {...chatBotConfig}
+          placeholder={t('chatBotConfig.placeholder')}
           steps={steps}
         />
       </ThemeProvider>
     </Fragment>
   )
 }
+
+export default withTranslation('chatBot')(CustomChatBot)

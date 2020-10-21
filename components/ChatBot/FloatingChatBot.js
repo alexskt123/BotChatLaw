@@ -12,7 +12,8 @@ import StepList from './StepList'
 import ContactUs from '../ContactUs'
 import LoadingSpinner from '../Loading/LoadingSpinner'
 //import lib
-import { getOptions } from '../../lib/dataProcess'
+import { useTranslation } from '../../config/i18n'
+import { defaultOptions } from '../../config/stepOptions'
 //export default component
 export default function FloatingChatBot() {
   //varibles for component
@@ -24,21 +25,34 @@ export default function FloatingChatBot() {
     '<ContactUs/>': ContactUs
   }
   //hooks
-
   const steps = useSteps()
   const intent = useIntentList()
+  const { t } = useTranslation('stepOptions');
+
   console.log({ steps, intent })
 
-  //loading
-  if (
-    steps.length <= 0
-    || intent.length < 1
-  ) {
-    return (
-      <LoadingSpinner/>
+  const getOptions = (id, intent) => {
+    let translatedOptions = []
+    defaultOptions.map((item, idx) => {
+      translatedOptions.push(
+        {
+          ...t(`defaultOptions.${idx}`, { returnObjects: true }),
+          trigger: item.trigger
+        }
+      )
+    })
 
-    )
+    let options = []
+    options = id === 'stageask' ? translatedOptions : intent
+    
+    return options
   }
+
+
+  steps
+    .filter(data => data.options)
+    .forEach(data => data.options = getOptions(data.id, intent))
+
   //processing
   steps
     .filter(data => data.component)
@@ -49,9 +63,17 @@ export default function FloatingChatBot() {
       data.component = createElement(DynamicComponent)
     })
 
-  steps
-    .filter(data => data.options)
-    .forEach(data => data.options = getOptions(data.id, intent))
+
+  //loading
+  if (
+    steps.length <= 0
+    || intent.length < 1
+  ) {
+    return (
+      <LoadingSpinner />
+
+    )
+  }
 
   //template
   return (
