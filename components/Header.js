@@ -1,12 +1,14 @@
+// react, next and hooks
+import { Fragment, useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import Head from 'next/head'
+// lib
 import { v4 as uuid } from 'uuid'
-
+import Button from 'react-bootstrap/Button'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-
+// config
 import Settings, { NavItems } from '../config/settings'
-
-import Button from 'react-bootstrap/Button'
-
 import { withTranslation } from '../config/i18n'
 
 import { useState } from 'react'

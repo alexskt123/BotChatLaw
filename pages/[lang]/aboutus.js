@@ -49,3 +49,7 @@ export default function aboutus() {
     </Fragment>
   )
 }
+
+aboutus.getInitialProps = async () => ({
+  namespacesRequired: ['header']
+})
