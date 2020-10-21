@@ -17,3 +17,7 @@ export default function CustomStep() {
     <PageLoading />
   )
 }
+
+CustomStep.getInitialProps = async () => ({
+  namespacesRequired: ['header']
+})
