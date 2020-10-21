@@ -51,14 +51,11 @@ function Header({ HeaderName, t, i18n }) {
   const router = useRouter()
 
   useEffect(() => {
-    NavItems.forEach((item, idx) => {
-      const label = t(`NavItemLabels.${idx}`)
-      if (`${router.asPath}`.includes(item.href)) {
-        setTitle(label)
-      }
-
-      console.log(router.asPath, item.href, label, `${router.asPath}`.includes(item.href))
-    })
+    const idx = NavItems.findIndex(item => `${router.asPath}`.includes(item.href))
+    if (idx > -1) {
+      let translated = t(`NavItemLabels.${idx}`)
+      setTitle(`${Settings.HeaderName} - ${translated}`)
+    }
   }, [language])
 
   return (
