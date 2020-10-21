@@ -10,22 +10,19 @@ export default Settings
 
 export const NavItems = [
   {
-    href: '/aboutus',
-    label: '關於我哋'
+    href: '/aboutus'
   },
   {
-    href: '/samplelist',
-    label: '法律文件範例'
+    href: '/samplelist'
   },
   {
-    href: '/chart',
-    label: '搵過嘅嘢'
+    href: '/chart'
   }
 ]
 
 export const webConfig = {
   //update this or the value in firebase to force refresh
-  webVersion: '0.1.0'
+  webVersion: '0.0.12'
 }
 
 export const versionCheckingModalConfig = {

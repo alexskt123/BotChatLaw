@@ -1,7 +1,6 @@
 const sameStyle = { fontSize: '15px', boxShadow: '1px 2px 5px #9E9E9E', border: '1px solid' }
 
 export const chatBotConfig = {
-  placeholder: '請輸入。。。',
   botAvatar: '/botAvatar.png',
   userAvatar: '/userAvatar.png',
   // width: '100%',
@@ -19,7 +18,6 @@ export const chatBotHeaderTitle = {
     width: '45',
     height: '45'
   },
-  name: '法律小幫手',
   divConfig: {
     left: '25%',
     width: '50%',

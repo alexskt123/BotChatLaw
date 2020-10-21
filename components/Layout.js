@@ -6,11 +6,12 @@ import Wiggle from './Wiggle'
 import Header from './Header'
 import Footer from './Footer'
 import Settings from '../config/settings'
+import { withTranslation } from 'next-i18next'
 
-export default function Layout ({children}) {
+function Layout ({children, t}) {
   return (    
     <Fragment>
-      <Header HeaderName={Settings.HeaderName} />
+      <Header HeaderName={t('headerTitle')} />
       {{ ...children }}
       <Wiggle>
         <FloatingChatBot />
@@ -19,3 +20,5 @@ export default function Layout ({children}) {
     </Fragment>
   )
 }
+
+export default withTranslation('settings')(Layout)
