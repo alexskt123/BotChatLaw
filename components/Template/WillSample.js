@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Badge from 'react-bootstrap/Badge'
@@ -9,13 +10,20 @@ import Disclaimer from '../Disclaimer'
 import CustomContainer from '../../components/CustomContainer'
 
 export default function WillSample({ sample, height }) {
+  const template = {
+    title: '遺囑範例'
+  }
 
   return (
     <Fragment>
+      <Head>
+        <title>{template.title}</title>
+      </Head>
+
       <CustomContainer style={{ minHeight: height }}>
         <Fragment>
           <div className="mt-0">
-            <Badge variant="secondary"><h2>遺囑範例</h2></Badge>
+            <Badge variant="secondary"><h2>{`${template.title}`}</h2></Badge>
 
           </div>
 

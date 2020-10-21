@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Badge from 'react-bootstrap/Badge'
@@ -12,14 +13,20 @@ import Disclaimer from '../Disclaimer'
 import CustomContainer from '../../components/CustomContainer'
 
 export default function EmploymentContractSample({ sample, height }) {
-
+  const template = {
+    title: '僱員合約範例'
+  }
 
   return (
     <Fragment>
+      <Head>
+        <title>{template.title}</title>
+      </Head>
+
       <CustomContainer style={{ minHeight: height }}>
         <Fragment>
           <div className="mt-0">
-            <Badge variant="secondary"><h2>僱員合約範例</h2></Badge>
+            <Badge variant="secondary"><h2>{`${template.title}`}</h2></Badge>
 
           </div>
 
