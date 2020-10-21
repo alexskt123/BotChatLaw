@@ -23,3 +23,7 @@ export default function Fallback() {
     <PageLoading />
   )
 }
+
+Fallback.getInitialProps = async () => ({
+  namespacesRequired: ['header']
+})
