@@ -11,13 +11,6 @@ export const sampleListItems = [
   }  
 ]
 
-export const backAndForthSettings = {
-  continue: '繼續',
-  back: '返回',
-  validationMsg: '要打啲嘢。。。',
-  customButton: '自訂'
-}
-
 export const customTemplate = {
   EmploymentContract: {
     defaultSample: {

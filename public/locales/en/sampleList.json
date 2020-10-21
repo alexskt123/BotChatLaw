@@ -1,0 +1,64 @@
+{
+  "EmploymentContract": {
+    "stepLabels": [
+      {
+        "title": "Commencement Date",
+        "text": ""
+      },
+      {
+        "title": "Employer Name",
+        "text": "i.e. Chan Tai Man"
+      },
+      {
+        "title": "Employee Name",
+        "text": "i.e. God Bless Trump Company"
+      },
+      {
+        "title": "Job Title",
+        "text": "i.e. Analyst"
+      },
+      {
+        "title": "Probation Period",
+        "text": "i.e. 3個月"
+      },
+      {
+        "title": "Salary",
+        "text": "i.e. 50000"
+      },
+      {
+        "title": "Annual Leaves",
+        "text": "i.e. 10日"
+      },
+      {
+        "title": "Notice Period",
+        "text": "i.e. 3個月"
+      }
+    ]
+  },
+  "Will": {
+    "stepLabels": [
+      {
+        "title": "Testator Name",
+        "text": "i.e. Chan Tai Man"
+      },
+      {
+        "title": "Testator ID No.",
+        "text": "i.e. A123456(7)"
+      },
+      {
+        "title": "Testator Address",
+        "text": "i.e. GRAND MILLENNIUM PLAZA, COSCO TOWER"
+      },
+      {
+        "title": "Residuary Beneficiary",
+        "text": "Chan Siu Man"
+      }
+    ]
+  },
+  "backAndForth": {
+    "continue": "Continue",
+    "back": "Back",
+    "validationMsg": "Please enter something...",
+    "customButton": "Custom"
+  }
+}

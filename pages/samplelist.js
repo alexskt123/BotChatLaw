@@ -1,7 +1,6 @@
 
 import { use100vh } from 'react-div-100vh'
 import { Fragment } from 'react'
-import { useRouter } from 'next/router'
 
 import { v4 as uuid } from 'uuid'
 
@@ -13,12 +12,11 @@ import { sampleListItems, customTemplate } from '../config/sampleList'
 import Swal from 'sweetalert2'
 
 import Button from 'react-bootstrap/Button'
-import { withTranslation } from '../config/i18n'
+import { withTranslation, Router } from '../config/i18n'
 
 const SampleList = ({ t }) => {
 
-  const height = use100vh()
-  const router = useRouter()
+  const height = use100vh()  
 
   const templateValues = {}
   const template = { ...customTemplate }
@@ -26,15 +24,15 @@ const SampleList = ({ t }) => {
   const backAndForth = async (steps, stepLabels, item) => {
 
     const swalQueueStep = Swal.mixin({
-      confirmButtonText: t('continue'),
-      cancelButtonText: t('back'),
+      confirmButtonText: t('backAndForth.continue'),
+      cancelButtonText: t('backAndForth.back'),
       progressSteps: steps,
       input: 'text',
       inputAttributes: {
         required: true
       },
       reverseButtons: true,
-      validationMessage: t('validationMsg')
+      validationMessage: t('backAndForth.validationMsg')
     })
 
     const values = []
@@ -43,10 +41,10 @@ const SampleList = ({ t }) => {
 
     stepValues = Object.values(template[item].defaultSample)
 
-    for (currentStep = 0; currentStep < steps.length;) {
+    for (currentStep = 0; currentStep < steps.length;) { 
       const result = await swalQueueStep.fire({
-        title: stepLabels[currentStep].title,
-        text: stepLabels[currentStep].text,
+        title: t(`${item}.stepLabels.${currentStep}.title`),
+        text: t(`${item}.stepLabels.${currentStep}.text`),
         inputValue: stepValues[currentStep],
         input: 'text',
         showCancelButton: currentStep > 0,
@@ -74,7 +72,7 @@ const SampleList = ({ t }) => {
         Object.assign(templateValues, item)
       })
 
-      router.push(
+      Router.push(
         {
           pathname: '/sample',
           query: {
@@ -112,7 +110,7 @@ const SampleList = ({ t }) => {
                   style={{ alignSelf: 'center', fontSize: 'xx-small', marginLeft: '10px' }}
                   onClick={() => { setBackAndForth(item.value) }}
                 >
-                  {t('customButton')}
+                  {t('backAndForth.customButton')}
                 </Button>
               </ListGroup.Item>
             )
@@ -123,4 +121,4 @@ const SampleList = ({ t }) => {
   )
 }
 
-export default withTranslation('backAndForth')(SampleList)
+export default withTranslation('sampleList')(SampleList)

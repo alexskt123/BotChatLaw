@@ -1,0 +1,64 @@
+{
+  "EmploymentContract": {
+    "stepLabels": [
+      {
+        "title": "開始日期",
+        "text": ""
+      },
+      {
+        "title": "僱員名稱",
+        "text": "如：Chan Tai Man"
+      },
+      {
+        "title": "僱主名稱",
+        "text": "如：God Bless Trump Company"
+      },
+      {
+        "title": "職位",
+        "text": "如：Analyst"
+      },
+      {
+        "title": "試用期",
+        "text": "如：3個月"
+      },
+      {
+        "title": "薪金",
+        "text": "如：50000"
+      },
+      {
+        "title": "年假",
+        "text": "如：10日"
+      },
+      {
+        "title": "通知期",
+        "text": "如：3個月"
+      }
+    ]
+  },
+  "Will": {
+    "stepLabels": [
+      {
+        "title": "遺囑人姓名",
+        "text": "如：Chan Tai Man"
+      },
+      {
+        "title": "遺囑人身份證號碼",
+        "text": "如：A123456(7)"
+      },
+      {
+        "title": "遺囑人地址",
+        "text": "如：GRAND MILLENNIUM PLAZA, COSCO TOWER"
+      },
+      {
+        "title": "剩餘遺產受益人",
+        "text": "Chan Siu Man"
+      }
+    ]
+  },
+  "backAndForth": {
+    "continue": "繼續",
+    "back": "返回",
+    "validationMsg": "要打啲嘢。。。",
+    "customButton": "自訂"
+  }
+}
