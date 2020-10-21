@@ -10,7 +10,7 @@ function CustomCard({ displayItems , t }) {
       <Card.Body>
         <Card.Title>{t(`CardDisplayitems.${displayItems.idx}.title`)}</Card.Title>
         <Card.Text>
-        {t(`CardDisplayitems.${displayItems.idx}.text`)}
+          {t(`CardDisplayitems.${displayItems.idx}.text`)}
         </Card.Text>
       </Card.Body>
     </Card >
