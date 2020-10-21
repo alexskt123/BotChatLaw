@@ -47,16 +47,17 @@ function Header({ HeaderName, t, i18n }) {
   }
 
   const [lang, setLang] = useState(language)
-  const [title, setTitle] = useState(Settings.HeaderName)
+  const [title, setTitle] = useState('')
   const router = useRouter()
 
   useEffect(() => {
     const idx = NavItems.findIndex(item => `${router.asPath}`.includes(item.href))
+    console.log(HeaderName, idx)
     if (idx > -1) {
       let translated = t(`NavItemLabels.${idx}`)
-      setTitle(`${Settings.HeaderName} - ${translated}`)
+      setTitle(`${HeaderName} - ${translated}`)
     }
-  }, [language])
+  }, [language, HeaderName])
 
   return (
     <Fragment>
