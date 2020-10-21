@@ -1,5 +1,5 @@
 // react, next and hooks
-import { Fragment, useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 // lib
@@ -10,9 +10,6 @@ import Nav from 'react-bootstrap/Nav'
 // config
 import Settings, { NavItems } from '../config/settings'
 import { withTranslation } from '../config/i18n'
-
-import { useState } from 'react'
-import { useRouter } from 'next/router'
 
 function Header({ HeaderName, t, i18n }) {
 
