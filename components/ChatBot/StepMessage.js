@@ -9,8 +9,9 @@ import IntentData from '../../lib/data/intentData'
 import BouncyButton from '../../components/BouncyButton'
 
 import containsChinese from 'contains-chinese'
+import { withTranslation } from '../../config/i18n'
 
-export default function StepMessage({ previousStep, triggerNextStep }) {
+function StepMessage({ previousStep, triggerNextStep }) {
   const [config, setConfig] = useState(null)
 
   useEffect(() => {
@@ -93,3 +94,5 @@ export default function StepMessage({ previousStep, triggerNextStep }) {
     </Fragment >
   )
 }
+
+export default withTranslation('stepOptions')(StepMessage)

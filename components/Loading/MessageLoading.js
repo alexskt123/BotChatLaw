@@ -1,10 +1,10 @@
 import { Fragment } from 'react'
-import { loadMsg } from '../../config/messages'
+import { withTranslation } from '../../config/i18n'
 import { randomMsg } from '../../lib/dataProcess'
 
-export default function MessageLoading() {
+function MessageLoading({t}) {
 
-  const message = randomMsg(loadMsg)
+  const message = randomMsg(t('loadMsg', { returnObjects: true }))
 
   return (
     <Fragment>
@@ -12,3 +12,5 @@ export default function MessageLoading() {
     </Fragment>
   )
 }
+
+export default withTranslation('messages')(MessageLoading)

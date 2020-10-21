@@ -2,22 +2,23 @@ import { Fragment, useEffect, useState } from 'react'
 import { getIntentByQuery } from '../../lib/getIntentByQuery'
 import { setRequestByInput } from '../../lib/setQueryByInput'
 import Loading from '../Loading/MessageLoading'
-import { guessMsg, notFoundMsg, notUseGuessMsg } from '../../config/messages'
+import { notUseGuessMsg } from '../../config/messages'
 import { randomMsg } from '../../lib/dataProcess'
 import IntentData from '../../lib/data/intentData'
 import { continueOptions } from '../../config/stepOptions'
 
 import Button from 'react-bootstrap/Button'
 import { v4 as uuid } from 'uuid'
+import { withTranslation } from '../../config/i18n'
 
-export default function Others({ previousStep, triggerNextStep }) {
+function Others({ previousStep, triggerNextStep, t }) {
   const [message, setMessage] = useState(null)
   const [data, setData] = useState(null)
   const [notGuess, setNotGuess] = useState(null)
   const [clicked, setClicked] = useState(false)
 
-  const guessMessage = randomMsg(guessMsg)
-  const notFoundMessage = randomMsg(notFoundMsg)
+  const guessMessage = randomMsg(t('guessMsg', { returnObjects: true }))
+  const notFoundMessage = randomMsg(t('notFoundMsg', { returnObjects: true }))
 
   const getMessage = (intentData, isNotGuess) => {
     let message = notFoundMessage
@@ -95,17 +96,19 @@ export default function Others({ previousStep, triggerNextStep }) {
     <Fragment>
       {message}
       <div>
-        {!notGuess && continueOptions.map(item => (          
+        {!notGuess && continueOptions.map((item, idx) => (          
           <Button
             key={uuid()}
             variant='outline-dark'
             disabled={clicked}
             onClick={() => { handleNextTrigger(item.value) }}
           >
-            {item.label}
+            {t(`stepOptions:continueOptions.${idx}`)}
           </Button>
         ))}
       </div>      
     </Fragment>
   )
 }
+
+export default withTranslation(['messages', 'stepOptions'])(Others)
