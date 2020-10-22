@@ -4,11 +4,12 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 // lib
 import { v4 as uuid } from 'uuid'
-import Button from 'react-bootstrap/Button'
+import Switch from 'react-switch'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
+import Form from 'react-bootstrap/Form'
 // config
-import Settings, { NavItems } from '../config/settings'
+import Settings, { NavItems, webConfig } from '../config/settings'
 import { withTranslation } from '../config/i18n'
 
 function Header({ HeaderName, t, i18n }) {
@@ -60,6 +61,13 @@ function Header({ HeaderName, t, i18n }) {
     }
   }, [router])
 
+  const languageSwitchConfig = {
+    language,
+    languages: webConfig.languages,
+    changeLanguage: () => changeLanguage(),
+    t
+  }
+
   return (
     <Fragment>
       <Head>
@@ -84,9 +92,10 @@ function Header({ HeaderName, t, i18n }) {
                   {t(`NavItemLabels.${idx}`)}
                 </Nav.Link>
               )
-            })}            
+            })}
           </Nav>
-          <Button variant='dark' key={uuid()} onClick={() => changeLanguage(lang)}>{lang}</Button>
+
+          <LanguageSwitch {...languageSwitchConfig} />
         </Navbar.Collapse>
       </Navbar>
     </Fragment >
@@ -94,3 +103,38 @@ function Header({ HeaderName, t, i18n }) {
 }
 
 export default withTranslation('header')(Header)
+
+export const LanguageSwitch = ({ language, languages, changeLanguage, t }) => {
+  const labels = [...languages].reverse().map(l => t(`languages.${l}`))
+
+  return (
+    <Fragment>
+      <Form inline>
+        <LanguageLabel>
+          {labels[0]}
+        </LanguageLabel>
+        <label>
+          <Switch
+            checked={language === languages[0]}
+            onChange={changeLanguage}
+            uncheckedIcon={false}
+            checkedIcon={false}
+          />
+        </label>
+        <LanguageLabel>
+          {labels[1]}
+        </LanguageLabel>
+      </Form>
+    </Fragment>
+  )
+}
+
+export const LanguageLabel = ({ children }) => {
+  return (
+    <Fragment>
+      <span className='nav-link' style={{ color: '#fff' }}>
+        {children}
+      </span>
+    </Fragment>
+  )
+}
