@@ -8,22 +8,20 @@ import { Fragment } from 'react'
 import SampleItem from './SampleItem'
 import Disclaimer from '../Disclaimer'
 import CustomContainer from '../../components/CustomContainer'
+import { withTranslation } from '../../config/i18n'
 
-export default function WillSample({ sample, height }) {
-  const template = {
-    title: '遺囑範例'
-  }
+function WillSample({ sample, height, t }) {
 
   return (
     <Fragment>
       <Head>
-        <title>{template.title}</title>
+        <title>{t('Will.label')}</title>
       </Head>
 
       <CustomContainer style={{ minHeight: height }}>
         <Fragment>
           <div className="mt-0">
-            <Badge variant="secondary"><h2>{`${template.title}`}</h2></Badge>
+            <Badge variant="secondary"><h2>{t('Will.label')}</h2></Badge>
 
           </div>
 
@@ -62,3 +60,5 @@ export default function WillSample({ sample, height }) {
     </Fragment>
   )
 }
+
+export default withTranslation('sampleList')(WillSample)

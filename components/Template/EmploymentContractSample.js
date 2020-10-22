@@ -11,22 +11,20 @@ import SampleItem from './SampleItem'
 import SampleTooltip from './SampleTooltip'
 import Disclaimer from '../Disclaimer'
 import CustomContainer from '../../components/CustomContainer'
+import { withTranslation } from '../../config/i18n'
 
-export default function EmploymentContractSample({ sample, height }) {
-  const template = {
-    title: '僱員合約範例'
-  }
+function EmploymentContractSample({ sample, height, t }) {
 
   return (
     <Fragment>
       <Head>
-        <title>{template.title}</title>
+        <title>{t('EmploymentContract.label')}</title>
       </Head>
 
       <CustomContainer style={{ minHeight: height }}>
         <Fragment>
           <div className="mt-0">
-            <Badge variant="secondary"><h2>{`${template.title}`}</h2></Badge>
+            <Badge variant="secondary"><h2>{t('EmploymentContract.label')}</h2></Badge>
 
           </div>
 
@@ -94,3 +92,5 @@ export default function EmploymentContractSample({ sample, height }) {
     </Fragment>
   )
 }
+
+export default withTranslation('sampleList')(EmploymentContractSample)
