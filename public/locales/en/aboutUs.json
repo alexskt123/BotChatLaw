@@ -1,42 +1,42 @@
 {
   "CarouselDisplayItems": [
-    {           
+    {
       "captionLabel": "Flexible",
       "captionContent": "You can ask whatever you want"
     },
-    {           
+    {
       "captionLabel": "Easy",
       "captionContent": "Easy to chat"
     },
-    {           
+    {
       "captionLabel": "Personalized",
       "captionContent": "Personalized chatbot"
     }
   ],
   "CardDisplayitems": [
-    {      
+    {
       "title": "IT people",
-      "text": "We are programmers"
+      "text": "We are programmers!"
     },
-    {      
+    {
       "title": "Law people",
-      "text": "We are legal people"
+      "text": "We are legal people!"
     },
-    {      
+    {
       "title": "Natural Language Processing",
-      "text": "Natural Language Processing is the key to detect what you actually want to ask"
+      "text": "Natural Language Processing is the key to detect what you actually want to ask. It is a process where computers process and analyze large amounts of natural language data."
     },
-    {      
+    {
       "title": "Wikipedia",
-      "text": "We can also grab things from Wikipedia for those we do not know"
+      "text": "We can also grab things from Wikipedia for those we do not know."
     },
-    {      
+    {
       "title": "A.I.",
-      "text": "It is very clever and capable of learning new stuff"
+      "text": "It is very clever and capable of learning new stuff. Don't be surprised at it!"
     },
-    {      
+    {
       "title": "ChatBot",
-      "text": "Let's try to communicate together"
+      "text": "Let's try to communicate together!"
     }
   ]
 }
