@@ -66,13 +66,14 @@ function Header({ HeaderName, t, i18n }) {
         <title>{title}</title>
       </Head>
 
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" expand="sm">
         <Navbar.Brand>
           <img
             {...imgConfig}
           />
           {HeaderName}
         </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             {NavItems.map((item, idx) => {
@@ -83,10 +84,10 @@ function Header({ HeaderName, t, i18n }) {
                   {t(`NavItemLabels.${idx}`)}
                 </Nav.Link>
               )
-            })}
+            })}            
           </Nav>
+          <Button variant='dark' key={uuid()} onClick={() => changeLanguage(lang)}>{lang}</Button>
         </Navbar.Collapse>
-        <Button variant='dark' key={uuid()} onClick={() => changeLanguage(lang)}>{lang}</Button>
       </Navbar>
     </Fragment >
   )
