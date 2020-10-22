@@ -1,15 +1,17 @@
 //import from react
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState, useEffect, useContext } from 'react'
 //import lib
 import { ThemeProvider } from 'styled-components'
 import ChatBot from '../../lib/react-simple-chatbot/react-simple-chatbot'
 //import chatbot configuration
 import { chatBotConfig, chatBotHeaderTitle, chatBotTheme } from '../../config/chatBot'
 import { withTranslation } from 'next-i18next'
+import { Store } from '../../lib/store'
 
 //export default component
-function CustomChatBot({ steps, t, i18n }) {
+function CustomChatBot({ t, i18n }) {
 
+  const { store: { steps } } = useContext(Store)
   const [config, setConfig] = useState({})
   const { language } = i18n
 
@@ -23,6 +25,13 @@ function CustomChatBot({ steps, t, i18n }) {
   }, [language])
 
   const { title, ...rest } = config
+
+  console.log(steps)
+
+  if (!steps) {
+    return ''
+  }
+
   return (
     <Fragment>
       <ThemeProvider theme={chatBotTheme}>

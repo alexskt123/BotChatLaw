@@ -1,5 +1,5 @@
 //import from react
-import { Fragment, createElement } from 'react'
+import { Fragment, createElement, useEffect, useContext } from 'react'
 //import hooks
 import { useSteps } from '../../lib/hooks/useFire'
 import { useIntentList } from '../../lib/hooks/useFire'
@@ -15,6 +15,7 @@ import LoadingSpinner from '../Loading/LoadingSpinner'
 //import lib
 import { useTranslation } from '../../config/i18n'
 import { defaultOptions } from '../../config/stepOptions'
+import { Store } from '../../lib/store'
 //export default component
 export default function FloatingChatBot() {
   //varibles for component
@@ -26,12 +27,6 @@ export default function FloatingChatBot() {
     '<ContactUs/>': ContactUs,
     '<StaticMessage/>': StaticMessage
   }
-  //hooks
-  const steps = useSteps()
-  const intent = useIntentList()
-  const { t } = useTranslation('stepOptions')
-
-  console.log({ steps, intent })
 
   const getOptions = (id, intent) => {
     let translatedOptions = []
@@ -49,22 +44,35 @@ export default function FloatingChatBot() {
 
     return options
   }
+  //hooks
+  const steps = useSteps()
+  const intent = useIntentList()
+  const { t } = useTranslation('stepOptions')
 
+  const store = useContext(Store)
 
-  steps
-    .filter(data => data.options)
-    .forEach(data => data.options = getOptions(data.id, intent))
+  console.log({ intent, store })
 
-  //processing
-  steps
-    .filter(data => data.component)
-    .filter(data => typeof data.component === 'string')
-    .forEach(data => {
-      const componentName = data.component
-      const DynamicComponent = components[componentName]
-      data.component = createElement(DynamicComponent)
-    })
+  useEffect(() => {
+    steps
+      .filter(data => data.options)
+      .forEach(data => data.options = getOptions(data.id, intent))
 
+    //processing
+    steps
+      .filter(data => data.component)
+      .filter(data => typeof data.component === 'string')
+      .forEach(data => {
+        const componentName = data.component
+        const DynamicComponent = components[componentName]
+        data.component = createElement(DynamicComponent)
+      })
+
+    if (!(steps.length <= 0
+      || intent.length < 1)) {
+      store.updateStore({ steps: [...steps] })
+    }
+  }, [steps, intent])
 
   //loading
   if (
@@ -73,14 +81,13 @@ export default function FloatingChatBot() {
   ) {
     return (
       <LoadingSpinner />
-
     )
   }
 
   //template
   return (
     <Fragment>
-      <CustomChatBot steps={steps} />
+      <CustomChatBot />
     </Fragment>
   )
 }
