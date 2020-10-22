@@ -6,5 +6,6 @@
     "staticMsg": {
         "head": "你想知道咩法律意見?",
         "tail": "再見!"
-    }
+    },
+    "floatingIcon": "/locales/zh/floatingButton.png"
 }

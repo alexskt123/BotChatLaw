@@ -6,5 +6,6 @@
     "staticMsg": {
         "head": "What you wanna know?",
         "tail": "Bye!"
-    }
+    },
+    "floatingIcon": "/locales/en/floatingButton.png"
 }
