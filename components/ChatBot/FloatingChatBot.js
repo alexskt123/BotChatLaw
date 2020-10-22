@@ -10,6 +10,7 @@ import StepMessage from './StepMessage'
 import StepLink from './StepLink'
 import StepList from './StepList'
 import ContactUs from '../ContactUs'
+import StaticMessage from './StaticMessage';
 import LoadingSpinner from '../Loading/LoadingSpinner'
 //import lib
 import { useTranslation } from '../../config/i18n'
@@ -22,7 +23,8 @@ export default function FloatingChatBot() {
     '<StepMessage/>': StepMessage,
     '<StepLink/>': StepLink,
     '<StepList/>': StepList,
-    '<ContactUs/>': ContactUs
+    '<ContactUs/>': ContactUs,
+    '<StaticMessage/>': StaticMessage
   }
   //hooks
   const steps = useSteps()
@@ -44,7 +46,7 @@ export default function FloatingChatBot() {
 
     let options = []
     options = id === 'stageask' ? translatedOptions : intent
-    
+
     return options
   }
 
