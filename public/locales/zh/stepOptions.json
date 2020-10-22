@@ -7,6 +7,7 @@
         "label": "返回",
         "value": "head"
     },
+    "stepListRelated": "相關嘅嘢",
     "continueOptions": [
         "是",
         "否"

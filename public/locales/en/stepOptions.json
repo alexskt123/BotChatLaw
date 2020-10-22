@@ -7,6 +7,7 @@
         "label": "Back",
         "value": "head"
     },
+    "stepListRelated": "Related Stuff",
     "continueOptions": [
         "Yes",
         "No"

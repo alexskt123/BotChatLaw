@@ -6,11 +6,12 @@ import Loading from '../Loading/MessageLoading'
 import { v4 as uuid } from 'uuid'
 import { getIntentData } from '../../lib/firebaseResult'
 import IntentData from '../../lib/data/intentData'
-import { others, back } from '../../config/stepOptions'
 
 import Button from 'react-bootstrap/Button'
 
-export default function StepList({ previousStep, triggerNextStep }) {
+import { withTranslation } from '../../config/i18n'
+
+function StepList({ previousStep, triggerNextStep, t }) {
   const [list, setList] = useState(null)
   const [clicked, setClicked] = useState(false)
 
@@ -31,8 +32,8 @@ export default function StepList({ previousStep, triggerNextStep }) {
           return newItem
         })
         .concat(
-          back,
-          others
+          t('back', { returnObjects: true }),
+          t('others', { returnObjects: true })
         )
 
       setList(list)
@@ -61,7 +62,7 @@ export default function StepList({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-      <h5><Badge variant="dark">相關嘅嘢</Badge></h5>
+      <h5><Badge variant="dark">{t('stepListRelated')}</Badge></h5>
       <div>
         {list.map(item => (
           <Button
@@ -78,3 +79,5 @@ export default function StepList({ previousStep, triggerNextStep }) {
     </Fragment>
   )
 }
+
+export default withTranslation('stepOptions')(StepList)
