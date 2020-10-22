@@ -8,8 +8,8 @@ import Footer from './Footer'
 import Settings from '../config/settings'
 import { withTranslation } from 'next-i18next'
 
-function Layout ({children, t}) {
-  return (    
+function Layout({ children, t }) {
+  return (
     <Fragment>
       <Header HeaderName={t('headerTitle')} />
       {{ ...children }}

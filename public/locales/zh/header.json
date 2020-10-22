@@ -1,7 +1,11 @@
 {
-  "NavItemLabels" : [
+  "NavItemLabels": [
     "關於我哋",
     "法律文件範例",
     "搵過嘅嘢"
-  ]
+  ],
+  "languages": {
+    "en": "英文",
+    "zh": "中文"
+  }
 }
