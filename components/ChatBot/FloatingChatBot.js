@@ -13,6 +13,7 @@ import ContactUs from '../ContactUs'
 import LoadingSpinner from '../Loading/LoadingSpinner'
 //import lib
 import { getOptions } from '../../lib/dataProcess'
+import StaticMessage from './StaticMessage';
 //export default component
 export default function FloatingChatBot() {
   //varibles for component
@@ -21,7 +22,8 @@ export default function FloatingChatBot() {
     '<StepMessage/>': StepMessage,
     '<StepLink/>': StepLink,
     '<StepList/>': StepList,
-    '<ContactUs/>': ContactUs
+    '<ContactUs/>': ContactUs,
+    '<StaticMessage/>': StaticMessage
   }
   //hooks
 
@@ -35,7 +37,7 @@ export default function FloatingChatBot() {
     || intent.length < 1
   ) {
     return (
-      <LoadingSpinner/>
+      <LoadingSpinner />
 
     )
   }
