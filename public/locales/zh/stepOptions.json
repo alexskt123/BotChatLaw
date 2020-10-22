@@ -1,12 +1,15 @@
 {
     "others": {
         "label": "其他",
-        "value": "其他"
+        "value": "其他",
+        "trigger": "other"
     },
     "back": {
         "label": "返回",
-        "value": "head"
+        "value": "head",
+        "trigger": "head"
     },
+    "stepLinkLabel": "請點擊以下的連結",
     "stepListRelated": "相關嘅嘢",
     "continueOptions": [
         "是",

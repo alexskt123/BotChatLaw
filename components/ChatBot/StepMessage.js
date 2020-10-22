@@ -11,7 +11,7 @@ import BouncyButton from '../../components/BouncyButton'
 import containsChinese from 'contains-chinese'
 import { withTranslation } from '../../config/i18n'
 
-function StepMessage({ previousStep, triggerNextStep }) {
+function StepMessage({ previousStep, triggerNextStep, t }) {
   const [config, setConfig] = useState(null)
 
   useEffect(() => {
@@ -64,7 +64,7 @@ function StepMessage({ previousStep, triggerNextStep }) {
     <Fragment>
       <h5>
         <Badge variant="dark">{config.label}</Badge>
-        {config.source && <BouncyButton href={config.wikiHref} target='_blank' ><span>{config.source}</span></BouncyButton>}
+        {config.source && <BouncyButton href={config.wikiHref} target='_blank' ><span>{t(`common:${config.source}`)}</span></BouncyButton>}
       </h5>
       {
         config.message.list.length < 1 ?
@@ -95,4 +95,4 @@ function StepMessage({ previousStep, triggerNextStep }) {
   )
 }
 
-export default withTranslation('stepOptions')(StepMessage)
+export default withTranslation(['stepOptions', 'common'])(StepMessage)

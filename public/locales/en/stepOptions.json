@@ -1,12 +1,15 @@
 {
     "others": {
         "label": "Others",
-        "value": "others"
+        "value": "others",
+        "trigger": "other"
     },
     "back": {
         "label": "Back",
-        "value": "head"
+        "value": "head",
+        "trigger": "head"
     },
+    "stepLinkLabel": "Related Links",
     "stepListRelated": "Related Stuff",
     "continueOptions": [
         "Yes",

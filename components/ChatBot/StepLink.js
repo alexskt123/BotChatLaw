@@ -8,7 +8,9 @@ import { v4 as uuid } from 'uuid'
 import ListGroup from 'react-bootstrap/ListGroup'
 import IntentData from '../../lib/data/intentData'
 
-export default function StepLink({ previousStep, triggerNextStep }) {
+import { withTranslation } from '../../config/i18n'
+
+function StepLink({ previousStep, triggerNextStep, t }) {
   const [links, setLinks] = useState(null)
 
   useEffect(() => {
@@ -34,7 +36,7 @@ export default function StepLink({ previousStep, triggerNextStep }) {
 
   return (
     <Fragment>
-      <h5><Badge variant="dark">請點擊以下的連結</Badge></h5>
+      <h5><Badge variant="dark">{t('stepLinkLabel')}</Badge></h5>
       <div>
         <ListGroup variant={'outline-dark'}>
           {links.map(link => (
@@ -53,3 +55,5 @@ export default function StepLink({ previousStep, triggerNextStep }) {
     </Fragment>
   )
 }
+
+export default withTranslation('stepOptions')(StepLink)
