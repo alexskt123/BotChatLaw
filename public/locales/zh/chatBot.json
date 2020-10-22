@@ -2,5 +2,9 @@
     "chatBotConfig": {
         "placeholder": "請輸入。。。",
         "title": "法律小幫手"
+    },
+    "staticMsg": {
+        "head": "你想知道咩法律意見?",
+        "tail": "再見!"
     }
 }

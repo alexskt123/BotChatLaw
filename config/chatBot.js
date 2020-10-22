@@ -1,8 +1,8 @@
 const sameStyle = { fontSize: '15px', boxShadow: '1px 2px 5px #9E9E9E', border: '1px solid' }
 
 export const staticMsg = {
-  'head': "你想知道咩法律意見?",
-  "tail": "再見!"
+  'head': '你想知道咩法律意見?',
+  'tail': '再見!'
 }
 
 export const chatBotConfig = {

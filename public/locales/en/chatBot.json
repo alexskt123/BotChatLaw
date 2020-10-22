@@ -2,5 +2,9 @@
     "chatBotConfig": {
         "placeholder": "Please enter...",
         "title": "BotChatLaw"
+    },
+    "staticMsg": {
+        "head": "What you wanna know?",
+        "tail": "Bye!"
     }
 }

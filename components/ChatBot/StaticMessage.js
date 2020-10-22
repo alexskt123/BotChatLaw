@@ -1,11 +1,13 @@
 import { Fragment } from 'react'
-import { staticMsg } from '../../config/chatBot'
+import { withTranslation } from '../../config/i18n'
 
-export default function StaticMessage({ step }) {
+function StaticMessage({ step, t }) {
 
   return (
     <Fragment>
-      <span>{staticMsg[step.id]}</span>
+      <span>{t(`staticMsg.${step.id}`)}</span>
     </Fragment>
   )
 }
+
+export default withTranslation('chatBot')(StaticMessage)

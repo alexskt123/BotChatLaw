@@ -10,7 +10,7 @@ import StepMessage from './StepMessage'
 import StepLink from './StepLink'
 import StepList from './StepList'
 import ContactUs from '../ContactUs'
-import StaticMessage from './StaticMessage';
+import StaticMessage from './StaticMessage'
 import LoadingSpinner from '../Loading/LoadingSpinner'
 //import lib
 import { useTranslation } from '../../config/i18n'
