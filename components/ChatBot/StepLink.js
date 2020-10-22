@@ -12,6 +12,7 @@ import { withTranslation } from '../../config/i18n'
 
 function StepLink({ previousStep, triggerNextStep, t }) {
   const [links, setLinks] = useState(null)
+  const [stepLinkLabel, setStepLinkLabel] = useState(null)
 
   useEffect(() => {
     (async () => {
@@ -25,6 +26,7 @@ function StepLink({ previousStep, triggerNextStep, t }) {
       } = intentData.doc
 
       setLinks(links)
+      setStepLinkLabel(t('stepLinkLabel'))
 
       const trigger = list.length > 0 ? 'otherlist' : intentData.trigger
 
@@ -36,7 +38,7 @@ function StepLink({ previousStep, triggerNextStep, t }) {
 
   return (
     <Fragment>
-      <h5><Badge variant="dark">{t('stepLinkLabel')}</Badge></h5>
+      <h5><Badge variant="dark">{stepLinkLabel}</Badge></h5>
       <div>
         <ListGroup variant={'outline-dark'}>
           {links.map(link => (

@@ -51,7 +51,10 @@ function StepMessage({ previousStep, triggerNextStep, t }) {
       let config = {}
       config.message = tempMessage
       config.label = intentData.doc.label
-      config.source = intentData.source
+      config.source = {
+        source: intentData.source,
+        label: t(`common:${intentData.source}`)
+      }
       config.wikiHref = `https://${lang}.wikipedia.org/wiki/${intentData.doc.label}`
 
       setConfig(config)
@@ -64,7 +67,7 @@ function StepMessage({ previousStep, triggerNextStep, t }) {
     <Fragment>
       <h5>
         <Badge variant="dark">{config.label}</Badge>
-        {config.source && <BouncyButton href={config.wikiHref} target='_blank' ><span>{t(`common:${config.source}`)}</span></BouncyButton>}
+        {config.source.source && <BouncyButton href={config.wikiHref} target='_blank' ><span>{config.source.label}</span></BouncyButton>}
       </h5>
       {
         config.message.list.length < 1 ?

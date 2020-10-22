@@ -14,6 +14,7 @@ import { withTranslation } from '../../config/i18n'
 function StepList({ previousStep, triggerNextStep, t }) {
   const [list, setList] = useState(null)
   const [clicked, setClicked] = useState(false)
+  const [stepListRelated, setStepListRelated] = useState(null)
 
   useEffect(() => {
     (async () => {
@@ -37,6 +38,7 @@ function StepList({ previousStep, triggerNextStep, t }) {
         )
 
       setList(list)
+      setStepListRelated(t('stepListRelated'))
     })()
   }, [])
 
@@ -62,7 +64,7 @@ function StepList({ previousStep, triggerNextStep, t }) {
 
   return (
     <Fragment>
-      <h5><Badge variant="dark">{t('stepListRelated')}</Badge></h5>
+      <h5><Badge variant="dark">{stepListRelated}</Badge></h5>
       <div>
         {list.map(item => (
           <Button

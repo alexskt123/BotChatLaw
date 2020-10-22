@@ -16,6 +16,7 @@ function Others({ previousStep, triggerNextStep, t }) {
   const [data, setData] = useState(null)
   const [notGuess, setNotGuess] = useState(null)
   const [clicked, setClicked] = useState(false)
+  const [continueOptionsLabel, setContinueOptionsLabel] = useState([])
 
   const getMessage = (intentData, isNotGuess, messages) => {
     let message = messages[1]
@@ -51,6 +52,7 @@ function Others({ previousStep, triggerNextStep, t }) {
 
       setData(intentData)
       setNotGuess(isNotGuess)
+      setContinueOptionsLabel(t('stepOptions:continueOptions', { returnObjects: true }))
 
     })()
   }, [])
@@ -103,7 +105,7 @@ function Others({ previousStep, triggerNextStep, t }) {
             disabled={clicked}
             onClick={() => { handleNextTrigger(item.value) }}
           >
-            {t(`stepOptions:continueOptions.${idx}`)}
+            {continueOptionsLabel[idx]}
           </Button>
         ))}
       </div>
