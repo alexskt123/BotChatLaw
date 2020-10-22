@@ -3,8 +3,9 @@ import Button from 'react-bootstrap/Button'
 import CustomSpinner from './CustomSpinner'
 
 import { v4 as uuid } from 'uuid'
+import { withTranslation } from '../../config/i18n'
 
-export default function LoadingSpinner() {
+function LoadingSpinner({ t }) {
 
   const spinners = [...Array(3)].map(_item => uuid())
 
@@ -13,13 +14,15 @@ export default function LoadingSpinner() {
       <Button variant="dark" disabled>
         {spinners.map(item => {
           return <CustomSpinner key={item} />
-        })}        
-        Load緊
+        })}
+        {t('loadingText')}
         {spinners.map(item => {
           return <CustomSpinner key={item} />
-        })} 
+        })}
       </Button>
     </Fragment>
 
   )
 }
+
+export default withTranslation('settings')(LoadingSpinner)
