@@ -12,7 +12,7 @@ import { sampleListItems, customTemplate } from '../../config/sampleList'
 import Swal from 'sweetalert2'
 
 import Button from 'react-bootstrap/Button'
-import { withTranslation, Router } from '../../config/i18n'
+import { withTranslation, Router, i18n } from '../../config/i18n'
 
 const SampleList = ({ t }) => {
 
@@ -72,9 +72,11 @@ const SampleList = ({ t }) => {
         Object.assign(templateValues, item)
       })
 
+      const { language } = i18n
+
       Router.push(
         {
-          pathname: '/sample',
+          pathname: `/${language}/sample`,
           query: {
             template: item,
             ...templateValues
