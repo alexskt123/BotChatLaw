@@ -74,7 +74,7 @@ function Header({ HeaderName, t, i18n }) {
         <title>{title}</title>
       </Head>
 
-      <Navbar bg="dark" variant="dark" expand="sm">
+      <Navbar fixed="top" bg="dark" variant="dark" expand="sm" style={{zIndex: '998!important'}}>
         <Navbar.Brand>
           <img
             {...imgConfig}
