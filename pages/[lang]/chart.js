@@ -71,7 +71,7 @@ function CustomChart({ t }) {
 }
 
 CustomChart.getInitialProps = async () => ({
-  namespacesRequired: ['header', 'chart', 'settings', 'chatBot']
+  namespacesRequired: ['header', 'chart', 'settings', 'chatBot', 'contactUs']
 })
 
 export default withTranslation('chart')(CustomChart)

@@ -51,7 +51,7 @@ function Sample({ props: { query } }) {
 }
 
 Sample.getInitialProps = async ({ query }) => ({
-  namespacesRequired: ['header', 'settings', 'chatBot'],
+  namespacesRequired: ['header', 'settings', 'chatBot', 'contactUs'],
   props: { query }
 })
 
