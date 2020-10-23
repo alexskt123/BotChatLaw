@@ -33,7 +33,7 @@ export default function FloatingChatBot() {
 
   const getOptions = (id, intent) => {
 
-    const options = id.toString().includes('stageask') ? defaultOptions[id.toString().replace('stageask', '')] : intent
+    const options = id.includes('stageask') ? defaultOptions[id.replace('stageask', '')] : intent
 
     return options
   }
