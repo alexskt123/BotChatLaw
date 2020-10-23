@@ -28,7 +28,7 @@ function StepLink({ previousStep, triggerNextStep, t, i18n }) {
       } = intentData.doc
 
       let links = []
-      link.map(item => {
+      link.forEach(item => {
         links.push({
           href: item.href,
           label: getContent(item.label, language)

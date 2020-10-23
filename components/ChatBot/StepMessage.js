@@ -47,7 +47,7 @@ function StepMessage({ previousStep, triggerNextStep, t, i18n }) {
       let translatedHeader = header
       let translatedList = []
 
-      list.map(item => {
+      list.forEach(item => {
         translatedList.push(getContent(item, language))
       })
 
