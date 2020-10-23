@@ -7,23 +7,33 @@ import { v4 as uuid } from 'uuid'
 
 import ListGroup from 'react-bootstrap/ListGroup'
 import IntentData from '../../lib/data/intentData'
+import { getContent } from '../../lib/dataProcess'
 
 import { withTranslation } from '../../config/i18n'
 
-function StepLink({ previousStep, triggerNextStep, t }) {
+function StepLink({ previousStep, triggerNextStep, t, i18n }) {
   const [links, setLinks] = useState(null)
   const [stepLinkLabel, setStepLinkLabel] = useState(null)
 
   useEffect(() => {
     (async () => {
+      const { language } = i18n
       let intentData = { ...IntentData }
 
       intentData = previousStep.value
 
       const {
-        link: links,
+        link,
         list
       } = intentData.doc
+
+      let links = []
+      link.map(item => {
+        links.push({
+          href: item.href,
+          label: getContent(item.label, language)
+        })
+      })
 
       setLinks(links)
       setStepLinkLabel(t('stepLinkLabel'))

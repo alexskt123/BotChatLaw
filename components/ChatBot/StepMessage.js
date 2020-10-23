@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from 'react'
 import Badge from 'react-bootstrap/Badge'
 
 import { getIntentByQuery } from '../../lib/getIntentByQuery'
+import { getContent } from '../../lib/dataProcess'
 import Loading from '../Loading/MessageLoading'
 import { v4 as uuid } from 'uuid'
 import ListGroup from 'react-bootstrap/ListGroup'
@@ -11,7 +12,7 @@ import BouncyButton from '../../components/BouncyButton'
 import containsChinese from 'contains-chinese'
 import { withTranslation } from '../../config/i18n'
 
-function StepMessage({ previousStep, triggerNextStep, t }) {
+function StepMessage({ previousStep, triggerNextStep, t, i18n }) {
   const [config, setConfig] = useState(null)
 
   useEffect(() => {
@@ -39,23 +40,32 @@ function StepMessage({ previousStep, triggerNextStep, t }) {
 
       triggerNextStep({ trigger, value: intentData })
 
+      const { language } = i18n
+
       const { header, list } = intentData.doc.explanations
 
+      let translatedHeader = header
+      let translatedList = []
+
+      list.map(item => {
+        translatedList.push(getContent(item, language))
+      })
+
       let tempMessage = {
-        header,
-        list
+        header: translatedHeader,
+        list: translatedList
       }
 
-      const lang = containsChinese(intentData.doc.label) ? 'zh' : 'en'
+      const lang = containsChinese(getContent(intentData.doc.label)) ? 'zh' : 'en'
 
       let config = {}
       config.message = tempMessage
-      config.label = intentData.doc.label
+      config.label = getContent(intentData.doc.label, language)
       config.source = {
         source: intentData.source,
         label: t(`common:${intentData.source}`)
       }
-      config.wikiHref = `https://${lang}.wikipedia.org/wiki/${intentData.doc.label}`
+      config.wikiHref = `https://${lang}.wikipedia.org/wiki/${getContent(intentData.doc.label)}`
 
       setConfig(config)
     })()
