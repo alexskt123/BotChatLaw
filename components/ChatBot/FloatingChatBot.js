@@ -13,7 +13,6 @@ import ContactUs from '../ContactUs'
 import StaticMessage from './StaticMessage'
 import LoadingSpinner from '../Loading/LoadingSpinner'
 //import lib
-import { useTranslation } from '../../config/i18n'
 import { defaultOptions } from '../../config/stepOptions'
 //export default component
 export default function FloatingChatBot() {
@@ -29,23 +28,12 @@ export default function FloatingChatBot() {
   //hooks
   const steps = useSteps()
   const intent = useIntentList()
-  const { t } = useTranslation('stepOptions')
 
   console.log({ steps, intent })
 
   const getOptions = (id, intent) => {
-    let translatedOptions = []
-    defaultOptions.map((item, idx) => {
-      translatedOptions.push(
-        {
-          ...t(`defaultOptions.${idx}`, { returnObjects: true }),
-          trigger: item.trigger
-        }
-      )
-    })
 
-    let options = []
-    options = id === 'stageask' ? translatedOptions : intent
+    const options = id.toString().includes('stageask') ? defaultOptions[id.toString().replace('stageask', '')] : intent
 
     return options
   }

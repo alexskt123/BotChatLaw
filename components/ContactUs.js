@@ -3,12 +3,15 @@ import { contactUsConfig } from '../config/contactUs'
 
 import { withTranslation } from '../config/i18n'
 
-function ContactUs({ t }) {
+function ContactUs({ triggerNextStep, t, i18n }) {
 
   const [emailintro, setEmailIntro] = useState(null)
+  const { language } = i18n
 
   useEffect(() => {
     setEmailIntro(t('emailintro'))
+
+    triggerNextStep({ trigger: `stageask${language}` })
   }, [])
 
   return (
