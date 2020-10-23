@@ -44,7 +44,7 @@ function StepMessage({ previousStep, triggerNextStep, t, i18n }) {
 
       const { header, list } = intentData.doc.explanations
 
-      let translatedHeader = header
+      let translatedHeader = getContent(header, language)
       let translatedList = []
 
       list.forEach(item => {

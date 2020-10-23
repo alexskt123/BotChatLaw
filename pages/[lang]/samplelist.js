@@ -124,7 +124,7 @@ const SampleList = ({ t }) => {
 }
 
 SampleList.getInitialProps = async () => ({
-  namespacesRequired: ['header', 'sampleList', 'settings', 'chatBot', 'contactUs']
+  namespacesRequired: ['header', 'sampleList', 'settings', 'chatBot', 'contactUs', 'messages']
 })
 
 export default withTranslation('sampleList')(SampleList)

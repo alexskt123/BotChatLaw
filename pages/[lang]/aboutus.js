@@ -51,5 +51,5 @@ export default function aboutus() {
 }
 
 aboutus.getInitialProps = async () => ({
-  namespacesRequired: ['header', 'settings', 'chatBot', 'contactUs']
+  namespacesRequired: ['header', 'settings', 'chatBot', 'contactUs', 'messages']
 })

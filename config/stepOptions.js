@@ -1,7 +1,14 @@
 export const others = {
-  label: '其他',
-  value: '其他',
-  trigger: 'other'
+  en: {
+    label: 'Others',
+    value: 'other',
+    trigger: 'other'
+  },
+  zh: {
+    label: '其他',
+    value: '其他',
+    trigger: 'other'
+  }
 }
 
 export const back = {
