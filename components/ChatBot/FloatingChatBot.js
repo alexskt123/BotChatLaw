@@ -26,14 +26,15 @@ export default function FloatingChatBot() {
     '<StaticMessage/>': StaticMessage
   }
   //hooks
-  const steps = useSteps()
   const intent = useIntentList()
+  const steps = useSteps()
+  
 
   console.log({ steps, intent })
 
   const getOptions = (id, intent) => {
 
-    const options = id.includes('stageask') ? defaultOptions[id.replace('stageask', '')] : intent
+    const options = id.includes('stageask') ? defaultOptions[id.replace('stageask', '')] : id.includes('stageintent') ? intent[id.replace('stageintent', '')] : ''
 
     return options
   }

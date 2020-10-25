@@ -44,7 +44,7 @@ export const defaultOptions = {
     {
       label: '有咩可以問',
       value: '有咩可以問',
-      trigger: 'stageintent'
+      trigger: 'stageintentzh'
     }
     ,
     {
@@ -68,7 +68,7 @@ export const defaultOptions = {
     {
       label: 'What can be asked?',
       value: '有咩可以問',
-      trigger: 'stageintent'
+      trigger: 'stageintenten'
     }
     ,
     {
