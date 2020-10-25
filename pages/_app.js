@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import VersionChecking from '../components/VersionChecking'
 import { Fragment } from 'react'
 import { appWithTranslation } from '../config/i18n'
-  
+
 import App from 'next/app'
 
 function MyApp({ Component, pageProps }) {

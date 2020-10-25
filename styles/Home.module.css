@@ -40,9 +40,7 @@
   text-decoration: none;
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
+.title a:hover, .title a:focus, .title a:active {
   text-decoration: underline;
 }
 
@@ -52,8 +50,7 @@
   font-size: 4rem;
 }
 
-.title,
-.description {
+.title, .description {
   text-align: center;
 }
 
@@ -67,8 +64,7 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 .grid {
@@ -76,7 +72,6 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-
   max-width: 800px;
   margin-top: 3rem;
 }
@@ -93,9 +88,7 @@
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
+.card:hover, .card:focus, .card:active {
   color: #0070f3;
   border-color: #0070f3;
 }

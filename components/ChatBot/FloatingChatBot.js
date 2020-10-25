@@ -28,7 +28,7 @@ export default function FloatingChatBot() {
   //hooks
   const intent = useIntentList()
   const steps = useSteps()
-  
+
 
   console.log({ steps, intent })
 

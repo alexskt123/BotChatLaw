@@ -3,9 +3,9 @@ import Alert from 'react-bootstrap/Alert'
 
 export default function Footer({ Copyright }) {
 
-  const footerConfig =  {
+  const footerConfig = {
     sticky: 'bottom',
-    bg: 'dark' ,
+    bg: 'dark',
     ariant: 'dark'
   }
 
