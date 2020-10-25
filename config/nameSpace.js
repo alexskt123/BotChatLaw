@@ -1,7 +1,15 @@
+const defaultNameSpace = [
+    'header',
+    'chatBot',
+    'contactUs',
+    'messages',
+    'settings'
+]
+
 export const nameSpaceConfig = {
     index: ['header'],
-    aboutus: ['header', 'settings', 'chatBot', 'contactUs', 'messages', 'aboutUs'],
-    samplelist: ['header', 'sampleList', 'settings', 'chatBot', 'contactUs', 'messages'],
-    chart: ['header', 'chart', 'settings', 'chatBot', 'contactUs', 'messages'],
-    sample: ['header', 'settings', 'chatBot', 'contactUs', 'messages']
+    aboutus: [...defaultNameSpace, 'aboutUs'],
+    samplelist: [...defaultNameSpace, 'sampleList'],
+    chart: [...defaultNameSpace, 'chart'],
+    sample: [...defaultNameSpace]
 }
