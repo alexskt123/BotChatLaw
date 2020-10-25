@@ -17,6 +17,9 @@ export const NavItems = [
   },
   {
     href: '/chart'
+  },
+  {
+    href: '/faq'
   }
 ]
 

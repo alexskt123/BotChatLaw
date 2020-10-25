@@ -11,5 +11,6 @@ export const nameSpaceConfig = {
   aboutus: [...defaultNameSpace, 'aboutUs'],
   samplelist: [...defaultNameSpace, 'sampleList'],
   chart: [...defaultNameSpace, 'chart'],
-  sample: [...defaultNameSpace]
+  sample: [...defaultNameSpace],
+  faq: [...defaultNameSpace, 'faq']
 }
