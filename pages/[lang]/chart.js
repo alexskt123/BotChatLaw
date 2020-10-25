@@ -9,6 +9,7 @@ import { getTop } from '../../lib/dataProcess'
 import CustomContainer from '../../components/CustomContainer'
 
 import { withTranslation } from '../../config/i18n'
+import { nameSpaceConfig } from '../../config/nameSpace'
 
 function CustomChart({ t }) {
   const height = use100vh()
@@ -71,7 +72,7 @@ function CustomChart({ t }) {
 }
 
 CustomChart.getInitialProps = async () => ({
-  namespacesRequired: ['header', 'chart', 'settings', 'chatBot', 'contactUs', 'messages']
+  namespacesRequired: nameSpaceConfig.chart
 })
 
 export default withTranslation('chart')(CustomChart)

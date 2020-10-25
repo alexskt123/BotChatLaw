@@ -8,6 +8,7 @@ import EmploymentContractSample from '../../components/Template/EmploymentContra
 import { useRouter } from 'next/router'
 import WillSample from '../../components/Template/WillSample'
 import { customTemplate } from '../../config/sampleList'
+import { nameSpaceConfig } from '../../config/nameSpace'
 
 function Sample({ props: { query } }) {
   const { template, ...values } = query
@@ -51,7 +52,7 @@ function Sample({ props: { query } }) {
 }
 
 Sample.getInitialProps = async ({ query }) => ({
-  namespacesRequired: ['header', 'settings', 'chatBot', 'contactUs', 'messages'],
+  namespacesRequired: nameSpaceConfig.sample,
   props: { query }
 })
 
