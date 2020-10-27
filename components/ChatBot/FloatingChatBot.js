@@ -50,8 +50,7 @@ export default function FloatingChatBot() {
   const { t } = useTranslation('stepOptions')
 
   const store = useContext(Store)
-
-  console.log({ intent, store })
+  const { dispatch } = store
 
   useEffect(() => {
     steps
@@ -70,7 +69,10 @@ export default function FloatingChatBot() {
 
     if (!(steps.length <= 0
       || intent.length < 1)) {
-      store.updateStore({ steps: [...steps] })
+      console.log({ steps, intent })
+      dispatch({
+        type: 'STEP', payload: { steps: [...steps] }
+      })
     }
   }, [steps, intent])
 

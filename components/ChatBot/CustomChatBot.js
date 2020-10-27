@@ -11,9 +11,13 @@ import { Store } from '../../lib/store'
 //export default component
 function CustomChatBot({ t, i18n }) {
 
-  const { store: { steps } } = useContext(Store)
+  const store = useContext(Store)
   const [config, setConfig] = useState({})
   const { language } = i18n
+
+  console.log({ store })
+
+  const { state: { steps } } = store
 
   useEffect(() => {
 
@@ -26,7 +30,7 @@ function CustomChatBot({ t, i18n }) {
 
   const { title, ...rest } = config
 
-  console.log(steps)
+  console.log({ steps })
 
   if (!steps) {
     return ''

@@ -10,11 +10,11 @@ import VersionChecking from '../components/VersionChecking'
 // config
 import { appWithTranslation } from '../config/i18n'
 // lib
-import StoreContext from '../lib/store'
+import { StateProvider } from '../lib/store'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <StoreContext>
+    <StateProvider>
       <Fragment>
 
         <VersionChecking />
@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </Layout>
       </Fragment>
-    </StoreContext>
+    </StateProvider>
   )
 }
 
