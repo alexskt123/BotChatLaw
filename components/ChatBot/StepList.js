@@ -28,9 +28,9 @@ function StepList({ previousStep, triggerNextStep, t, i18n }) {
       const list = [...intentData.doc.list]
         .map(item => {
           const newItem = {
+            trigger: 'otherdetail',
             ...item,
-            label: getContent(item.label, language),
-            trigger: 'otherdetail'
+            label: getContent(item.label, language)
           }
 
           return newItem
@@ -58,7 +58,7 @@ function StepList({ previousStep, triggerNextStep, t, i18n }) {
 
       const newTrigger = {
         trigger,
-        value: intentData
+        value: trigger === 'otherresponse' ? value : intentData
       }
 
       triggerNextStep(newTrigger)
@@ -68,13 +68,14 @@ function StepList({ previousStep, triggerNextStep, t, i18n }) {
   return (
     <Fragment>
       <h5><Badge variant="dark">{stepListRelated}</Badge></h5>
-      <div>
+      <div style={{ width: 'inherit' }}>
         {list.map(item => (
           <Button
             key={uuid()}
             variant='outline-dark'
             disabled={clicked}
             onClick={() => { handleNextTrigger(item) }}
+            style={{ width: '100%' }}
           >
             {item.label}
           </Button>
