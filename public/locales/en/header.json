@@ -1,7 +1,12 @@
 {
-  "NavItemLabels" : [
+  "NavItemLabels": [
     "About us",
     "Samples",
-    "Intents"
-  ]
+    "Intents",
+    "FAQ"
+  ],
+  "languages": {
+    "en": "EN",
+    "zh": "ZH"
+  }
 }

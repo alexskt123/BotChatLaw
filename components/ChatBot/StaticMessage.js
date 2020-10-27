@@ -1,11 +1,23 @@
-import { Fragment } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { withTranslation } from '../../config/i18n'
 
-function StaticMessage({ step, t }) {
+function StaticMessage({ step, triggerNextStep, t, i18n }) {
+
+  const [message, setMessage] = useState('')
+  const { language } = i18n
+
+  useEffect(() => {
+
+    setMessage(t(`staticMsg.${step.id}`))
+
+    if (step.id === 'head') {
+      triggerNextStep({ trigger: `stageask${language}` })
+    }
+  }, [])
 
   return (
     <Fragment>
-      <span>{t(`staticMsg.${step.id}`)}</span>
+      <span>{message}</span>
     </Fragment>
   )
 }

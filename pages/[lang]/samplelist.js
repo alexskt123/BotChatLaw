@@ -13,6 +13,7 @@ import Swal from 'sweetalert2'
 
 import Button from 'react-bootstrap/Button'
 import { withTranslation, Router, i18n } from '../../config/i18n'
+import { nameSpaceConfig } from '../../config/nameSpace'
 
 const SampleList = ({ t }) => {
 
@@ -124,7 +125,7 @@ const SampleList = ({ t }) => {
 }
 
 SampleList.getInitialProps = async () => ({
-  namespacesRequired: ['header', 'sampleList', 'settings', 'chatBot']
+  namespacesRequired: nameSpaceConfig.samplelist
 })
 
 export default withTranslation('sampleList')(SampleList)

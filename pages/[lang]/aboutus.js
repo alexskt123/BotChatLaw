@@ -12,6 +12,7 @@ import CustomCarousel from '../../components/AboutUs/CustomCarousel'
 import CustomCard from '../../components/AboutUs/CustomCard'
 import { CarouselDisplayItems, CardDisplayitems } from '../../config/aboutUs'
 import Settings from '../../config/settings'
+import { nameSpaceConfig } from '../../config/nameSpace'
 
 export default function aboutus() {
 
@@ -51,5 +52,5 @@ export default function aboutus() {
 }
 
 aboutus.getInitialProps = async () => ({
-  namespacesRequired: ['header', 'settings', 'chatBot']
+  namespacesRequired: nameSpaceConfig.aboutus
 })

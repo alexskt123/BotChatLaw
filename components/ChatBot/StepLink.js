@@ -7,24 +7,36 @@ import { v4 as uuid } from 'uuid'
 
 import ListGroup from 'react-bootstrap/ListGroup'
 import IntentData from '../../lib/data/intentData'
+import { getContent } from '../../lib/dataProcess'
 
 import { withTranslation } from '../../config/i18n'
 
-function StepLink({ previousStep, triggerNextStep, t }) {
+function StepLink({ previousStep, triggerNextStep, t, i18n }) {
   const [links, setLinks] = useState(null)
+  const [stepLinkLabel, setStepLinkLabel] = useState(null)
 
   useEffect(() => {
     (async () => {
+      const { language } = i18n
       let intentData = { ...IntentData }
 
       intentData = previousStep.value
 
       const {
-        link: links,
+        link,
         list
       } = intentData.doc
 
+      let links = []
+      link.forEach(item => {
+        links.push({
+          href: item.href,
+          label: getContent(item.label, language)
+        })
+      })
+
       setLinks(links)
+      setStepLinkLabel(t('stepLinkLabel'))
 
       const trigger = list.length > 0 ? 'otherlist' : intentData.trigger
 
@@ -36,7 +48,7 @@ function StepLink({ previousStep, triggerNextStep, t }) {
 
   return (
     <Fragment>
-      <h5><Badge variant="dark">{t('stepLinkLabel')}</Badge></h5>
+      <h5><Badge variant="dark">{stepLinkLabel}</Badge></h5>
       <div>
         <ListGroup variant={'outline-dark'}>
           {links.map(link => (

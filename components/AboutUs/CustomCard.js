@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card'
 
 import { withTranslation } from '../../config/i18n'
 
-function CustomCard({ displayItems , t }) {
+function CustomCard({ displayItems, t }) {
 
   return (
     <Card border="dark" className="w-100 my-3" style={{ ['minWidth']: '18rem' }}>

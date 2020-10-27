@@ -13,8 +13,6 @@ import ContactUs from '../ContactUs'
 import StaticMessage from './StaticMessage'
 import LoadingSpinner from '../Loading/LoadingSpinner'
 //import lib
-import { useTranslation } from '../../config/i18n'
-import { defaultOptions } from '../../config/stepOptions'
 import { Store } from '../../lib/store'
 //export default component
 export default function FloatingChatBot() {
@@ -27,51 +25,21 @@ export default function FloatingChatBot() {
     '<ContactUs/>': ContactUs,
     '<StaticMessage/>': StaticMessage
   }
-
-  const getOptions = (id, intent) => {
-    let translatedOptions = []
-    defaultOptions.map((item, idx) => {
-      translatedOptions.push(
-        {
-          ...t(`defaultOptions.${idx}`, { returnObjects: true }),
-          trigger: item.trigger
-        }
-      )
-    })
-
-    let options = []
-    options = id === 'stageask' ? translatedOptions : intent
-
-    return options
-  }
   //hooks
-  const steps = useSteps()
   const intent = useIntentList()
-  const { t } = useTranslation('stepOptions')
-
+  const steps = useSteps()
   const store = useContext(Store)
   const { dispatch } = store
 
+
+  console.log({ steps, intent })
+
   useEffect(() => {
-    steps
-      .filter(data => data.options)
-      .forEach(data => data.options = getOptions(data.id, intent))
-
-    //processing
-    steps
-      .filter(data => data.component)
-      .filter(data => typeof data.component === 'string')
-      .forEach(data => {
-        const componentName = data.component
-        const DynamicComponent = components[componentName]
-        data.component = createElement(DynamicComponent)
-      })
-
     if (!(steps.length <= 0
-      || intent.length < 1)) {
+      || Object.keys(intent).length < 1)) {
       console.log({ steps, intent })
       dispatch({
-        type: 'STEP', payload: { steps: [...steps] }
+        type: 'STEP', payload: { steps, intent }
       })
     }
   }, [steps, intent])
@@ -79,12 +47,22 @@ export default function FloatingChatBot() {
   //loading
   if (
     steps.length <= 0
-    || intent.length < 1
+    || Object.keys(intent).length < 1
   ) {
     return (
       <LoadingSpinner />
     )
   }
+
+  //processing
+  steps
+    .filter(data => data.component)
+    .filter(data => typeof data.component === 'string')
+    .forEach(data => {
+      const componentName = data.component
+      const DynamicComponent = components[componentName]
+      data.component = createElement(DynamicComponent)
+    })
 
   //template
   return (

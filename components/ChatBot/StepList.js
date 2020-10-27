@@ -6,17 +6,20 @@ import Loading from '../Loading/MessageLoading'
 import { v4 as uuid } from 'uuid'
 import { getIntentData } from '../../lib/firebaseResult'
 import IntentData from '../../lib/data/intentData'
+import { getContent } from '../../lib/dataProcess'
 
 import Button from 'react-bootstrap/Button'
 
 import { withTranslation } from '../../config/i18n'
 
-function StepList({ previousStep, triggerNextStep, t }) {
+function StepList({ previousStep, triggerNextStep, t, i18n }) {
   const [list, setList] = useState(null)
   const [clicked, setClicked] = useState(false)
+  const [stepListRelated, setStepListRelated] = useState(null)
 
   useEffect(() => {
     (async () => {
+      const { language } = i18n
       let intentData = { ...IntentData }
 
       intentData = previousStep.value
@@ -26,6 +29,7 @@ function StepList({ previousStep, triggerNextStep, t }) {
         .map(item => {
           const newItem = {
             ...item,
+            label: getContent(item.label, language),
             trigger: 'otherdetail'
           }
 
@@ -37,6 +41,7 @@ function StepList({ previousStep, triggerNextStep, t }) {
         )
 
       setList(list)
+      setStepListRelated(t('stepListRelated'))
     })()
   }, [])
 
@@ -62,7 +67,7 @@ function StepList({ previousStep, triggerNextStep, t }) {
 
   return (
     <Fragment>
-      <h5><Badge variant="dark">{t('stepListRelated')}</Badge></h5>
+      <h5><Badge variant="dark">{stepListRelated}</Badge></h5>
       <div>
         {list.map(item => (
           <Button

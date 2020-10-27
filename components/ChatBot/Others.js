@@ -3,7 +3,7 @@ import { getIntentByQuery } from '../../lib/getIntentByQuery'
 import { setRequestByInput } from '../../lib/setQueryByInput'
 import Loading from '../Loading/MessageLoading'
 import { notUseGuessMsg } from '../../config/messages'
-import { randomMsg } from '../../lib/dataProcess'
+import { randomMsg, getContent } from '../../lib/dataProcess'
 import IntentData from '../../lib/data/intentData'
 import { continueOptions } from '../../config/stepOptions'
 
@@ -11,18 +11,21 @@ import Button from 'react-bootstrap/Button'
 import { v4 as uuid } from 'uuid'
 import { withTranslation } from '../../config/i18n'
 
-function Others({ previousStep, triggerNextStep, t }) {
+function Others({ previousStep, triggerNextStep, t, i18n }) {
   const [message, setMessage] = useState(null)
   const [data, setData] = useState(null)
   const [notGuess, setNotGuess] = useState(null)
   const [clicked, setClicked] = useState(false)
+  const [continueOptionsLabel, setContinueOptionsLabel] = useState([])
 
   const getMessage = (intentData, isNotGuess, messages) => {
     let message = messages[1]
     const { doc } = intentData
 
     if (doc && doc.label) {
-      message = (isNotGuess) ? doc.label : messages[0].replace('[label]', `${doc.label}`)
+      const { language } = i18n
+      let translatedMsg = getContent(doc.label, language)
+      message = (isNotGuess) ? translatedMsg : messages[0].replace('[label]', `${translatedMsg}`)
     }
 
     return message
@@ -51,6 +54,7 @@ function Others({ previousStep, triggerNextStep, t }) {
 
       setData(intentData)
       setNotGuess(isNotGuess)
+      setContinueOptionsLabel(t('stepOptions:continueOptions', { returnObjects: true }))
 
     })()
   }, [])
@@ -103,7 +107,7 @@ function Others({ previousStep, triggerNextStep, t }) {
             disabled={clicked}
             onClick={() => { handleNextTrigger(item.value) }}
           >
-            {t(`stepOptions:continueOptions.${idx}`)}
+            {continueOptionsLabel[idx]}
           </Button>
         ))}
       </div>

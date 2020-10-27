@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import PageLoading from '../components/Loading/PageLoading'
 import { i18n } from '../config/i18n'
+import { nameSpaceConfig } from '../config/nameSpace'
 //export default component
 export default function CustomStep() {
   const { language } = i18n
@@ -19,5 +20,5 @@ export default function CustomStep() {
 }
 
 CustomStep.getInitialProps = async () => ({
-  namespacesRequired: ['header']
+  namespacesRequired: nameSpaceConfig.index
 })

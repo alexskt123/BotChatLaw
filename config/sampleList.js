@@ -1,12 +1,12 @@
 export const sampleListItems = [
-  {    
+  {
     href: '/sample?template=EmploymentContract',
-    value:'EmploymentContract'
+    value: 'EmploymentContract'
   },
-  {    
+  {
     href: '/sample?template=Will',
     value: 'Will'
-  }  
+  }
 ]
 
 export const customTemplate = {
@@ -23,28 +23,28 @@ export const customTemplate = {
     },
     steps: ['1', '2', '3', '4', '5', '6', '7', '8'],
     stepLabels: [
-      {        
+      {
         name: 'startSate'
       },
-      {        
+      {
         name: 'eeName'
       },
-      {        
+      {
         name: 'erName'
       },
-      {        
+      {
         name: 'jobTitle'
       },
-      {        
+      {
         name: 'probation'
       },
-      {        
+      {
         name: 'salary'
       },
-      {        
+      {
         name: 'annualLeave'
       },
-      {        
+      {
         name: 'noticePeriod'
       }
     ]
@@ -58,16 +58,16 @@ export const customTemplate = {
     },
     steps: ['1', '2', '3', '4'],
     stepLabels: [
-      {        
+      {
         name: 'testatorName'
       },
-      {        
+      {
         name: 'testatorID'
       },
-      {        
+      {
         name: 'testatorAddr'
       },
-      {        
+      {
         name: 'residue'
       }
     ]

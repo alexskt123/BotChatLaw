@@ -42,7 +42,7 @@ export default async (req, res) => {
   let wikiFirstData
   let title
   let extract
-  
+
   if (wikiFirstKey !== '-1') {
     // get Extract from wiki response
     wikiFirstData = wikiPages[wikiFirstKey]

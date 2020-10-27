@@ -17,12 +17,16 @@ export const NavItems = [
   },
   {
     href: '/chart'
+  },
+  {
+    href: '/faq'
   }
 ]
 
 export const webConfig = {
   //update this or the value in firebase to force refresh
-  webVersion: '0.0.12'
+  webVersion: '0.0.12',
+  languages: ['zh', 'en']
 }
 
 export const versionCheckingModalConfig = {
