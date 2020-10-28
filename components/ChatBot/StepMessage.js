@@ -10,9 +10,15 @@ import IntentData from '../../lib/data/intentData'
 import BouncyButton from '../../components/BouncyButton'
 
 import containsChinese from 'contains-chinese'
-import { withTranslation } from '../../config/i18n'
 
-function StepMessage({ previousStep, triggerNextStep, t, i18n }) {
+function StepMessage({ previousStep, triggerNextStep }) {
+  // todo: transform t
+  const t = (x) => x
+  // todo: transform i18n
+  const i18n = { language: 'en' }
+
+  const { language } = i18n
+
   const [config, setConfig] = useState(null)
 
   useEffect(() => {
@@ -39,8 +45,6 @@ function StepMessage({ previousStep, triggerNextStep, t, i18n }) {
           intentData.trigger
 
       triggerNextStep({ trigger, value: intentData })
-
-      const { language } = i18n
 
       const { header, list } = intentData.doc.explanations
 
@@ -108,4 +112,5 @@ function StepMessage({ previousStep, triggerNextStep, t, i18n }) {
   )
 }
 
-export default withTranslation(['stepOptions', 'common'])(StepMessage)
+// todo: locale:['stepOptions', 'common']
+export default StepMessage

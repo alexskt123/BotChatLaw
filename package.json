@@ -20,7 +20,6 @@
     "dateformat": "^3.0.3",
     "firebase": "^8.0.0",
     "next": "^10.0.0",
-    "next-i18next": "^6.0.3",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-chartjs-2": "^2.10.0",

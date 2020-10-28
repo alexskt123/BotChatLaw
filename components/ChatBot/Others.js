@@ -9,9 +9,15 @@ import { continueOptions } from '../../config/stepOptions'
 
 import Button from 'react-bootstrap/Button'
 import { v4 as uuid } from 'uuid'
-import { withTranslation } from '../../config/i18n'
 
-function Others({ previousStep, triggerNextStep, t, i18n }) {
+function Others({ previousStep, triggerNextStep }) {
+  // todo: transform t
+  const t = (x) => x
+  // todo: transform i18n
+  const i18n = { language: 'en' }
+
+  const { language } = i18n
+
   const [message, setMessage] = useState(null)
   const [data, setData] = useState(null)
   const [notGuess, setNotGuess] = useState(null)
@@ -23,7 +29,6 @@ function Others({ previousStep, triggerNextStep, t, i18n }) {
     const { doc } = intentData
 
     if (doc && doc.label) {
-      const { language } = i18n
       let translatedMsg = getContent(doc.label, language)
       message = (isNotGuess) ? translatedMsg : messages[0].replace('[label]', `${translatedMsg}`)
     }
@@ -115,4 +120,5 @@ function Others({ previousStep, triggerNextStep, t, i18n }) {
   )
 }
 
-export default withTranslation(['messages', 'stepOptions'])(Others)
+// todo: locale:['messages', 'stepOptions']
+export default Others

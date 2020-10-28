@@ -11,9 +11,10 @@ import SampleItem from './SampleItem'
 import SampleTooltip from './SampleTooltip'
 import Disclaimer from '../Disclaimer'
 import CustomContainer from '../../components/CustomContainer'
-import { withTranslation } from '../../config/i18n'
 
-function EmploymentContractSample({ sample, height, t }) {
+function EmploymentContractSample({ sample, height }) {
+  // todo: transform t
+  const t = (x) => x
 
   return (
     <Fragment>
@@ -93,4 +94,5 @@ function EmploymentContractSample({ sample, height, t }) {
   )
 }
 
-export default withTranslation('sampleList')(EmploymentContractSample)
+// todo: locale:sampleList
+export default EmploymentContractSample

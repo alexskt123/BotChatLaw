@@ -1,10 +1,11 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import PageLoading from '../components/Loading/PageLoading'
-import { i18n } from '../config/i18n'
-import { nameSpaceConfig } from '../config/nameSpace'
 //export default component
 export default function CustomStep() {
+  // todo: transform i18n
+  const i18n = { language: 'en' }
+
   const { language } = i18n
 
   const router = useRouter()
@@ -18,7 +19,3 @@ export default function CustomStep() {
     <PageLoading />
   )
 }
-
-CustomStep.getInitialProps = async () => ({
-  namespacesRequired: nameSpaceConfig.index
-})

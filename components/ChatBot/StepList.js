@@ -10,16 +10,20 @@ import { getContent } from '../../lib/dataProcess'
 
 import Button from 'react-bootstrap/Button'
 
-import { withTranslation } from '../../config/i18n'
+function StepList({ previousStep, triggerNextStep }) {
+  // todo: transform t
+  const t = (x) => x
+  // todo: transform i18n
+  const i18n = { language: 'en' }
 
-function StepList({ previousStep, triggerNextStep, t, i18n }) {
+  const { language } = i18n
+
   const [list, setList] = useState(null)
   const [clicked, setClicked] = useState(false)
   const [stepListRelated, setStepListRelated] = useState(null)
 
   useEffect(() => {
     (async () => {
-      const { language } = i18n
       let intentData = { ...IntentData }
 
       intentData = previousStep.value
@@ -86,4 +90,5 @@ function StepList({ previousStep, triggerNextStep, t, i18n }) {
   )
 }
 
-export default withTranslation('stepOptions')(StepList)
+// todo: locale:stepOptions
+export default StepList

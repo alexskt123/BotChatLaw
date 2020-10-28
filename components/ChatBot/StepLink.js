@@ -9,15 +9,19 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import IntentData from '../../lib/data/intentData'
 import { getContent } from '../../lib/dataProcess'
 
-import { withTranslation } from '../../config/i18n'
+function StepLink({ previousStep, triggerNextStep }) {
+  // todo: transform t
+  const t = (x) => x
+  // todo: transform i18n
+  const i18n = { language: 'en' }
 
-function StepLink({ previousStep, triggerNextStep, t, i18n }) {
+  const { language } = i18n
+
   const [links, setLinks] = useState(null)
   const [stepLinkLabel, setStepLinkLabel] = useState(null)
 
   useEffect(() => {
     (async () => {
-      const { language } = i18n
       let intentData = { ...IntentData }
 
       intentData = previousStep.value
@@ -68,4 +72,5 @@ function StepLink({ previousStep, triggerNextStep, t, i18n }) {
   )
 }
 
-export default withTranslation('stepOptions')(StepLink)
+// todo: locale:stepOptions
+export default StepLink

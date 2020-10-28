@@ -8,10 +8,10 @@ import Alert from 'react-bootstrap/Alert'
 import { getTop } from '../../lib/dataProcess'
 import CustomContainer from '../../components/CustomContainer'
 
-import { withTranslation } from '../../config/i18n'
-import { nameSpaceConfig } from '../../config/nameSpace'
+function CustomChart() {
+  // todo: transform t
+  const t = (x) => x
 
-function CustomChart({ t }) {
   const height = use100vh()
   const summary = useSummary(null)
 
@@ -71,9 +71,5 @@ function CustomChart({ t }) {
   )
 }
 
-CustomChart.getInitialProps = async () => ({
-  namespacesRequired: nameSpaceConfig.chart
-})
-
-export default withTranslation('chart')(CustomChart)
-
+// todo: locale:chart
+export default CustomChart

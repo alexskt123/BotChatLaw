@@ -3,9 +3,10 @@ import Button from 'react-bootstrap/Button'
 import CustomSpinner from './CustomSpinner'
 
 import { v4 as uuid } from 'uuid'
-import { withTranslation } from '../../config/i18n'
 
-function LoadingSpinner({ t }) {
+function LoadingSpinner() {
+  // todo: transform t
+  const t = (x) => x
 
   const spinners = [...Array(3)].map(_item => uuid())
 
@@ -25,4 +26,5 @@ function LoadingSpinner({ t }) {
   )
 }
 
-export default withTranslation('settings')(LoadingSpinner)
+// todo: locale:settings
+export default LoadingSpinner

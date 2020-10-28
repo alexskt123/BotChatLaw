@@ -1,8 +1,8 @@
 import Card from 'react-bootstrap/Card'
 
-import { withTranslation } from '../../config/i18n'
-
-function CustomCard({ displayItems, t }) {
+function CustomCard({ displayItems }) {
+  // todo: transform t
+  const t = (x) => x
 
   return (
     <Card border="dark" className="w-100 my-3" style={{ ['minWidth']: '18rem' }}>
@@ -17,4 +17,5 @@ function CustomCard({ displayItems, t }) {
   )
 }
 
-export default withTranslation('aboutUs')(CustomCard)
+// todo: locale:aboutUs
+export default CustomCard

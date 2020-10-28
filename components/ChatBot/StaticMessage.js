@@ -1,7 +1,10 @@
 import { Fragment, useState, useEffect } from 'react'
-import { withTranslation } from '../../config/i18n'
 
-function StaticMessage({ step, triggerNextStep, t, i18n }) {
+function StaticMessage({ step, triggerNextStep }) {
+  // todo: transform t
+  const t = (x) => x
+  // todo: transform i18n
+  const i18n = { language: 'en' }
 
   const [message, setMessage] = useState('')
   const { language } = i18n
@@ -22,4 +25,5 @@ function StaticMessage({ step, triggerNextStep, t, i18n }) {
   )
 }
 
-export default withTranslation('chatBot')(StaticMessage)
+// todo: locale:chatBot
+export default StaticMessage

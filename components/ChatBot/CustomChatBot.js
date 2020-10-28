@@ -5,10 +5,13 @@ import { ThemeProvider } from 'styled-components'
 import ChatBot from '../../lib/react-simple-chatbot/react-simple-chatbot'
 //import chatbot configuration
 import { chatBotConfig, chatBotHeaderTitle, chatBotTheme } from '../../config/chatBot'
-import { withTranslation } from 'next-i18next'
 
 //export default component
-function CustomChatBot({ steps, t, i18n }) {
+function CustomChatBot({ steps }) {
+  // todo: transform t
+  const t = (x) => x
+  // todo: transform i18n
+  const i18n = { language: 'en' }
 
   const [config, setConfig] = useState({})
   const { language } = i18n
@@ -42,4 +45,5 @@ function CustomChatBot({ steps, t, i18n }) {
   )
 }
 
-export default withTranslation('chatBot')(CustomChatBot)
+// todo: locale:chatBot
+export default CustomChatBot

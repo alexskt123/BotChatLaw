@@ -1,8 +1,9 @@
 import { Fragment } from 'react'
-import { withTranslation } from '../../config/i18n'
 import { randomMsg } from '../../lib/dataProcess'
 
-function MessageLoading({t}) {
+function MessageLoading() {
+  // todo: transform t
+  const t = (x) => x
 
   const message = randomMsg(t('loadMsg', { returnObjects: true }))
 
@@ -13,4 +14,6 @@ function MessageLoading({t}) {
   )
 }
 
-export default withTranslation('messages')(MessageLoading)
+
+// todo: locale:messages
+export default MessageLoading

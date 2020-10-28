@@ -2,9 +2,9 @@ import Carousel from 'react-bootstrap/Carousel'
 import Alert from 'react-bootstrap/Alert'
 import { v4 as uuid } from 'uuid'
 
-import { withTranslation } from '../../config/i18n'
-
-function CustomCarousel({ displayItems, t }) {
+function CustomCarousel({ displayItems }) {
+  // todo: transform t
+  const t = (x) => x
 
   return (
     <Carousel>
@@ -31,4 +31,5 @@ function CustomCarousel({ displayItems, t }) {
 
 }
 
-export default withTranslation('aboutUs')(CustomCarousel)
+// todo: locale:aboutUs
+export default CustomCarousel

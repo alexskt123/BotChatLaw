@@ -3,13 +3,16 @@ import Badge from 'react-bootstrap/Badge'
 import { use100vh } from 'react-div-100vh'
 import CustomContainer from '../../components/CustomContainer'
 import PageLoading from '../../components/Loading/PageLoading'
-import { withTranslation } from '../../config/i18n'
-import { nameSpaceConfig } from '../../config/nameSpace'
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import { v4 as uuid } from 'uuid'
 
-function FAQ({ t, i18n }) {
+function FAQ() {
+  // todo: transform t
+  const t = (x) => x
+  // todo: transform i18n
+  const i18n = { language: 'en' }
+
   const height = use100vh()
   const { language } = i18n
   const [faqList, setFaqList] = useState([])
@@ -49,8 +52,5 @@ function FAQ({ t, i18n }) {
   )
 }
 
-FAQ.getInitialProps = async () => ({
-  namespacesRequired: nameSpaceConfig.faq
-})
-
-export default withTranslation('faq')(FAQ)
+// todo: locale:faq
+export default FAQ

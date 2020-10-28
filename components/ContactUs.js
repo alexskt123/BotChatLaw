@@ -1,9 +1,11 @@
 import { Fragment, useState, useEffect } from 'react'
 import { contactUsConfig } from '../config/contactUs'
 
-import { withTranslation } from '../config/i18n'
-
-function ContactUs({ triggerNextStep, t, i18n }) {
+function ContactUs({ triggerNextStep }) {
+  // todo: transform t
+  const t = (x) => x
+  // todo: transform i18n
+  const i18n = { language: 'en' }
 
   const [emailintro, setEmailIntro] = useState(null)
   const { language } = i18n
@@ -22,4 +24,5 @@ function ContactUs({ triggerNextStep, t, i18n }) {
   )
 }
 
-export default withTranslation('contactUs')(ContactUs)
+// todo: locale:contactUs
+export default ContactUs

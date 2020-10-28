@@ -10,10 +10,12 @@ import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
 // config
 import Settings, { NavItems, webConfig } from '../config/settings'
-import { withTranslation } from '../config/i18n'
 
-function Header({ HeaderName, t, i18n }) {
-
+function Header({ HeaderName }) {
+  // todo: transform t
+  const t = (x) => x
+  // todo: transform i18n
+  const i18n = { language: 'en' }
 
   const imgConfig = {
     alt: '',
@@ -102,7 +104,8 @@ function Header({ HeaderName, t, i18n }) {
   )
 }
 
-export default withTranslation('header')(Header)
+// todo: locale:header
+export default Header
 
 export const LanguageSwitch = ({ language, languages, changeLanguage, t }) => {
   const labels = [...languages].reverse().map(l => t(`languages.${l}`))

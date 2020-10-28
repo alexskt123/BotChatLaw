@@ -3,9 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from '../components/Layout'
 import VersionChecking from '../components/VersionChecking'
 import { Fragment } from 'react'
-import { appWithTranslation } from '../config/i18n'
-
-import App from 'next/app'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -19,6 +16,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-MyApp.getInitialProps = async (appContext) => ({ ...await App.getInitialProps(appContext) })
-
-export default appWithTranslation(MyApp)
+export default MyApp

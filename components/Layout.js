@@ -6,9 +6,11 @@ import Wiggle from './Wiggle'
 import Header from './Header'
 import Footer from './Footer'
 import Settings from '../config/settings'
-import { withTranslation } from 'next-i18next'
 
-function Layout({ children, t }) {
+function Layout({ children }) {
+  // todo: transform t
+  const t = (x) => x
+
   return (
     <Fragment>
       <Header HeaderName={t('headerTitle')} />
@@ -21,4 +23,5 @@ function Layout({ children, t }) {
   )
 }
 
-export default withTranslation('settings')(Layout)
+// todo: locale:settings
+export default Layout

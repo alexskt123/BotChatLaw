@@ -3,15 +3,18 @@ import { Fragment, useEffect, useState } from 'react'
 import { use100vh } from 'react-div-100vh'
 import CustomContainer from '../../components/CustomContainer'
 import PageLoading from '../../components/Loading/PageLoading'
-import { withTranslation } from '../../config/i18n'
-import { nameSpaceConfig } from '../../config/nameSpace'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { submitFeedback } from '../../lib/firebaseResult.js'
 import { useRouter } from 'next/router'
 
 
-function Feedback({ t, i18n }) {
+function Feedback() {
+  // todo: transform t
+  const t = (x) => x
+  // todo: transform i18n
+  const i18n = { language: 'en' }
+
   const height = use100vh()
   const { language } = i18n
   const router = useRouter()
@@ -66,8 +69,5 @@ function Feedback({ t, i18n }) {
   )
 }
 
-Feedback.getInitialProps = async () => ({
-  namespacesRequired: nameSpaceConfig.feedback
-})
-
-export default withTranslation('feedback')(Feedback)
+// todo: locale:feedback
+export default Feedback

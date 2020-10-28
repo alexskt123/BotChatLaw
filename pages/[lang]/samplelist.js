@@ -1,4 +1,4 @@
-
+import { useRouter } from 'next/router'
 import { use100vh } from 'react-div-100vh'
 import { Fragment } from 'react'
 
@@ -12,10 +12,16 @@ import { sampleListItems, customTemplate } from '../../config/sampleList'
 import Swal from 'sweetalert2'
 
 import Button from 'react-bootstrap/Button'
-import { withTranslation, Router, i18n } from '../../config/i18n'
-import { nameSpaceConfig } from '../../config/nameSpace'
 
-const SampleList = ({ t }) => {
+const SampleList = () => {
+  // todo: transform t
+  const t = (x) => x
+  // todo: transform i18n
+  const i18n = { language: 'en' }
+
+  const { language } = i18n
+
+  const router = useRouter()
 
   const height = use100vh()
 
@@ -73,9 +79,7 @@ const SampleList = ({ t }) => {
         Object.assign(templateValues, item)
       })
 
-      const { language } = i18n
-
-      Router.push(
+      router.push(
         {
           pathname: `/${language}/sample`,
           query: {
@@ -124,8 +128,5 @@ const SampleList = ({ t }) => {
   )
 }
 
-SampleList.getInitialProps = async () => ({
-  namespacesRequired: nameSpaceConfig.samplelist
-})
-
-export default withTranslation('sampleList')(SampleList)
+// todo: locale:sampleList
+export default SampleList

@@ -8,9 +8,10 @@ import { Fragment } from 'react'
 import SampleItem from './SampleItem'
 import Disclaimer from '../Disclaimer'
 import CustomContainer from '../../components/CustomContainer'
-import { withTranslation } from '../../config/i18n'
 
-function WillSample({ sample, height, t }) {
+function WillSample({ sample, height }) {
+  // todo: transform t
+  const t = (x) => x
 
   return (
     <Fragment>
@@ -61,4 +62,5 @@ function WillSample({ sample, height, t }) {
   )
 }
 
-export default withTranslation('sampleList')(WillSample)
+// todo: locale:sampleList
+export default WillSample
