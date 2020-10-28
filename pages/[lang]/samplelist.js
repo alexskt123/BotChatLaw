@@ -1,6 +1,7 @@
 
 import { use100vh } from 'react-div-100vh'
 import { Fragment } from 'react'
+import Link from 'next/link'
 
 import ListGroup from 'react-bootstrap/ListGroup'
 
@@ -19,6 +20,8 @@ const SampleList = ({ t }) => {
 
   const templateValues = {}
   const template = { ...customTemplate }
+
+  const { language } = i18n
 
   const backAndForth = async (steps, stepLabels, item) => {
 
@@ -71,8 +74,6 @@ const SampleList = ({ t }) => {
         Object.assign(templateValues, item)
       })
 
-      const { language } = i18n
-
       Router.push(
         {
           pathname: `/${language}/sample`,
@@ -103,9 +104,9 @@ const SampleList = ({ t }) => {
                 key={`${idx}`}
                 style={{ display: 'flex' }}
               >
-                <a key={`${idx}`} href={item.href} style={{ alignSelf: 'center' }} >
+                <Link key={`${idx}`} href={`/${language}${item.href}`} style={{ alignSelf: 'center' }} >
                   {t(`${item.value}.label`)}
-                </a>
+                </Link>
                 <Button
                   variant='outline-dark'
                   style={{ alignSelf: 'center', fontSize: 'xx-small', marginLeft: '10px' }}
