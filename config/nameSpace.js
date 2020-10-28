@@ -12,5 +12,6 @@ export const nameSpaceConfig = {
   samplelist: [...defaultNameSpace, 'sampleList'],
   chart: [...defaultNameSpace, 'chart'],
   sample: [...defaultNameSpace],
-  faq: [...defaultNameSpace, 'faq']
+  faq: [...defaultNameSpace, 'faq'],
+  feedback: [...defaultNameSpace, 'feedback']
 }

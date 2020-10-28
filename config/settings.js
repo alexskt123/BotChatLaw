@@ -20,6 +20,9 @@ export const NavItems = [
   },
   {
     href: '/faq'
+  },
+  {
+    href: '/feedback'
   }
 ]
 
