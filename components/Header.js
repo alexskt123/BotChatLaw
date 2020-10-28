@@ -2,6 +2,7 @@
 import { Fragment, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import Link from 'next/link'
 // lib
 import Switch from 'react-switch'
 import Navbar from 'react-bootstrap/Navbar'
@@ -87,9 +88,11 @@ function Header({ HeaderName, t, i18n }) {
               const href = `/${lang}${item.href}`
               const active = router.asPath === href
               return (
-                <Nav.Link key={`${idx}`} href={href} active={active} disabled={active}>
-                  {t(`NavItemLabels.${idx}`)}
-                </Nav.Link>
+                <Link key={`${idx}`} href={href} passHref>
+                  <Nav.Link active={active} disabled={active}>
+                    {t(`NavItemLabels.${idx}`)}
+                  </Nav.Link>
+                </Link>
               )
             })}
           </Nav>

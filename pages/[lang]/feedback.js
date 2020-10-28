@@ -17,20 +17,20 @@ function Feedback({ t, i18n }) {
   const router = useRouter()
 
   const [config, setConfig] = useState([])
-  const [validated, setValidated] = useState(false);
+  const [validated, setValidated] = useState(false)
 
   const handleSubmit = async (event) => {
-    const form = event.currentTarget;
+    const form = event.currentTarget
     if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+      event.preventDefault()
+      event.stopPropagation()
     } else {
-      event.preventDefault();
-      await submitFeedback(event.target.elements["0"].value, event.target.elements["1"].value, event.target.elements["2"].value)
+      event.preventDefault()
+      await submitFeedback(event.target.elements['0'].value, event.target.elements['1'].value, event.target.elements['2'].value)
       router.push('/')
     }
-    setValidated(true);
-  };
+    setValidated(true)
+  }
 
   useEffect(() => {
     setConfig(t('form', { returnObjects: true }))
