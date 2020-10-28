@@ -2,8 +2,6 @@
 import { use100vh } from 'react-div-100vh'
 import { Fragment } from 'react'
 
-import { v4 as uuid } from 'uuid'
-
 import ListGroup from 'react-bootstrap/ListGroup'
 
 import PageLoading from '../../components/Loading/PageLoading'
@@ -99,13 +97,13 @@ const SampleList = ({ t }) => {
     <Fragment>
       <CustomContainer style={{ minHeight: height }}>
         <ListGroup variant={'outline-dark'}>
-          {sampleListItems.map(item => {
+          {sampleListItems.map((item, idx) => {
             return (
               <ListGroup.Item
-                key={uuid()}
+                key={`${idx}`}
                 style={{ display: 'flex' }}
               >
-                <a key={uuid()} href={item.href} style={{ alignSelf: 'center' }} >
+                <a key={`${idx}`} href={item.href} style={{ alignSelf: 'center' }} >
                   {t(`${item.value}.label`)}
                 </a>
                 <Button

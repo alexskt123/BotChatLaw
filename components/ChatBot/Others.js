@@ -8,7 +8,6 @@ import IntentData from '../../lib/data/intentData'
 import { continueOptions } from '../../config/stepOptions'
 
 import Button from 'react-bootstrap/Button'
-import { v4 as uuid } from 'uuid'
 import { withTranslation } from '../../config/i18n'
 
 function Others({ previousStep, triggerNextStep, t, i18n }) {
@@ -102,7 +101,7 @@ function Others({ previousStep, triggerNextStep, t, i18n }) {
       <div>
         {!notGuess && continueOptions.map((item, idx) => (
           <Button
-            key={uuid()}
+            key={`${idx}`}
             variant='outline-dark'
             disabled={clicked}
             onClick={() => { handleNextTrigger(item.value) }}

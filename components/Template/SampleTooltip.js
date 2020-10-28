@@ -2,18 +2,17 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
 import Alert from 'react-bootstrap/Alert'
 
-import { v4 as uuid } from 'uuid'
 import { Fragment } from 'react'
 
 
-export default function SampleTooltip({ message, target }) {
+export default function SampleTooltip({ id, message, target }) {
   return (
     <Fragment>
       <OverlayTrigger
-        key={uuid()}
+        key={id}
         placement={'top'}
         overlay={
-          <Tooltip id={uuid()}>
+          <Tooltip id={id}>
             {message}
           </Tooltip>
         }

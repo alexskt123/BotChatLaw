@@ -3,7 +3,6 @@ import Badge from 'react-bootstrap/Badge'
 
 import Loading from '../Loading/MessageLoading'
 
-import { v4 as uuid } from 'uuid'
 import { getIntentData } from '../../lib/firebaseResult'
 import IntentData from '../../lib/data/intentData'
 import { getContent } from '../../lib/dataProcess'
@@ -69,9 +68,9 @@ function StepList({ previousStep, triggerNextStep, t, i18n }) {
     <Fragment>
       <h5><Badge variant="dark">{stepListRelated}</Badge></h5>
       <div style={{ width: 'inherit' }}>
-        {list.map(item => (
+        {list.map((item, idx) => (
           <Button
-            key={uuid()}
+            key={`${idx}`}
             variant='outline-dark'
             disabled={clicked}
             onClick={() => { handleNextTrigger(item) }}

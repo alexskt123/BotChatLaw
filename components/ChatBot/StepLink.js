@@ -3,8 +3,6 @@ import Badge from 'react-bootstrap/Badge'
 
 import Loading from '../Loading/MessageLoading'
 
-import { v4 as uuid } from 'uuid'
-
 import ListGroup from 'react-bootstrap/ListGroup'
 import IntentData from '../../lib/data/intentData'
 import { getContent } from '../../lib/dataProcess'
@@ -51,10 +49,10 @@ function StepLink({ previousStep, triggerNextStep, t, i18n }) {
       <h5><Badge variant="dark">{stepLinkLabel}</Badge></h5>
       <div>
         <ListGroup variant={'outline-dark'}>
-          {links.map(link => (
+          {links.map((link, idx) => (
             <ListGroup.Item
               as={'a'}
-              key={uuid()}
+              key={`${idx}`}
               href={link.href}
               target="_blank" >
               {link.label}

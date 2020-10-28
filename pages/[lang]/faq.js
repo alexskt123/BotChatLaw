@@ -7,7 +7,6 @@ import { withTranslation } from '../../config/i18n'
 import { nameSpaceConfig } from '../../config/nameSpace'
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
-import { v4 as uuid } from 'uuid'
 
 function FAQ({ t, i18n }) {
   const height = use100vh()
@@ -30,7 +29,7 @@ function FAQ({ t, i18n }) {
           <Accordion defaultActiveKey="0">
             {faqList.map((item, idx) => {
               return (
-                <Card key={uuid()}>
+                <Card key={`${idx}`}>
                   <Accordion.Toggle as={Card.Header} eventKey={`${idx}`}>
                     {item.question}
                   </Accordion.Toggle>

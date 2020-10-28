@@ -4,7 +4,6 @@ import Badge from 'react-bootstrap/Badge'
 import { getIntentByQuery } from '../../lib/getIntentByQuery'
 import { getContent } from '../../lib/dataProcess'
 import Loading from '../Loading/MessageLoading'
-import { v4 as uuid } from 'uuid'
 import ListGroup from 'react-bootstrap/ListGroup'
 import IntentData from '../../lib/data/intentData'
 import BouncyButton from '../../components/BouncyButton'
@@ -98,8 +97,8 @@ function StepMessage({ previousStep, triggerNextStep, t, i18n }) {
               </p>
               {
                 config.message.list
-                  .map(messageItem => {
-                    return <ListGroup.Item key={uuid()}>{messageItem}</ListGroup.Item>
+                  .map((messageItem, idx) => {
+                    return <ListGroup.Item key={`${idx}`}>{messageItem}</ListGroup.Item>
                   })
               }
             </ListGroup>

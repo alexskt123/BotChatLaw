@@ -6,8 +6,6 @@ import { Fragment } from 'react'
 import Row from 'react-bootstrap/Row'
 import CardDeck from 'react-bootstrap/CardDeck'
 
-import { v4 as uuid } from 'uuid'
-
 import CustomCarousel from '../../components/AboutUs/CustomCarousel'
 import CustomCard from '../../components/AboutUs/CustomCard'
 import { CarouselDisplayItems, CardDisplayitems } from '../../config/aboutUs'
@@ -40,7 +38,7 @@ export default function aboutus() {
           <CardDeck className="justify-content-center">
             {cardDisplayitems.map((cardDisplayItem, idx) => {
               return (
-                <CustomCard displayItems={{ cardDisplayItem, idx }} key={uuid()} />
+                <CustomCard displayItems={{ cardDisplayItem, idx }} key={`${idx}`} />
               )
             })}
           </CardDeck>
