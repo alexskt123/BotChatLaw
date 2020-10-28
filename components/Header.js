@@ -12,10 +12,16 @@ import Form from 'react-bootstrap/Form'
 import Settings, { NavItems, webConfig } from '../config/settings'
 
 function Header({ HeaderName }) {
+  const router = useRouter()
   // todo: transform t
   const t = (x) => x
   // todo: transform i18n
-  const i18n = { language: 'en' }
+  const i18n = { language: router.locale }
+
+  const { language } = i18n
+
+  const [lang, setLang] = useState(language)
+  const [title, setTitle] = useState('')
 
   const imgConfig = {
     alt: '',
@@ -25,15 +31,13 @@ function Header({ HeaderName }) {
     className: 'd-inline-block align-top'
   }
 
-  const { language } = i18n
-
   const changeLanguage = () => {
 
-    const changeLang = swithLang(language)
+    const changeLang = swithLang(lang)
 
     setLang(changeLang)
-    i18n.changeLanguage(changeLang)
 
+    router.push(router.pathname, router.pathname, { locale: changeLang })
   }
 
   const swithLang = (language) => {
@@ -49,10 +53,6 @@ function Header({ HeaderName }) {
     return changeLang
   }
 
-  const [lang, setLang] = useState(language)
-  const [title, setTitle] = useState('')
-  const router = useRouter()
-
   useEffect(() => {
     const idx = NavItems.findIndex(item => `${router.asPath}`.includes(item.href))
     if (idx > -1) {
@@ -64,7 +64,7 @@ function Header({ HeaderName }) {
   }, [router])
 
   const languageSwitchConfig = {
-    language,
+    language: lang,
     languages: webConfig.languages,
     changeLanguage: () => changeLanguage(),
     t
@@ -107,8 +107,8 @@ function Header({ HeaderName }) {
 // todo: locale:header
 export default Header
 
-export const LanguageSwitch = ({ language, languages, changeLanguage, t }) => {
-  const labels = [...languages].reverse().map(l => t(`languages.${l}`))
+export const LanguageSwitch = ({ language, languages, changeLanguage }) => {
+  const labels = [...languages].reverse()
 
   return (
     <Fragment>
