@@ -105,7 +105,7 @@ const SampleList = ({ t }) => {
                 style={{ display: 'flex' }}
               >
                 <Link key={`${idx}`} href={`/${language}${item.href}`} >
-                  <a style={{ alignSelf: 'center' }}>
+                  <a style={{ alignSelf: 'center', textDecoration: 'underline' }}>
                     {t(`${item.value}.label`)}
                   </a>
                 </Link>
