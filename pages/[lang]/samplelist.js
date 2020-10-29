@@ -101,10 +101,10 @@ const SampleList = ({ t }) => {
           {sampleListItems.map((item, idx) => {
             return (
               <ListGroup.Item
-                key={`${idx}`}
+                key={`groupitem${idx}`}
                 style={{ display: 'flex' }}
               >
-                <Link key={`${idx}`} href={`/${language}${item.href}`} >
+                <Link key={`link${idx}`} href={`/${language}${item.href}`} >
                   <a style={{ alignSelf: 'center', textDecoration: 'underline' }}>
                     {t(`${item.value}.label`)}
                   </a>
@@ -112,6 +112,7 @@ const SampleList = ({ t }) => {
                 <Button
                   variant='outline-dark'
                   style={{ alignSelf: 'center', fontSize: 'xx-small', marginLeft: '10px' }}
+                  key={`button${idx}`}
                   onClick={() => { setBackAndForth(item.value) }}
                 >
                   {t('backAndForth.customButton')}
