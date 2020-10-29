@@ -22,6 +22,9 @@ export const NavItems = [
   },
   {
     href: '/feedback'
+  },
+  {
+    href: '/disclaimer'
   }
 ]
 

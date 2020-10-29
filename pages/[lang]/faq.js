@@ -15,8 +15,6 @@ function FAQ({ t, i18n }) {
 
   useEffect(() => {
     setFaqList(t('list', { returnObjects: true }))
-
-    console.log(faqList)
   }, [language])
 
   if (!height) return <PageLoading />

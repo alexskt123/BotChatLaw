@@ -9,7 +9,6 @@ import { Fragment } from 'react'
 
 import SampleItem from './SampleItem'
 import SampleTooltip from './SampleTooltip'
-import Disclaimer from '../Disclaimer'
 import CustomContainer from '../../components/CustomContainer'
 import { withTranslation } from '../../config/i18n'
 
@@ -86,7 +85,6 @@ function EmploymentContractSample({ sample, height, t }) {
               </div>
             </Container>
           </Jumbotron>
-          <Disclaimer />
         </Fragment>
       </CustomContainer>
     </Fragment>
