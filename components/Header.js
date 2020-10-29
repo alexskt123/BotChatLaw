@@ -12,7 +12,7 @@ import Form from 'react-bootstrap/Form'
 import Settings, { NavItems, webConfig } from '../config/settings'
 import { withTranslation } from '../config/i18n'
 
-function Header({ HeaderName, t, i18n }) {
+function Header({ t, i18n }) {
 
 
   const imgConfig = {
@@ -24,6 +24,7 @@ function Header({ HeaderName, t, i18n }) {
   }
 
   const { language } = i18n
+  const HeaderName = t('settings:headerTitle')
 
   const changeLanguage = () => {
 
@@ -49,9 +50,11 @@ function Header({ HeaderName, t, i18n }) {
 
   const [lang, setLang] = useState(language)
   const [title, setTitle] = useState('')
+  const [headerName, setHeaderName] = useState('')
   const router = useRouter()
 
   useEffect(() => {
+    setHeaderName(HeaderName)
     const idx = NavItems.findIndex(item => `${router.asPath}`.includes(item.href))
     if (idx > -1) {
       let translated = t(`NavItemLabels.${idx}`)
@@ -79,7 +82,7 @@ function Header({ HeaderName, t, i18n }) {
           <img
             {...imgConfig}
           />
-          {HeaderName}
+          {headerName}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -104,7 +107,7 @@ function Header({ HeaderName, t, i18n }) {
   )
 }
 
-export default withTranslation('header')(Header)
+export default withTranslation(['header', 'settings'])(Header)
 
 export const LanguageSwitch = ({ language, languages, changeLanguage, t }) => {
   const labels = [...languages].reverse().map(l => t(`languages.${l}`))
