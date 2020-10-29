@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState, useCallback } from 'react'
 
 import { use100vh } from 'react-div-100vh'
 import CustomContainer from '../../components/CustomContainer'
@@ -9,16 +9,20 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { submitFeedback } from '../../lib/firebaseResult.js'
 import { useRouter } from 'next/router'
+import { useGoogleReCaptcha, GoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 
 function Feedback({ t, i18n }) {
   const height = use100vh()
   const { language } = i18n
   const router = useRouter()
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [config, setConfig] = useState([])
   const [validated, setValidated] = useState(false)
   const [formValue, setFormValue] = useState({})
+
+  
 
   const handleChange = (e) => {
     setFormValue({
@@ -39,6 +43,25 @@ function Feedback({ t, i18n }) {
     }
     setValidated(true)
   }
+
+
+  const clickHandler = useCallback(async () => {
+    console.log(executeRecaptcha)
+    if (!executeRecaptcha) {
+      return;
+    }
+
+    const result = await executeRecaptcha('dynamicAction');
+
+    console.log(result)
+
+  }, []);
+
+  const handleReCaptchaVerify = useCallback(
+    () => {
+
+    }, []
+  );
 
   useEffect(() => {
     setConfig(t('form', { returnObjects: true }))
@@ -67,7 +90,12 @@ function Feedback({ t, i18n }) {
             <Button variant="primary" type="submit">
               {config.submit}
             </Button>
+
           </Form>
+          <button onClick={clickHandler}>Run verify</button>
+          <GoogleReCaptcha
+            onVerify={handleReCaptchaVerify}
+          />
         </Fragment>
       </CustomContainer>
     </Fragment>

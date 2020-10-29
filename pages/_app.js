@@ -11,7 +11,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <Fragment>
       <VersionChecking />
-
       <Layout>
         <Component {...pageProps} />
       </Layout>
