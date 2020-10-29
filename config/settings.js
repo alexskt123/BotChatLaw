@@ -1,6 +1,5 @@
 
 const Settings = {
-  HeaderName: '法律小幫手',
   Copyright: '© 2020 BotChatLaw Limited',
   FlatLogo: '/logoFlat.png',
   LogoImgSrc: '/logo.png'
