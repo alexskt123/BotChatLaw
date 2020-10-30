@@ -3,6 +3,7 @@ import { i18n } from '../../config/i18n'
 import { useEffect } from 'react'
 
 import PageLoading from '../../components/Loading/PageLoading'
+import { nameSpaceConfig } from '../../config/nameSpace';
 
 export default function Fallback() {
   const router = useRouter()
@@ -18,5 +19,5 @@ export default function Fallback() {
 }
 
 Fallback.getInitialProps = async () => ({
-  namespacesRequired: ['header', 'settings']
+  namespacesRequired: nameSpaceConfig.index
 })

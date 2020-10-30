@@ -7,7 +7,7 @@ const defaultNameSpace = [
 ]
 
 export const nameSpaceConfig = {
-  index: ['header'],
+  index: ['header', 'chatBot', 'settings'],
   aboutus: [...defaultNameSpace, 'aboutUs'],
   samplelist: [...defaultNameSpace, 'sampleList'],
   chart: [...defaultNameSpace, 'chart'],
