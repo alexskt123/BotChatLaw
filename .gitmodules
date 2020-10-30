@@ -1,0 +1,4 @@
+[submodule "lib/chatbot"]
+	path = lib/chatbot
+	url = https://github.com/alexskt123/react-simple-chatbot.git
+	branch = master
