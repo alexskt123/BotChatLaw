@@ -1,6 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel'
 import Alert from 'react-bootstrap/Alert'
-import { v4 as uuid } from 'uuid'
 
 import { withTranslation } from '../../config/i18n'
 
@@ -10,7 +9,7 @@ function CustomCarousel({ displayItems, t }) {
     <Carousel>
       {displayItems.map((item, idx) => {
         return (
-          <Carousel.Item key={uuid()}>
+          <Carousel.Item key={`${idx}`}>
             <img
               className="d-block w-100"
               src={item.imgsrc}

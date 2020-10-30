@@ -1,6 +1,5 @@
 
 const Settings = {
-  HeaderName: '法律小幫手',
   Copyright: '© 2020 BotChatLaw Limited',
   FlatLogo: '/logoFlat.png',
   LogoImgSrc: '/logo.png'
@@ -20,12 +19,18 @@ export const NavItems = [
   },
   {
     href: '/faq'
+  },
+  {
+    href: '/feedback'
+  },
+  {
+    href: '/disclaimer'
   }
 ]
 
 export const webConfig = {
   //update this or the value in firebase to force refresh
-  webVersion: '0.0.12',
+  webVersion: '0.1.0',
   languages: ['zh', 'en']
 }
 

@@ -1,8 +1,7 @@
 
 import { use100vh } from 'react-div-100vh'
 import { Fragment } from 'react'
-
-import { v4 as uuid } from 'uuid'
+import Link from 'next/link'
 
 import ListGroup from 'react-bootstrap/ListGroup'
 
@@ -21,6 +20,8 @@ const SampleList = ({ t }) => {
 
   const templateValues = {}
   const template = { ...customTemplate }
+
+  const { language } = i18n
 
   const backAndForth = async (steps, stepLabels, item) => {
 
@@ -73,8 +74,6 @@ const SampleList = ({ t }) => {
         Object.assign(templateValues, item)
       })
 
-      const { language } = i18n
-
       Router.push(
         {
           pathname: `/${language}/sample`,
@@ -99,18 +98,21 @@ const SampleList = ({ t }) => {
     <Fragment>
       <CustomContainer style={{ minHeight: height }}>
         <ListGroup variant={'outline-dark'}>
-          {sampleListItems.map(item => {
+          {sampleListItems.map((item, idx) => {
             return (
               <ListGroup.Item
-                key={uuid()}
+                key={`groupitem${idx}`}
                 style={{ display: 'flex' }}
               >
-                <a key={uuid()} href={item.href} style={{ alignSelf: 'center' }} >
-                  {t(`${item.value}.label`)}
-                </a>
+                <Link key={`link${idx}`} href={`/${language}${item.href}`} >
+                  <a style={{ alignSelf: 'center', textDecoration: 'underline' }}>
+                    {t(`${item.value}.label`)}
+                  </a>
+                </Link>
                 <Button
                   variant='outline-dark'
                   style={{ alignSelf: 'center', fontSize: 'xx-small', marginLeft: '10px' }}
+                  key={`button${idx}`}
                   onClick={() => { setBackAndForth(item.value) }}
                 >
                   {t('backAndForth.customButton')}

@@ -1,7 +1,8 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Alert from 'react-bootstrap/Alert'
+import Settings from '../config/settings'
 
-export default function Footer({ Copyright }) {
+export default function Footer() {
 
   const footerConfig = {
     sticky: 'bottom',
@@ -13,7 +14,7 @@ export default function Footer({ Copyright }) {
     <Navbar {...footerConfig}>
       <Navbar.Brand className="mx-auto">
         <Alert variant="secondary">
-          {Copyright}
+          {Settings.Copyright}
         </Alert>
       </Navbar.Brand>
     </Navbar>

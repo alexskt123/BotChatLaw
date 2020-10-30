@@ -11,20 +11,12 @@ export const others = {
   }
 }
 
-export const back = {
-  label: '返回',
-  value: 'head',
-  trigger: 'head'
-}
-
 export const continueOptions = [
   {
-    value: 'yes',
-    label: '是'
+    value: 'yes'
   },
   {
-    value: 'no',
-    label: '否'
+    value: 'no'
   }
 ]
 

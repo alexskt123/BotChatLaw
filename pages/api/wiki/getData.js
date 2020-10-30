@@ -33,6 +33,26 @@ async function getMessage(searchTxt) {
 }
 
 
+async function getLinks(searchTxt) {
+
+  const getLang = (searchTxt) => {
+    return containsChinese(searchTxt) ? 'zh' : 'en'
+  }
+
+  const response = await axios.get(`https://${getLang(searchTxt)}.wikipedia.org/w/api.php`, {
+    params: {
+      action: 'query',
+      prop: 'links',
+      format: 'json',
+      utf8: null,
+      exintro: true,
+      titles: searchTxt
+    }
+  })
+
+  return response.data
+}
+
 export default async (req, res) => {
   const { query } = req.query
 
@@ -42,6 +62,7 @@ export default async (req, res) => {
   let wikiFirstData
   let title
   let extract
+  let list = []
 
   if (wikiFirstKey !== '-1') {
     // get Extract from wiki response
@@ -49,11 +70,19 @@ export default async (req, res) => {
     // Strip all html tags & change Simplified chinese to traditional chinese
     extract = tify(stripHtml(wikiFirstData.extract).result)
     title = tify(wikiFirstData.title)
+
+    const wikiLinksResponse = await getLinks(title)
+    const wikiLinksPage = wikiLinksResponse.query.pages[wikiFirstKey] || { links: [] }
+    const wikiLinks = wikiLinksPage.links
+    list = wikiLinks.map(item => {
+      return { label: tify(item.title), value: tify(item.title), trigger: 'otherresponse' }
+    })
   }
 
   const data = {
-    title: title,
-    extract: extract
+    title,
+    extract,
+    list
   }
 
   res.statusCode = 200

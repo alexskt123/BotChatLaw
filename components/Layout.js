@@ -5,20 +5,18 @@ import FloatingChatBot from './ChatBot/FloatingChatBot'
 import Wiggle from './Wiggle'
 import Header from './Header'
 import Footer from './Footer'
-import Settings from '../config/settings'
-import { withTranslation } from 'next-i18next'
 
-function Layout({ children, t }) {
+function Layout({ children }) {
   return (
     <Fragment>
-      <Header HeaderName={t('headerTitle')} />
+      <Header />
       {{ ...children }}
       <Wiggle>
         <FloatingChatBot />
       </Wiggle>
-      <Footer Copyright={Settings.Copyright} />
+      <Footer />
     </Fragment>
   )
 }
 
-export default withTranslation('settings')(Layout)
+export default Layout

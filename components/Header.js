@@ -2,9 +2,9 @@
 import { Fragment, useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import Link from 'next/link'
 // lib
 import { Store } from '../lib/store'
-import { v4 as uuid } from 'uuid'
 import Switch from 'react-switch'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -13,7 +13,7 @@ import Form from 'react-bootstrap/Form'
 import Settings, { NavItems, webConfig } from '../config/settings'
 import { withTranslation } from '../config/i18n'
 
-function Header({ HeaderName, t, i18n }) {
+function Header({ t, i18n }) {
 
 
   const imgConfig = {
@@ -25,6 +25,7 @@ function Header({ HeaderName, t, i18n }) {
   }
 
   const { language } = i18n
+  const HeaderName = t('settings:headerTitle')
 
   const changeLanguage = () => {
 
@@ -50,11 +51,13 @@ function Header({ HeaderName, t, i18n }) {
 
   const [lang, setLang] = useState(language)
   const [title, setTitle] = useState('')
+  const [headerName, setHeaderName] = useState('')
   const router = useRouter()
   const store = useContext(Store)
   const { dispatch } = store
 
   useEffect(() => {
+    setHeaderName(HeaderName)
     const idx = NavItems.findIndex(item => `${router.asPath}`.includes(item.href))
     if (idx > -1) {
       let translated = t(`NavItemLabels.${idx}`)
@@ -80,12 +83,12 @@ function Header({ HeaderName, t, i18n }) {
         <title>{title}</title>
       </Head>
 
-      <Navbar fixed="top" bg="dark" variant="dark" expand="sm" style={{ zIndex: '998!important' }}>
+      <Navbar collapseOnSelect fixed="top" bg="dark" variant="dark" expand="md" style={{ zIndex: '998!important' }}>
         <Navbar.Brand>
           <img
             {...imgConfig}
           />
-          {HeaderName}
+          {headerName}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -94,9 +97,11 @@ function Header({ HeaderName, t, i18n }) {
               const href = `/${lang}${item.href}`
               const active = router.asPath === href
               return (
-                <Nav.Link key={uuid()} href={href} active={active} disabled={active}>
-                  {t(`NavItemLabels.${idx}`)}
-                </Nav.Link>
+                <Link key={`${idx}`} href={href} passHref>
+                  <Nav.Link active={active} disabled={active}>
+                    {t(`NavItemLabels.${idx}`)}
+                  </Nav.Link>
+                </Link>
               )
             })}
           </Nav>
@@ -108,7 +113,7 @@ function Header({ HeaderName, t, i18n }) {
   )
 }
 
-export default withTranslation('header')(Header)
+export default withTranslation(['header', 'settings'])(Header)
 
 export const LanguageSwitch = ({ language, languages, changeLanguage, t }) => {
   const labels = [...languages].reverse().map(l => t(`languages.${l}`))

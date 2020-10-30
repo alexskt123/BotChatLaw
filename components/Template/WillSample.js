@@ -6,7 +6,6 @@ import Badge from 'react-bootstrap/Badge'
 import { Fragment } from 'react'
 
 import SampleItem from './SampleItem'
-import Disclaimer from '../Disclaimer'
 import CustomContainer from '../../components/CustomContainer'
 import { withTranslation } from '../../config/i18n'
 
@@ -53,7 +52,6 @@ function WillSample({ sample, height, t }) {
               </div>
             </Container>
           </Jumbotron>
-          <Disclaimer />
         </Fragment>
       </CustomContainer>
 
