@@ -40,6 +40,7 @@ function CustomChatBot({ t, i18n }) {
     <Fragment>
       <ThemeProvider theme={chatBotTheme}>
         <ChatBot
+          store={store}
           headerTitle={<Fragment>
             <img {...chatBotHeaderTitle.logo} />
             <div style={{ ...chatBotHeaderTitle.divConfig }}>
