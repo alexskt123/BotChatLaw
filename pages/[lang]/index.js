@@ -3,7 +3,7 @@ import { i18n } from '../../config/i18n'
 import { useEffect } from 'react'
 
 import PageLoading from '../../components/Loading/PageLoading'
-import { nameSpaceConfig } from '../../config/nameSpace';
+import { nameSpaceConfig } from '../../config/nameSpace'
 
 export default function Fallback() {
   const router = useRouter()
